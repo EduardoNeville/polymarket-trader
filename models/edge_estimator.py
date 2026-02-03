@@ -248,17 +248,23 @@ class EnsembleEdgeEstimator:
         confidence: float
     ) -> float:
         """Calculate expected return per dollar bet"""
+        # Handle edge cases
+        if market_price <= 0.01 or market_price >= 0.99:
+            return 0.0  # Avoid extreme prices
+        
         if estimated_prob > market_price:
             # Buy YES
             win_prob = estimated_prob
-            win_payout = (1 - market_price) / market_price
+            win_payout = (1 - market_price) / market_price if market_price > 0 else 0
             loss_prob = 1 - estimated_prob
             expected = (win_prob * win_payout) - loss_prob
         else:
             # Buy NO
             no_price = 1 - market_price
+            if no_price <= 0.01:
+                return 0.0
             win_prob = 1 - estimated_prob
-            win_payout = (1 - no_price) / no_price
+            win_payout = (1 - no_price) / no_price if no_price > 0 else 0
             loss_prob = estimated_prob
             expected = (win_prob * win_payout) - loss_prob
         

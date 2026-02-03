@@ -18,6 +18,7 @@ from position_tracker import PositionTracker, Position
 from alert_system import AlertSystem, Alert
 from utils.ai_calculator import interactive_ai_calculator
 from utils.backtest import BacktestEngine
+from utils.market_data import fetch_resolved_backtest_data
 from datetime import datetime
 
 
@@ -37,8 +38,9 @@ def print_menu():
     print("  4. portfolio  - View and manage your portfolio")
     print("  5. alerts     - Set up price alerts")
     print("  6. backtest   - Run strategy backtests")
-    print("  7. help       - Show detailed help")
-    print("  8. quit       - Exit")
+    print("  7. fetch-data - Download resolved market data")
+    print("  8. help       - Show detailed help")
+    print("  9. quit       - Exit")
     print()
 
 
@@ -204,6 +206,67 @@ def cmd_backtest(args=None):
         engine.save_results(result, opts.save)
 
 
+def cmd_fetch_data(args=None):
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        prog="polymarket.py fetch-data",
+        description="Fetch resolved markets and price history for backtesting",
+    )
+    parser.add_argument("--out", default="data/resolved_markets.json")
+    parser.add_argument("--limit", type=int, default=100)
+    parser.add_argument("--max-markets", type=int)
+    parser.add_argument("--uma-resolution-status")
+    parser.add_argument(
+        "--end-date-min", help="ISO timestamp (e.g. 2024-01-01T00:00:00Z)"
+    )
+    parser.add_argument(
+        "--end-date-max", help="ISO timestamp (e.g. 2024-12-31T23:59:59Z)"
+    )
+    parser.add_argument("--interval", default="max")
+    parser.add_argument("--start-ts", type=int)
+    parser.add_argument("--end-ts", type=int)
+    parser.add_argument("--fidelity", type=int)
+    parser.add_argument("--pause", type=float, default=0.0)
+    parser.add_argument("--allow-unresolved", action="store_true")
+
+    opts = parser.parse_args(args)
+
+    if opts.interval and (opts.start_ts or opts.end_ts):
+        raise ValueError("Use either --interval or --start-ts/--end-ts, not both")
+
+    interval = opts.interval
+    if opts.start_ts or opts.end_ts:
+        interval = None
+
+    points, stats = fetch_resolved_backtest_data(
+        limit=opts.limit,
+        max_markets=opts.max_markets,
+        uma_resolution_status=opts.uma_resolution_status,
+        end_date_min=opts.end_date_min,
+        end_date_max=opts.end_date_max,
+        interval=interval,
+        start_ts=opts.start_ts,
+        end_ts=opts.end_ts,
+        fidelity=opts.fidelity,
+        pause_seconds=opts.pause,
+        allow_unresolved=opts.allow_unresolved,
+    )
+
+    output_path = Path(opts.out)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    with output_path.open("w") as f:
+        json.dump(points, f, indent=2)
+
+    print("\n✅ Fetch complete")
+    print(f"Markets seen: {stats.markets_seen}")
+    print(f"Markets used: {stats.markets_used}")
+    print(f"Markets skipped: {stats.markets_skipped}")
+    print(f"Price history calls: {stats.price_history_calls}")
+    print(f"Saved to: {output_path}")
+
+
 def cmd_portfolio():
     tracker = PositionTracker()
 
@@ -318,7 +381,7 @@ def cmd_help():
 POLYMARKET TRADING TOOLKIT - HELP
 =================================
 
-This toolkit provides five main components:
+This toolkit provides seven main components:
 
 1. MARKET SCANNER (scan)
    - Find arbitrage opportunities
@@ -355,12 +418,17 @@ This toolkit provides five main components:
    - Compare strategies on the same data
    - Save results to JSON
 
+7. FETCH DATA (fetch-data)
+   - Download resolved markets from the official API
+   - Build backtest-ready JSON
+
 QUICK START:
 1. Run 'scan' to find opportunities
 2. Use 'calc' to size your position
 3. Add positions with 'portfolio'
 4. Set alerts with 'alerts'
 5. Validate ideas with 'backtest'
+6. Pull resolved data with 'fetch-data'
 
 TIPS:
 - Always use fractional Kelly (25% recommended)
@@ -390,6 +458,8 @@ def main():
             cmd_alerts()
         elif command in ["backtest", "bt"]:
             cmd_backtest(sys.argv[2:])
+        elif command in ["fetch-data", "fetch", "data"]:
+            cmd_fetch_data(sys.argv[2:])
         elif command == "help":
             cmd_help()
         else:
@@ -415,9 +485,11 @@ def main():
                     cmd_alerts()
                 elif command in ["6", "backtest", "bt"]:
                     cmd_backtest()
-                elif command in ["7", "help"]:
+                elif command in ["7", "fetch-data", "fetch", "data"]:
+                    cmd_fetch_data()
+                elif command in ["8", "help"]:
                     cmd_help()
-                elif command in ["8", "quit", "exit", "q"]:
+                elif command in ["9", "quit", "exit", "q"]:
                     print("\n👋 Good luck trading!")
                     break
                 else:

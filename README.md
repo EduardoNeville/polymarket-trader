@@ -421,6 +421,9 @@ requests>=2.28.0
 ## 📋 Example Workflow
 
 ```bash
+# 0. Fetch resolved market data for backtests
+python3 polymarket.py fetch-data --out data/resolved_markets.json --max-markets 200
+
 # 1. Find opportunities with AI
 python3 polymarket.py ai-calc
 
