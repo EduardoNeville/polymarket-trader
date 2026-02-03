@@ -14,6 +14,7 @@ from scanner import PolymarketScanner
 from odds_calculator import OddsCalculator, interactive_calculator
 from position_tracker import PositionTracker, Position
 from alert_system import AlertSystem, Alert
+from utils.ai_calculator import interactive_ai_calculator
 from datetime import datetime
 
 def print_header():
@@ -27,10 +28,11 @@ def print_menu():
     print()
     print("  1. scan       - Scan markets for opportunities")
     print("  2. calc       - Calculate odds and position sizes")
-    print("  3. portfolio  - View and manage your portfolio")
-    print("  4. alerts     - Set up price alerts")
-    print("  5. help       - Show detailed help")
-    print("  6. quit       - Exit")
+    print("  3. ai-calc    - 🤖 AI-powered calculator with ensemble")
+    print("  4. portfolio  - View and manage your portfolio")
+    print("  5. alerts     - Set up price alerts")
+    print("  6. help       - Show detailed help")
+    print("  7. quit       - Exit")
     print()
 
 def cmd_scan():
@@ -91,6 +93,9 @@ def cmd_scan():
 
 def cmd_calc():
     interactive_calculator()
+
+def cmd_ai_calc():
+    interactive_ai_calculator()
 
 def cmd_portfolio():
     tracker = PositionTracker()
@@ -218,7 +223,13 @@ This toolkit provides four main components:
    - Determine optimal position sizes
    - Analyze risk/reward
 
-3. PORTFOLIO TRACKER (portfolio)
+3. AI-POWERED CALCULATOR (ai-calc)
+   - Ensemble model predictions
+   - Adaptive Kelly with calibration
+   - Tracks prediction accuracy
+   - Learns from outcomes
+
+4. PORTFOLIO TRACKER (portfolio)
    - Track open positions
    - Monitor P&L in real-time
    - Calculate total portfolio value
@@ -255,6 +266,8 @@ def main():
             cmd_scan()
         elif command in ['calc', 'calculator']:
             cmd_calc()
+        elif command in ['ai-calc', 'ai', 'ai-calculator']:
+            cmd_ai_calc()
         elif command in ['portfolio', 'pos', 'positions']:
             cmd_portfolio()
         elif command in ['alerts', 'alert']:
@@ -276,13 +289,15 @@ def main():
                     cmd_scan()
                 elif command in ['2', 'calc', 'calculator']:
                     cmd_calc()
-                elif command in ['3', 'portfolio', 'pos']:
+                elif command in ['3', 'ai-calc', 'ai', 'ai-calculator']:
+                    cmd_ai_calc()
+                elif command in ['4', 'portfolio', 'pos']:
                     cmd_portfolio()
-                elif command in ['4', 'alerts', 'alert']:
+                elif command in ['5', 'alerts', 'alert']:
                     cmd_alerts()
-                elif command in ['5', 'help']:
+                elif command in ['6', 'help']:
                     cmd_help()
-                elif command in ['6', 'quit', 'exit', 'q']:
+                elif command in ['7', 'quit', 'exit', 'q']:
                     print("\n👋 Good luck trading!")
                     break
                 else:
