@@ -5,7 +5,8 @@ Essential before deploying with real capital.
 """
 
 import numpy as np
-from typing import Dict, List, Optional, Tuple
+import pandas as pd
+from typing import Dict, List, Optional, Tuple, Union
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
@@ -376,6 +377,53 @@ class BacktestEngine:
     
     def save_results(self, result: BacktestResult, filepath: str):
         """Save backtest results to file"""
+    @staticmethod
+    def load_from_parquet(parquet_path: Union[str, Path]) -> List[Dict]:
+        """
+        Load historical data from Parquet file.
+        
+        Args:
+            parquet_path: Path to Parquet file
+            
+        Returns:
+            List of dicts with market data
+        """
+        df = pd.read_parquet(parquet_path)
+        
+        # Convert DataFrame to list of dicts
+        records = df.to_dict('records')
+        
+        # Ensure required fields exist
+        required_fields = ['market_slug', 'price', 'outcome']
+        for record in records:
+            for field in required_fields:
+                if field not in record:
+                    record[field] = None
+        
+        return records
+    
+    @staticmethod
+    def load_from_parquet_directory(directory: Union[str, Path]) -> List[Dict]:
+        """
+        Load all Parquet files from a directory.
+        
+        Args:
+            directory: Path to directory containing Parquet files
+            
+        Returns:
+            Combined list of all records
+        """
+        directory = Path(directory)
+        all_records = []
+        
+        for parquet_file in sorted(directory.glob('*.parquet')):
+            records = BacktestEngine.load_from_parquet(parquet_file)
+            all_records.extend(records)
+        
+        return all_records
+    
+    def save_results(self, result: BacktestResult, filepath: str):
+        """Save backtest results to JSON file"""
         Path(filepath).parent.mkdir(parents=True, exist_ok=True)
         
         data = {
