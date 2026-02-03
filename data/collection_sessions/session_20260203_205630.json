@@ -1,0 +1,4749 @@
+[
+  {
+    "step": "signals",
+    "signals_count": 25,
+    "stats": {
+      "total_signals": 25,
+      "yes_signals": 24,
+      "no_signals": 1,
+      "avg_edge": 0.10147639525964808,
+      "max_edge": 0.12304231062156751,
+      "min_edge": -0.11592161641638743,
+      "avg_confidence": 0.9042331183310174,
+      "avg_position_size": 27.79444876566166,
+      "total_exposure": 694.8612191415415
+    },
+    "timestamp": "2026-02-03T20:56:27.727580"
+  },
+  {
+    "step": "slippage",
+    "markets_analyzed": 587,
+    "avg_slippage_pct": 1.0416758693366952,
+    "data": [
+      {
+        "market_slug": "will-the-new-england-patriots-win-super-bowl-2026",
+        "question": "Will the New England Patriots win Super Bowl 2026?",
+        "liquidity": 731248.67557,
+        "yes_price": 0.3185,
+        "slippage_pct": 1.0036403986633393,
+        "market_impact": 0.0036403986633393145
+      },
+      {
+        "market_slug": "will-the-seattle-seahawks-win-super-bowl-2026",
+        "question": "Will the Seattle Seahawks win Super Bowl 2026?",
+        "liquidity": 828035.9282,
+        "yes_price": 0.68,
+        "slippage_pct": 1.0033787689391611,
+        "market_impact": 0.003378768939160987
+      },
+      {
+        "market_slug": "will-stephen-a-smith-win-the-2028-democratic-presidential-nomination-914",
+        "question": "Will Stephen A. Smith win the 2028 Democratic presidential n",
+        "liquidity": 395146.31672,
+        "yes_price": 0.0105,
+        "slippage_pct": 1.0105332704343981,
+        "market_impact": 0.010533270434398102
+      },
+      {
+        "market_slug": "will-gretchen-whitmer-win-the-2028-democratic-presidential-nomination-676",
+        "question": "Will Gretchen Whitmer win the 2028 Democratic presidential n",
+        "liquidity": 262153.98946,
+        "yes_price": 0.0165,
+        "slippage_pct": 1.013473614416034,
+        "market_impact": 0.01347361441603399
+      },
+      {
+        "market_slug": "will-oprah-winfrey-win-the-2028-democratic-presidential-nomination",
+        "question": "Will Oprah Winfrey win the 2028 Democratic presidential nomi",
+        "liquidity": 329047.03448,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.011756098297846,
+        "market_impact": 0.011756098297845937
+      },
+      {
+        "market_slug": "will-andy-beshear-win-the-2028-democratic-presidential-nomination-832",
+        "question": "Will Andy Beshear win the 2028 Democratic presidential nomin",
+        "liquidity": 376095.30831,
+        "yes_price": 0.0265,
+        "slippage_pct": 1.010850237585538,
+        "market_impact": 0.010850237585537888
+      },
+      {
+        "market_slug": "will-pete-buttigieg-win-the-2028-democratic-presidential-nomination-687",
+        "question": "Will Pete Buttigieg win the 2028 Democratic presidential nom",
+        "liquidity": 533432.0025,
+        "yes_price": 0.045,
+        "slippage_pct": 1.0043988642679293,
+        "market_impact": 0.00439886426792935
+      },
+      {
+        "market_slug": "will-jon-ossoff-win-the-2028-democratic-presidential-nomination-885",
+        "question": "Will Jon Ossoff win the 2028 Democratic presidential nominat",
+        "liquidity": 226301.35675,
+        "yes_price": 0.0335,
+        "slippage_pct": 1.014716539579245,
+        "market_impact": 0.014716539579244991
+      },
+      {
+        "market_slug": "will-gina-raimondo-win-the-2028-democratic-presidential-nomination-676",
+        "question": "Will Gina Raimondo win the 2028 Democratic presidential nomi",
+        "liquidity": 1084441.67951,
+        "yes_price": 0.0095,
+        "slippage_pct": 1.0028738512221695,
+        "market_impact": 0.0028738512221695186
+      },
+      {
+        "market_slug": "will-raphael-warnock-win-the-2028-democratic-presidential-nomination-914",
+        "question": "Will Raphael Warnock win the 2028 Democratic presidential no",
+        "liquidity": 358839.46806,
+        "yes_price": 0.0075,
+        "slippage_pct": 1.0111603515453933,
+        "market_impact": 0.011160351545393268
+      },
+      {
+        "market_slug": "will-barack-obama-win-the-2028-democratic-presidential-nomination-265",
+        "question": "Will Barack Obama win the 2028 Democratic presidential nomin",
+        "liquidity": 932462.74816,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0031463650355303,
+        "market_impact": 0.0031463650355303785
+      },
+      {
+        "market_slug": "will-george-clooney-win-the-2028-democratic-presidential-nomination",
+        "question": "Will George Clooney win the 2028 Democratic presidential nom",
+        "liquidity": 1073404.26235,
+        "yes_price": 0.0075,
+        "slippage_pct": 1.0028915453794778,
+        "market_impact": 0.0028915453794777146
+      },
+      {
+        "market_slug": "will-corey-booker-win-the-2028-democratic-presidential-nomination-125",
+        "question": "Will Cory Booker win the 2028 Democratic presidential nomina",
+        "liquidity": 328630.16547,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0117650436308978,
+        "market_impact": 0.011765043630897828
+      },
+      {
+        "market_slug": "will-jon-stewart-win-the-2028-democratic-presidential-nomination-518",
+        "question": "Will Jon Stewart win the 2028 Democratic presidential nomina",
+        "liquidity": 233751.97143,
+        "yes_price": 0.0215,
+        "slippage_pct": 1.0144332730590846,
+        "market_impact": 0.01443327305908446
+      },
+      {
+        "market_slug": "will-tim-walz-win-the-2028-democratic-presidential-nomination-475",
+        "question": "Will Tim Walz win the 2028 Democratic presidential nominatio",
+        "liquidity": 960678.29384,
+        "yes_price": 0.0075,
+        "slippage_pct": 1.0030905887178259,
+        "market_impact": 0.0030905887178257377
+      },
+      {
+        "market_slug": "will-bernie-sanders-win-the-2028-democratic-presidential-nomination-879",
+        "question": "Will Bernie Sanders win the 2028 Democratic presidential nom",
+        "liquidity": 1253108.38288,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0026350861634081,
+        "market_impact": 0.00263508616340806
+      },
+      {
+        "market_slug": "will-mark-kelly-win-the-2028-democratic-presidential-nomination-479",
+        "question": "Will Mark Kelly win the 2028 Democratic presidential nominat",
+        "liquidity": 221447.1216,
+        "yes_price": 0.0225,
+        "slippage_pct": 1.0149092560595825,
+        "market_impact": 0.014909256059582576
+      },
+      {
+        "market_slug": "will-liz-cheney-win-the-2028-democratic-presidential-nomination-551",
+        "question": "Will Liz Cheney win the 2028 Democratic presidential nominat",
+        "liquidity": 1282329.64267,
+        "yes_price": 0.0075,
+        "slippage_pct": 1.002598891763533,
+        "market_impact": 0.0025988917635328362
+      },
+      {
+        "market_slug": "will-beto-orourke-win-the-2028-democratic-presidential-nomination",
+        "question": "Will Beto O\u2019Rourke win the 2028 Democratic presidential nomi",
+        "liquidity": 513626.40485,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0044998661574354,
+        "market_impact": 0.004499866157435365
+      },
+      {
+        "market_slug": "will-michelle-obama-win-the-2028-democratic-presidential-nomination-777",
+        "question": "Will Michelle Obama win the 2028 Democratic presidential nom",
+        "liquidity": 741299.29221,
+        "yes_price": 0.01,
+        "slippage_pct": 1.0036107036954707,
+        "market_impact": 0.003610703695470719
+      },
+      {
+        "market_slug": "will-zohran-mamdani-win-the-2028-democratic-presidential-nomination-445",
+        "question": "Will Zohran Mamdani win the 2028 Democratic presidential nom",
+        "liquidity": 567652.98377,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0042377784361358,
+        "market_impact": 0.004237778436135898
+      },
+      {
+        "market_slug": "will-andrew-yang-win-the-2028-democratic-presidential-nomination",
+        "question": "Will Andrew Yang win the 2028 Democratic presidential nomina",
+        "liquidity": 640194.07001,
+        "yes_price": 0.0095,
+        "slippage_pct": 1.0039427660971352,
+        "market_impact": 0.0039427660971351475
+      },
+      {
+        "market_slug": "will-alexandria-ocasio-cortez-win-the-2028-democratic-presidential-nomination-653",
+        "question": "Will Alexandria Ocasio-Cortez win the 2028 Democratic presid",
+        "liquidity": 540618.8186,
+        "yes_price": 0.075,
+        "slippage_pct": 1.004363684130713,
+        "market_impact": 0.004363684130713046
+      },
+      {
+        "market_slug": "will-rahm-emanuel-win-the-2028-democratic-presidential-nomination-299",
+        "question": "Will Rahm Emanuel win the 2028 Democratic presidential nomin",
+        "liquidity": 362367.20705,
+        "yes_price": 0.0215,
+        "slippage_pct": 1.0110950346836454,
+        "market_impact": 0.011095034683645396
+      },
+      {
+        "market_slug": "will-john-fetterman-win-the-2028-democratic-presidential-nomination-941",
+        "question": "Will John Fetterman win the 2028 Democratic presidential nom",
+        "liquidity": 477702.11453,
+        "yes_price": 0.0095,
+        "slippage_pct": 1.009399910081209,
+        "market_impact": 0.00939991008120897
+      },
+      {
+        "market_slug": "will-kim-kardashian-win-the-2028-democratic-presidential-nomination",
+        "question": "Will Kim Kardashian win the 2028 Democratic presidential nom",
+        "liquidity": 1553252.78993,
+        "yes_price": 0.008,
+        "slippage_pct": 1.0023165555364568,
+        "market_impact": 0.002316555536456796
+      },
+      {
+        "market_slug": "will-ruben-gallego-win-the-2028-democratic-presidential-nomination",
+        "question": "Will Ruben Gallego win the 2028 Democratic presidential nomi",
+        "liquidity": 225081.53424,
+        "yes_price": 0.0155,
+        "slippage_pct": 1.0147643413443235,
+        "market_impact": 0.014764341344323476
+      },
+      {
+        "market_slug": "will-jared-polis-win-the-2028-democratic-presidential-nomination-837",
+        "question": "Will Jared Polis win the 2028 Democratic presidential nomina",
+        "liquidity": 322795.74388,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0118921757127834,
+        "market_impact": 0.011892175712783521
+      },
+      {
+        "market_slug": "will-mark-cuban-win-the-2028-democratic-presidential-nomination-329",
+        "question": "Will Mark Cuban win the 2028 Democratic presidential nominat",
+        "liquidity": 616047.88441,
+        "yes_price": 0.0095,
+        "slippage_pct": 1.0040347749834972,
+        "market_impact": 0.004034774983497216
+      },
+      {
+        "market_slug": "will-phil-murphy-win-the-2028-democratic-presidential-nomination-611",
+        "question": "Will Phil Murphy win the 2028 Democratic presidential nomina",
+        "liquidity": 1059365.98197,
+        "yes_price": 0.0105,
+        "slippage_pct": 1.0029144753600339,
+        "market_impact": 0.0029144753600337755
+      },
+      {
+        "market_slug": "will-wes-moore-win-the-2028-democratic-presidential-nomination-714",
+        "question": "Will Wes Moore win the 2028 Democratic presidential nominati",
+        "liquidity": 250898.89736,
+        "yes_price": 0.0185,
+        "slippage_pct": 1.0138330754516782,
+        "market_impact": 0.013833075451678067
+      },
+      {
+        "market_slug": "will-jb-pritzker-win-the-2028-democratic-presidential-nomination-288",
+        "question": "Will J.B. Pritzker win the 2028 Democratic presidential nomi",
+        "liquidity": 175195.44727,
+        "yes_price": 0.0295,
+        "slippage_pct": 1.0171594873029666,
+        "market_impact": 0.017159487302966674
+      },
+      {
+        "market_slug": "will-lebron-james-win-the-2028-democratic-presidential-nomination",
+        "question": "Will LeBron James win the 2028 Democratic presidential nomin",
+        "liquidity": 1215848.57121,
+        "yes_price": 0.0095,
+        "slippage_pct": 1.0026832448746545,
+        "market_impact": 0.002683244874654609
+      },
+      {
+        "market_slug": "will-person-a-win-the-2028-democratic-presidential-nomination",
+        "question": "Will Hunter Biden win the 2028 Democratic presidential nomin",
+        "liquidity": 396153.13051,
+        "yes_price": 0.0095,
+        "slippage_pct": 1.01051720022618,
+        "market_impact": 0.010517200226179833
+      },
+      {
+        "market_slug": "will-chelsea-clinton-win-the-2028-democratic-presidential-nomination",
+        "question": "Will Chelsea Clinton win the 2028 Democratic presidential no",
+        "liquidity": 659015.17942,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0038748130249162,
+        "market_impact": 0.003874813024916256
+      },
+      {
+        "market_slug": "will-dwayne-the-rock-johnson-win-the-2028-democratic-presidential-nomination",
+        "question": "Will Dwayne 'The Rock' Johnson win the 2028 Democratic presi",
+        "liquidity": 234949.40534,
+        "yes_price": 0.0105,
+        "slippage_pct": 1.014389091931859,
+        "market_impact": 0.014389091931859029
+      },
+      {
+        "market_slug": "will-mrbeast-win-the-2028-democratic-presidential-nomination",
+        "question": "Will MrBeast win the 2028 Democratic presidential nomination",
+        "liquidity": 1019016.0168,
+        "yes_price": 0.0095,
+        "slippage_pct": 1.0029831795661246,
+        "market_impact": 0.0029831795661246175
+      },
+      {
+        "market_slug": "will-chris-murphy-win-the-2028-democratic-presidential-nomination",
+        "question": "Will Chris Murphy win the 2028 Democratic presidential nomin",
+        "liquidity": 557087.93336,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0042858182589285,
+        "market_impact": 0.004285818258928325
+      },
+      {
+        "market_slug": "will-ro-khanna-win-the-2028-democratic-presidential-nomination",
+        "question": "Will Ro Khanna win the 2028 Democratic presidential nominati",
+        "liquidity": 146891.67165,
+        "yes_price": 0.017,
+        "slippage_pct": 1.0190730300703155,
+        "market_impact": 0.01907303007031536
+      },
+      {
+        "market_slug": "will-josh-shapiro-win-the-2028-democratic-presidential-nomination-977",
+        "question": "Will Josh Shapiro win the 2028 Democratic presidential nomin",
+        "liquidity": 280434.15826,
+        "yes_price": 0.0585,
+        "slippage_pct": 1.0129395582611709,
+        "market_impact": 0.012939558261170795
+      },
+      {
+        "market_slug": "will-roy-cooper-win-the-2028-democratic-presidential-nomination-286",
+        "question": "Will Roy Cooper win the 2028 Democratic presidential nominat",
+        "liquidity": 721390.82721,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0036701653629863,
+        "market_impact": 0.00367016536298614
+      },
+      {
+        "market_slug": "will-jasmine-crockett-win-the-2028-democratic-presidential-nomination",
+        "question": "Will Jasmine Crockett win the 2028 Democratic presidential n",
+        "liquidity": 890951.85974,
+        "yes_price": 0.0075,
+        "slippage_pct": 1.0032335193077195,
+        "market_impact": 0.0032335193077195116
+      },
+      {
+        "market_slug": "will-kamala-harris-win-the-2028-democratic-presidential-nomination-641",
+        "question": "Will Kamala Harris win the 2028 Democratic presidential nomi",
+        "liquidity": 395083.44949,
+        "yes_price": 0.0525,
+        "slippage_pct": 1.0105342760596094,
+        "market_impact": 0.010534276059609448
+      },
+      {
+        "market_slug": "will-hillary-clinton-win-the-2028-democratic-presidential-nomination",
+        "question": "Will Hillary Clinton win the 2028 Democratic presidential no",
+        "liquidity": 1102878.1718,
+        "yes_price": 0.0075,
+        "slippage_pct": 1.002844929292665,
+        "market_impact": 0.0028449292926649747
+      },
+      {
+        "market_slug": "will-gavin-newsom-win-the-2028-democratic-presidential-nomination-568",
+        "question": "Will Gavin Newsom win the 2028 Democratic presidential nomin",
+        "liquidity": 459571.6434,
+        "yes_price": 0.325,
+        "slippage_pct": 1.0096206865025128,
+        "market_impact": 0.009620686502512694
+      },
+      {
+        "market_slug": "will-trump-nominate-kevin-warsh-as-the-next-fed-chair",
+        "question": "Will Trump nominate Kevin Warsh as the next Fed chair?",
+        "liquidity": 323474.23689,
+        "yes_price": 0.978,
+        "slippage_pct": 1.0118772029971272,
+        "market_impact": 0.011877202997127153
+      },
+      {
+        "market_slug": "will-trump-nominate-kevin-hassett-as-the-next-fed-chair",
+        "question": "Will Trump nominate Kevin Hassett as the next Fed chair?",
+        "liquidity": 490693.31196,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0092497908778995,
+        "market_impact": 0.009249790877899464
+      },
+      {
+        "market_slug": "will-trump-nominate-christopher-waller-as-the-next-fed-chair",
+        "question": "Will Trump nominate Christopher Waller as the next Fed chair",
+        "liquidity": 351998.16921,
+        "yes_price": 0.0025,
+        "slippage_pct": 1.011289995130332,
+        "market_impact": 0.011289995130332048
+      },
+      {
+        "market_slug": "will-trump-nominate-bill-pulte-as-the-next-fed-chair",
+        "question": "Will Trump nominate Bill Pulte as the next Fed chair?",
+        "liquidity": 3327542.91948,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0014666071645386,
+        "market_impact": 0.0014666071645385733
+      },
+      {
+        "market_slug": "will-trump-nominate-judy-shelton-as-the-next-fed-chair",
+        "question": "Will Trump nominate Judy Shelton as the next Fed chair?",
+        "liquidity": 650003.48317,
+        "yes_price": 0.0125,
+        "slippage_pct": 1.0039069566400802,
+        "market_impact": 0.0039069566400801664
+      },
+      {
+        "market_slug": "will-trump-nominate-david-malpass-as-the-next-fed-chair",
+        "question": "Will Trump nominate David Malpass as the next Fed chair?",
+        "liquidity": 3106086.24865,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0015284804744224,
+        "market_impact": 0.0015284804744225189
+      },
+      {
+        "market_slug": "will-trump-nominate-howard-lutnick-as-the-next-fed-chair",
+        "question": "Will Trump nominate Howard Lutnick as the next Fed chair?",
+        "liquidity": 3147906.51879,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.001516264285394,
+        "market_impact": 0.0015162642853940617
+      },
+      {
+        "market_slug": "will-trump-nominate-arthur-laffer-as-the-next-fed-chair",
+        "question": "Will Trump nominate Arthur Laffer as the next Fed chair?",
+        "liquidity": 3306865.27061,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0014721026722904,
+        "market_impact": 0.0014721026722904628
+      },
+      {
+        "market_slug": "will-trump-nominate-larry-kudlow-as-the-next-fed-chair",
+        "question": "Will Trump nominate Larry Kudlow as the next Fed chair?",
+        "liquidity": 3358324.80226,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.001458526699417,
+        "market_impact": 0.001458526699416956
+      },
+      {
+        "market_slug": "will-trump-nominate-jerome-powell-as-the-next-fed-chair",
+        "question": "Will Trump nominate Jerome Powell as the next Fed chair?",
+        "liquidity": 2627316.93734,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0016899759428755,
+        "market_impact": 0.001689975942875309
+      },
+      {
+        "market_slug": "will-trump-nominate-ron-paul-as-the-next-fed-chair",
+        "question": "Will Trump nominate Ron Paul as the next Fed chair?",
+        "liquidity": 3255178.03999,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.001486083299094,
+        "market_impact": 0.0014860832990938643
+      },
+      {
+        "market_slug": "will-trump-nominate-stephen-miran-as-the-next-fed-chair",
+        "question": "Will Trump nominate Stephen Miran as the next Fed chair?",
+        "liquidity": 2970357.47919,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0015700112708368,
+        "market_impact": 0.0015700112708367446
+      },
+      {
+        "market_slug": "will-trump-nominate-scott-bessent-as-the-next-fed-chair",
+        "question": "Will Trump nominate Scott Bessent as the next Fed chair?",
+        "liquidity": 1291642.56441,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.002587632474309,
+        "market_impact": 0.0025876324743091296
+      },
+      {
+        "market_slug": "will-trump-nominate-james-b-bullard-as-the-next-fed-chair",
+        "question": "Will Trump nominate James B. Bullard as the next Fed chair?",
+        "liquidity": 2951048.38379,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0015761669028318,
+        "market_impact": 0.0015761669028318843
+      },
+      {
+        "market_slug": "will-trump-nominate-marc-sumerlin-as-the-next-fed-chair",
+        "question": "Will Trump nominate Marc Sumerlin as the next Fed chair?",
+        "liquidity": 2734467.35843,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0016499255793945,
+        "market_impact": 0.001649925579394527
+      },
+      {
+        "market_slug": "will-trump-nominate-david-zervos-as-the-next-fed-chair",
+        "question": "Will Trump nominate David Zervos as the next Fed chair?",
+        "liquidity": 2658299.75237,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.001678130115446,
+        "market_impact": 0.0016781301154461918
+      },
+      {
+        "market_slug": "will-trump-nominate-rick-rieder-as-the-next-fed-chair",
+        "question": "Will Trump nominate Rick Rieder as the next Fed chair?",
+        "liquidity": 391574.74366,
+        "yes_price": 0.0025,
+        "slippage_pct": 1.0105908104192427,
+        "market_impact": 0.01059081041924276
+      },
+      {
+        "market_slug": "will-trump-nominate-michelle-bowman-as-the-next-fed-chair",
+        "question": "Will Trump nominate Michelle Bowman as the next Fed chair?",
+        "liquidity": 349855.95222,
+        "yes_price": 0.0025,
+        "slippage_pct": 1.0113314226124182,
+        "market_impact": 0.011331422612418152
+      },
+      {
+        "market_slug": "will-trump-nominate-lorie-k-logan-as-the-next-fed-chair",
+        "question": "Will Trump nominate Lorie K. Logan as the next Fed chair?",
+        "liquidity": 2842455.76133,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0016120250015934,
+        "market_impact": 0.001612025001593289
+      },
+      {
+        "market_slug": "will-trump-nominate-philip-jefferson-as-the-next-fed-chair",
+        "question": "Will Trump nominate Philip Jefferson as the next Fed chair?",
+        "liquidity": 2829513.54731,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0016164450110112,
+        "market_impact": 0.0016164450110112115
+      },
+      {
+        "market_slug": "will-trump-nominate-individual-j-as-the-next-fed-chair",
+        "question": "Will Trump nominate Janet Yellen as the next Fed chair?",
+        "liquidity": 2978699.95777,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0015673715021167,
+        "market_impact": 0.0015673715021165754
+      },
+      {
+        "market_slug": "will-trump-nominate-larry-lindsey-as-the-next-fed-chair",
+        "question": "Will Trump nominate Larry Lindsey as the next Fed chair?",
+        "liquidity": 2981062.9077,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0015666259544007,
+        "market_impact": 0.0015666259544007339
+      },
+      {
+        "market_slug": "will-trump-nominate-barron-trump-as-the-next-fed-chair",
+        "question": "Will Trump nominate Barron Trump as the next Fed chair?",
+        "liquidity": 3025558.7443,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0015527611195059,
+        "market_impact": 0.0015527611195057527
+      },
+      {
+        "market_slug": "will-trump-nominate-himself-as-the-next-fed-chair",
+        "question": "Will Trump nominate himself as the next Fed chair?",
+        "liquidity": 2750395.74122,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0016441857867788,
+        "market_impact": 0.001644185786778862
+      },
+      {
+        "market_slug": "will-trump-nominate-no-one-before-2027",
+        "question": "Will Trump nominate no one before 2027?",
+        "liquidity": 1700376.86134,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0021941225952335,
+        "market_impact": 0.002194122595233548
+      },
+      {
+        "market_slug": "will-jd-vance-win-the-2028-us-presidential-election",
+        "question": "Will JD Vance win the 2028 US Presidential Election?",
+        "liquidity": 500058.0601,
+        "yes_price": 0.255,
+        "slippage_pct": 1.0045727319347437,
+        "market_impact": 0.004572731934743769
+      },
+      {
+        "market_slug": "will-elon-musk-win-the-2028-us-presidential-election",
+        "question": "Will Elon Musk win the 2028 US Presidential Election?",
+        "liquidity": 661033.29797,
+        "yes_price": 0.0095,
+        "slippage_pct": 1.0038677108589886,
+        "market_impact": 0.0038677108589885425
+      },
+      {
+        "market_slug": "will-gavin-newsom-win-the-2028-us-presidential-election",
+        "question": "Will Gavin Newsom win the 2028 US Presidential Election?",
+        "liquidity": 461823.7447,
+        "yes_price": 0.195,
+        "slippage_pct": 1.0095925095962996,
+        "market_impact": 0.009592509596299587
+      },
+      {
+        "market_slug": "will-pete-buttigieg-win-the-2028-us-presidential-election",
+        "question": "Will Pete Buttigieg win the 2028 US Presidential Election?",
+        "liquidity": 427999.68062,
+        "yes_price": 0.0215,
+        "slippage_pct": 1.0100404211631204,
+        "market_impact": 0.010040421163120412
+      },
+      {
+        "market_slug": "will-tim-walz-win-the-2028-us-presidential-election",
+        "question": "Will Tim Walz win the 2028 US Presidential Election?",
+        "liquidity": 485828.56813,
+        "yes_price": 0.0055,
+        "slippage_pct": 1.0093052526221538,
+        "market_impact": 0.009305252622153851
+      },
+      {
+        "market_slug": "will-josh-shapiro-win-the-2028-us-presidential-election",
+        "question": "Will Josh Shapiro win the 2028 US Presidential Election?",
+        "liquidity": 178886.06159,
+        "yes_price": 0.0445,
+        "slippage_pct": 1.0169461909537012,
+        "market_impact": 0.016946190953701347
+      },
+      {
+        "market_slug": "will-gretchen-whitmer-win-the-2028-us-presidential-election",
+        "question": "Will Gretchen Whitmer win the 2028 US Presidential Election?",
+        "liquidity": 361540.67576,
+        "yes_price": 0.0105,
+        "slippage_pct": 1.0111102465900075,
+        "market_impact": 0.011110246590007462
+      },
+      {
+        "market_slug": "will-marco-rubio-win-the-2028-us-presidential-election",
+        "question": "Will Marco Rubio win the 2028 US Presidential Election?",
+        "liquidity": 262902.54654,
+        "yes_price": 0.0795,
+        "slippage_pct": 1.0134505834017447,
+        "market_impact": 0.013450583401744657
+      },
+      {
+        "market_slug": "will-alexandria-ocasio-cortez-win-the-2028-us-presidential-election",
+        "question": "Will Alexandria Ocasio-Cortez win the 2028 US Presidential E",
+        "liquidity": 550307.0939,
+        "yes_price": 0.055,
+        "slippage_pct": 1.0043174263222854,
+        "market_impact": 0.0043174263222853105
+      },
+      {
+        "market_slug": "will-wes-moore-win-the-2028-us-presidential-election",
+        "question": "Will Wes Moore win the 2028 US Presidential Election?",
+        "liquidity": 475173.08683,
+        "yes_price": 0.0135,
+        "slippage_pct": 1.0094298958583408,
+        "market_impact": 0.009429895858340826
+      },
+      {
+        "market_slug": "will-ron-desantis-win-the-2028-us-presidential-election",
+        "question": "Will Ron DeSantis win the 2028 US Presidential Election?",
+        "liquidity": 650040.54059,
+        "yes_price": 0.0135,
+        "slippage_pct": 1.0039068230022148,
+        "market_impact": 0.003906823002214641
+      },
+      {
+        "market_slug": "will-lebron-james-win-the-2028-us-presidential-election",
+        "question": "Will LeBron James win the 2028 US Presidential Election?",
+        "liquidity": 1301593.79231,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0025757441405576,
+        "market_impact": 0.0025757441405576138
+      },
+      {
+        "market_slug": "will-andy-beshear-win-the-2028-us-presidential-election",
+        "question": "Will Andy Beshear win the 2028 US Presidential Election?",
+        "liquidity": 229152.92187,
+        "yes_price": 0.0235,
+        "slippage_pct": 1.0146063854757739,
+        "market_impact": 0.014606385475773786
+      },
+      {
+        "market_slug": "will-glenn-youngkin-win-the-2028-us-presidential-election",
+        "question": "Will Glenn Youngkin win the 2028 US Presidential Election?",
+        "liquidity": 512325.50244,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0045067183450014,
+        "market_impact": 0.0045067183450012704
+      },
+      {
+        "market_slug": "will-tucker-carlson-win-the-2028-us-presidential-election",
+        "question": "Will Tucker Carlson win the 2028 US Presidential Election?",
+        "liquidity": 400245.85282,
+        "yes_price": 0.0115,
+        "slippage_pct": 1.0104525413194796,
+        "market_impact": 0.010452541319479524
+      },
+      {
+        "market_slug": "will-kamala-harris-win-the-2028-us-presidential-election",
+        "question": "Will Kamala Harris win the 2028 US Presidential Election?",
+        "liquidity": 264305.75359,
+        "yes_price": 0.0335,
+        "slippage_pct": 1.0134076920681634,
+        "market_impact": 0.013407692068163378
+      },
+      {
+        "market_slug": "will-ivanka-trump-win-the-2028-us-presidential-election",
+        "question": "Will Ivanka Trump win the 2028 US Presidential Election?",
+        "liquidity": 320955.37784,
+        "yes_price": 0.0125,
+        "slippage_pct": 1.0119330429345381,
+        "market_impact": 0.011933042934538087
+      },
+      {
+        "market_slug": "will-stephen-smith-win-the-2028-us-presidential-election",
+        "question": "Will Stephen Smith win the 2028 US Presidential Election?",
+        "liquidity": 825588.84051,
+        "yes_price": 0.0075,
+        "slippage_pct": 1.0033847742886524,
+        "market_impact": 0.0033847742886522502
+      },
+      {
+        "market_slug": "will-tulsi-gabbard-win-the-2028-us-presidential-election",
+        "question": "Will Tulsi Gabbard win the 2028 US Presidential Election?",
+        "liquidity": 945308.61516,
+        "yes_price": 0.0075,
+        "slippage_pct": 1.0031206411587885,
+        "market_impact": 0.003120641158788472
+      },
+      {
+        "market_slug": "will-jb-pritzker-win-the-2028-us-presidential-election",
+        "question": "Will JB Pritzker win the 2028 US Presidential Election?",
+        "liquidity": 353770.20796,
+        "yes_price": 0.0215,
+        "slippage_pct": 1.0112560300347502,
+        "market_impact": 0.011256030034750206
+      },
+      {
+        "market_slug": "will-donald-trump-win-the-2028-us-presidential-election",
+        "question": "Will Donald Trump win the 2028 US Presidential Election?",
+        "liquidity": 284403.79575,
+        "yes_price": 0.0295,
+        "slippage_pct": 1.0128308894869882,
+        "market_impact": 0.012830889486988118
+      },
+      {
+        "market_slug": "will-jamie-dimon-win-the-2028-us-presidential-election",
+        "question": "Will Jamie Dimon win the 2028 US Presidential Election?",
+        "liquidity": 273925.84442,
+        "yes_price": 0.0095,
+        "slippage_pct": 1.0131231529919011,
+        "market_impact": 0.013123152991900998
+      },
+      {
+        "market_slug": "will-donald-trump-jr-win-the-2028-us-presidential-election",
+        "question": "Will Donald Trump Jr. win the 2028 US Presidential Election?",
+        "liquidity": 601923.88276,
+        "yes_price": 0.0095,
+        "slippage_pct": 1.0040913163037382,
+        "market_impact": 0.004091316303738001
+      },
+      {
+        "market_slug": "will-nikki-haley-win-the-2028-us-presidential-election",
+        "question": "Will Nikki Haley win the 2028 US Presidential Election?",
+        "liquidity": 434680.38665,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.009947546331417,
+        "market_impact": 0.00994754633141701
+      },
+      {
+        "market_slug": "will-vivek-ramaswamy-win-the-2028-us-presidential-election",
+        "question": "Will Vivek Ramaswamy win the 2028 US Presidential Election?",
+        "liquidity": 1150118.59668,
+        "yes_price": 0.0095,
+        "slippage_pct": 1.0027742297602846,
+        "market_impact": 0.0027742297602846343
+      },
+      {
+        "market_slug": "will-greg-abbott-win-the-2028-us-presidential-election",
+        "question": "Will Greg Abbott win the 2028 US Presidential Election?",
+        "liquidity": 687262.02849,
+        "yes_price": 0.0065,
+        "slippage_pct": 1.0037784579377371,
+        "market_impact": 0.0037784579377371447
+      },
+      {
+        "market_slug": "will-dwayne-the-rock-johnson-win-the-2028-us-presidential-election",
+        "question": "Will Dwayne 'The Rock' Johnson win the 2028 US Presidential ",
+        "liquidity": 332265.56907,
+        "yes_price": 0.0155,
+        "slippage_pct": 1.011687639120735,
+        "market_impact": 0.011687639120734993
+      },
+      {
+        "market_slug": "will-kim-kardashian-win-the-2028-us-presidential-election",
+        "question": "Will Kim Kardashian win the 2028 US Presidential Election?",
+        "liquidity": 897931.11278,
+        "yes_price": 0.0075,
+        "slippage_pct": 1.003218416082991,
+        "market_impact": 0.003218416082990818
+      },
+      {
+        "market_slug": "will-zohran-mamdani-win-the-2028-us-presidential-election",
+        "question": "Will Zohran Mamdani win the 2028 US Presidential Election?",
+        "liquidity": 803604.3599,
+        "yes_price": 0.0075,
+        "slippage_pct": 1.0034400331773932,
+        "market_impact": 0.0034400331773931764
+      },
+      {
+        "market_slug": "will-michelle-obama-win-the-2028-us-presidential-election",
+        "question": "Will Michelle Obama win the 2028 US Presidential Election?",
+        "liquidity": 828869.52113,
+        "yes_price": 0.0075,
+        "slippage_pct": 1.0033767297149352,
+        "market_impact": 0.003376729714934994
+      },
+      {
+        "market_slug": "will-donald-trump-win-the-2028-republican-presidential-nomination",
+        "question": "Will Donald Trump win the 2028 Republican presidential nomin",
+        "liquidity": 234363.44812,
+        "yes_price": 0.048,
+        "slippage_pct": 1.0144106665790327,
+        "market_impact": 0.014410666579032665
+      },
+      {
+        "market_slug": "will-jd-vance-win-the-2028-republican-presidential-nomination",
+        "question": "Will J.D. Vance win the 2028 Republican presidential nominat",
+        "liquidity": 198856.2085,
+        "yes_price": 0.495,
+        "slippage_pct": 1.0159035655991733,
+        "market_impact": 0.01590356559917327
+      },
+      {
+        "market_slug": "will-rand-paul-win-the-2028-republican-presidential-nomination",
+        "question": "Will Rand Paul win the 2028 Republican presidential nominati",
+        "liquidity": 388267.98819,
+        "yes_price": 0.0095,
+        "slippage_pct": 1.0106448377472288,
+        "market_impact": 0.010644837747228818
+      },
+      {
+        "market_slug": "will-marco-rubio-win-the-2028-republican-presidential-nomination",
+        "question": "Will Marco Rubio win the 2028 Republican presidential nomina",
+        "liquidity": 152137.94202,
+        "yes_price": 0.1185,
+        "slippage_pct": 1.018675639199157,
+        "market_impact": 0.01867563919915684
+      },
+      {
+        "market_slug": "will-tulsi-gabbard-win-the-2028-republican-presidential-nomination",
+        "question": "Will Tulsi Gabbard win the 2028 Republican presidential nomi",
+        "liquidity": 385279.33207,
+        "yes_price": 0.0075,
+        "slippage_pct": 1.0106943050994794,
+        "market_impact": 0.010694305099479398
+      },
+      {
+        "market_slug": "will-glenn-youngkin-win-the-2028-republican-presidential-nomination",
+        "question": "Will Glenn Youngkin win the 2028 Republican presidential nom",
+        "liquidity": 235995.17437,
+        "yes_price": 0.0145,
+        "slippage_pct": 1.0143508003932402,
+        "market_impact": 0.014350800393240142
+      },
+      {
+        "market_slug": "will-kim-kardashian-win-the-2028-republican-presidential-nomination",
+        "question": "Will Kim Kardashian win the 2028 Republican presidential nom",
+        "liquidity": 707755.02069,
+        "yes_price": 0.0065,
+        "slippage_pct": 1.0037124295972921,
+        "market_impact": 0.003712429597292131
+      },
+      {
+        "market_slug": "will-donald-trump-jr-win-the-2028-republican-presidential-nomination",
+        "question": "Will Donald Trump Jr. win the 2028 Republican presidential n",
+        "liquidity": 219988.50988,
+        "yes_price": 0.0195,
+        "slippage_pct": 1.0149684902436724,
+        "market_impact": 0.01496849024367231
+      },
+      {
+        "market_slug": "will-matt-gaetz-win-the-2028-republican-presidential-nomination",
+        "question": "Will Matt Gaetz win the 2028 Republican presidential nominat",
+        "liquidity": 615437.48747,
+        "yes_price": 0.0115,
+        "slippage_pct": 1.0040371755450985,
+        "market_impact": 0.004037175545098626
+      },
+      {
+        "market_slug": "will-ron-desantis-win-the-2028-republican-presidential-nomination",
+        "question": "Will Ron DeSantis win the 2028 Republican presidential nomin",
+        "liquidity": 224505.00492,
+        "yes_price": 0.0285,
+        "slippage_pct": 1.0147870785900361,
+        "market_impact": 0.014787078590036183
+      },
+      {
+        "market_slug": "will-marjorie-taylor-greene-win-the-2028-republican-presidential-nomination",
+        "question": "Will Marjorie Taylor Greene win the 2028 Republican presiden",
+        "liquidity": 256412.3101,
+        "yes_price": 0.017,
+        "slippage_pct": 1.013653835762523,
+        "market_impact": 0.013653835762523131
+      },
+      {
+        "market_slug": "will-nikki-haley-win-the-2028-republican-presidential-nomination",
+        "question": "Will Nikki Haley win the 2028 Republican presidential nomina",
+        "liquidity": 192086.59093,
+        "yes_price": 0.0125,
+        "slippage_pct": 1.0162375225807354,
+        "market_impact": 0.016237522580735544
+      },
+      {
+        "market_slug": "will-vivek-ramaswamy-win-the-2028-republican-presidential-nomination",
+        "question": "Will Vivek Ramaswamy win the 2028 Republican presidential no",
+        "liquidity": 270009.20426,
+        "yes_price": 0.0135,
+        "slippage_pct": 1.0132370392322565,
+        "market_impact": 0.013237039232256453
+      },
+      {
+        "market_slug": "will-sarah-huckabee-sanders-win-the-2028-republican-presidential-nomination",
+        "question": "Will Sarah Huckabee Sanders win the 2028 Republican presiden",
+        "liquidity": 635701.81798,
+        "yes_price": 0.0075,
+        "slippage_pct": 1.0039594597243513,
+        "market_impact": 0.003959459724351339
+      },
+      {
+        "market_slug": "will-greg-abbott-win-the-2028-republican-presidential-nomination",
+        "question": "Will Greg Abbott win the 2028 Republican presidential nomina",
+        "liquidity": 583992.00699,
+        "yes_price": 0.0075,
+        "slippage_pct": 1.0041662359292551,
+        "market_impact": 0.004166235929254963
+      },
+      {
+        "market_slug": "will-robert-f-kennedy-jr-win-the-2028-republican-presidential-nomination",
+        "question": "Will Robert F. Kennedy Jr. win the 2028 Republican president",
+        "liquidity": 386122.5862,
+        "yes_price": 0.0075,
+        "slippage_pct": 1.010680285779949,
+        "market_impact": 0.010680285779948999
+      },
+      {
+        "market_slug": "will-tucker-carlson-win-the-2028-republican-presidential-nomination",
+        "question": "Will Tucker Carlson win the 2028 Republican presidential nom",
+        "liquidity": 327272.69211,
+        "yes_price": 0.0175,
+        "slippage_pct": 1.0117942990692135,
+        "market_impact": 0.011794299069213532
+      },
+      {
+        "market_slug": "will-brian-kemp-win-the-2028-republican-presidential-nomination",
+        "question": "Will Brian Kemp win the 2028 Republican presidential nominat",
+        "liquidity": 319074.42864,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0119752006034088,
+        "market_impact": 0.011975200603408804
+      },
+      {
+        "market_slug": "will-byron-donalds-win-the-2028-republican-presidential-nomination",
+        "question": "Will Byron Donalds win the 2028 Republican presidential nomi",
+        "liquidity": 680181.9288,
+        "yes_price": 0.0075,
+        "slippage_pct": 1.003802007315251,
+        "market_impact": 0.0038020073152507726
+      },
+      {
+        "market_slug": "will-ivanka-trump-win-the-2028-republican-presidential-nomination",
+        "question": "Will Ivanka Trump win the 2028 Republican presidential nomin",
+        "liquidity": 247807.39188,
+        "yes_price": 0.0095,
+        "slippage_pct": 1.0139363627887217,
+        "market_impact": 0.01393636278872155
+      },
+      {
+        "market_slug": "will-elise-stefanik-win-the-2028-republican-presidential-nomination",
+        "question": "Will Elise Stefanik win the 2028 Republican presidential nom",
+        "liquidity": 614363.19405,
+        "yes_price": 0.0075,
+        "slippage_pct": 1.0040414097787917,
+        "market_impact": 0.004041409778791753
+      },
+      {
+        "market_slug": "will-josh-hawley-win-the-2028-republican-presidential-nomination",
+        "question": "Will Josh Hawley win the 2028 Republican presidential nomina",
+        "liquidity": 229949.97713,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0145759870898436,
+        "market_impact": 0.0145759870898437
+      },
+      {
+        "market_slug": "will-ted-cruz-win-the-2028-republican-presidential-nomination",
+        "question": "Will Ted Cruz win the 2028 Republican presidential nominatio",
+        "liquidity": 330785.52927,
+        "yes_price": 0.0155,
+        "slippage_pct": 1.0117189876331707,
+        "market_impact": 0.011718987633170665
+      },
+      {
+        "market_slug": "will-elon-musk-win-the-2028-republican-presidential-nomination",
+        "question": "Will Elon Musk win the 2028 Republican presidential nominati",
+        "liquidity": 431472.73845,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0099918517270114,
+        "market_impact": 0.009991851727011494
+      },
+      {
+        "market_slug": "will-erika-kirk-win-the-2028-republican-presidential-nomination",
+        "question": "Will Erika Kirk win the 2028 Republican presidential nominat",
+        "liquidity": 502589.61453,
+        "yes_price": 0.008,
+        "slippage_pct": 1.004558898211827,
+        "market_impact": 0.004558898211826968
+      },
+      {
+        "market_slug": "will-katie-britt-win-the-2028-republican-presidential-nomination",
+        "question": "Will Katie Britt win the 2028 Republican presidential nomina",
+        "liquidity": 682695.97081,
+        "yes_price": 0.0075,
+        "slippage_pct": 1.003793600535262,
+        "market_impact": 0.00379360053526184
+      },
+      {
+        "market_slug": "will-john-thune-win-the-2028-republican-presidential-nomination",
+        "question": "Will John Thune win the 2028 Republican presidential nominat",
+        "liquidity": 639227.99592,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0039463402713122,
+        "market_impact": 0.0039463402713122795
+      },
+      {
+        "market_slug": "will-kristi-noem-win-the-2028-republican-presidential-nomination",
+        "question": "Will Kristi Noem win the 2028 Republican presidential nomina",
+        "liquidity": 689388.49019,
+        "yes_price": 0.0075,
+        "slippage_pct": 1.0037714606842985,
+        "market_impact": 0.0037714606842983098
+      },
+      {
+        "market_slug": "will-mike-pence-win-the-2028-republican-presidential-nomination",
+        "question": "Will Mike Pence win the 2028 Republican presidential nominat",
+        "liquidity": 695261.61986,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0037523129152393,
+        "market_impact": 0.003752312915239222
+      },
+      {
+        "market_slug": "will-tom-brady-win-the-2028-republican-presidential-nomination",
+        "question": "Will Tom Brady win the 2028 Republican presidential nominati",
+        "liquidity": 722208.86256,
+        "yes_price": 0.0075,
+        "slippage_pct": 1.0036676705122631,
+        "market_impact": 0.003667670512263109
+      },
+      {
+        "market_slug": "will-steve-bannon-win-the-2028-republican-presidential-nomination",
+        "question": "Will Steve Bannon win the 2028 Republican presidential nomin",
+        "liquidity": 484158.20076,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0093245014742238,
+        "market_impact": 0.009324501474223819
+      },
+      {
+        "market_slug": "will-the-oklahoma-city-thunder-win-the-2026-nba-finals",
+        "question": "Will the Oklahoma City Thunder win the 2026 NBA Finals?",
+        "liquidity": 250399.1175,
+        "yes_price": 0.405,
+        "slippage_pct": 1.013849634779943,
+        "market_impact": 0.013849634779942931
+      },
+      {
+        "market_slug": "will-the-houston-rockets-win-the-2026-nba-finals",
+        "question": "Will the Houston Rockets win the 2026 NBA Finals?",
+        "liquidity": 189905.649,
+        "yes_price": 0.055,
+        "slippage_pct": 1.0163491533439035,
+        "market_impact": 0.01634915334390339
+      },
+      {
+        "market_slug": "will-the-new-orleans-pelicans-win-the-2026-nba-finals",
+        "question": "Will the New Orleans Pelicans win the 2026 NBA Finals?",
+        "liquidity": 1135442.43061,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0027956894660595,
+        "market_impact": 0.0027956894660595374
+      },
+      {
+        "market_slug": "will-the-toronto-raptors-win-the-2026-nba-finals",
+        "question": "Will the Toronto Raptors win the 2026 NBA Finals?",
+        "liquidity": 367831.93216,
+        "yes_price": 0.0095,
+        "slippage_pct": 1.0109958381902417,
+        "market_impact": 0.010995838190241854
+      },
+      {
+        "market_slug": "will-the-chicago-bulls-win-the-2026-nba-finals",
+        "question": "Will the Chicago Bulls win the 2026 NBA Finals?",
+        "liquidity": 618589.85308,
+        "yes_price": 0.0025,
+        "slippage_pct": 1.0040248187416068,
+        "market_impact": 0.004024818741606819
+      },
+      {
+        "market_slug": "will-the-cleveland-cavaliers-win-the-2026-nba-finals",
+        "question": "Will the Cleveland Cavaliers win the 2026 NBA Finals?",
+        "liquidity": 155158.57969,
+        "yes_price": 0.0475,
+        "slippage_pct": 1.0184566348500161,
+        "market_impact": 0.01845663485001619
+      },
+      {
+        "market_slug": "will-the-new-york-knicks-win-the-2026-nba-finals",
+        "question": "Will the New York Knicks win the 2026 NBA Finals?",
+        "liquidity": 290210.9129,
+        "yes_price": 0.055,
+        "slippage_pct": 1.0126762195881736,
+        "market_impact": 0.012676219588173523
+      },
+      {
+        "market_slug": "will-the-minnesota-timberwolves-win-the-2026-nba-finals",
+        "question": "Will the Minnesota Timberwolves win the 2026 NBA Finals?",
+        "liquidity": 189618.7383,
+        "yes_price": 0.0285,
+        "slippage_pct": 1.0163639915246663,
+        "market_impact": 0.016363991524666194
+      },
+      {
+        "market_slug": "will-the-phoenix-suns-win-the-2026-nba-finals",
+        "question": "Will the Phoenix Suns win the 2026 NBA Finals?",
+        "liquidity": 283269.25378,
+        "yes_price": 0.0135,
+        "slippage_pct": 1.012861698782486,
+        "market_impact": 0.012861698782485963
+      },
+      {
+        "market_slug": "will-the-boston-celtics-win-the-2026-nba-finals",
+        "question": "Will the Boston Celtics win the 2026 NBA Finals?",
+        "liquidity": 156634.39359,
+        "yes_price": 0.0545,
+        "slippage_pct": 1.0183520979864058,
+        "market_impact": 0.018352097986405753
+      },
+      {
+        "market_slug": "will-the-indiana-pacers-win-the-2026-nba-finals",
+        "question": "Will the Indiana Pacers win the 2026 NBA Finals?",
+        "liquidity": 374021.0073,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.010886302552887,
+        "market_impact": 0.010886302552886954
+      },
+      {
+        "market_slug": "will-the-orlando-magic-win-the-2026-nba-finals",
+        "question": "Will the Orlando Magic win the 2026 NBA Finals?",
+        "liquidity": 261052.50429,
+        "yes_price": 0.0095,
+        "slippage_pct": 1.0135076960359515,
+        "market_impact": 0.013507696035951292
+      },
+      {
+        "market_slug": "will-the-denver-nuggets-win-the-2026-nba-finals",
+        "question": "Will the Denver Nuggets win the 2026 NBA Finals?",
+        "liquidity": 219244.8308,
+        "yes_price": 0.125,
+        "slippage_pct": 1.0149989335060883,
+        "market_impact": 0.014998933506088177
+      },
+      {
+        "market_slug": "will-the-san-antonio-spurs-win-the-2026-nba-finals",
+        "question": "Will the San Antonio Spurs win the 2026 NBA Finals?",
+        "liquidity": 208409.14104,
+        "yes_price": 0.0485,
+        "slippage_pct": 1.015462080827809,
+        "market_impact": 0.015462080827808922
+      },
+      {
+        "market_slug": "will-the-milwaukee-bucks-win-the-2026-nba-finals",
+        "question": "Will the Milwaukee Bucks win the 2026 NBA Finals?",
+        "liquidity": 681677.65778,
+        "yes_price": 0.0025,
+        "slippage_pct": 1.003796999725003,
+        "market_impact": 0.0037969997250030434
+      },
+      {
+        "market_slug": "will-the-los-angeles-clippers-win-the-2026-nba-finals",
+        "question": "Will the Los Angeles Clippers win the 2026 NBA Finals?",
+        "liquidity": 135406.43411,
+        "yes_price": 0.0235,
+        "slippage_pct": 1.0200278539939838,
+        "market_impact": 0.02002785399398372
+      },
+      {
+        "market_slug": "will-the-golden-state-warriors-win-the-2026-nba-finals",
+        "question": "Will the Golden State Warriors win the 2026 NBA Finals?",
+        "liquidity": 194238.08464,
+        "yes_price": 0.0145,
+        "slippage_pct": 1.0161293685416601,
+        "market_impact": 0.016129368541660263
+      },
+      {
+        "market_slug": "will-the-dallas-mavericks-win-the-2026-nba-finals",
+        "question": "Will the Dallas Mavericks win the 2026 NBA Finals?",
+        "liquidity": 316298.31511,
+        "yes_price": 0.0025,
+        "slippage_pct": 1.0120381533210563,
+        "market_impact": 0.012038153321056334
+      },
+      {
+        "market_slug": "will-the-detroit-pistons-win-the-2026-nba-finals",
+        "question": "Will the Detroit Pistons win the 2026 NBA Finals?",
+        "liquidity": 176738.07847,
+        "yes_price": 0.0585,
+        "slippage_pct": 1.0170694654159158,
+        "market_impact": 0.017069465415915756
+      },
+      {
+        "market_slug": "will-the-memphis-grizzlies-win-the-2026-nba-finals",
+        "question": "Will the Memphis Grizzlies win the 2026 NBA Finals?",
+        "liquidity": 874461.11346,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0032699694919334,
+        "market_impact": 0.003269969491933322
+      },
+      {
+        "market_slug": "will-the-los-angeles-lakers-win-the-2026-nba-finals",
+        "question": "Will the Los Angeles Lakers win the 2026 NBA Finals?",
+        "liquidity": 242173.64693,
+        "yes_price": 0.0205,
+        "slippage_pct": 1.0141299904473033,
+        "market_impact": 0.014129990447303193
+      },
+      {
+        "market_slug": "will-the-portland-trail-blazers-win-the-2026-nba-finals",
+        "question": "Will the Portland Trail Blazers win the 2026 NBA Finals?",
+        "liquidity": 542769.2832,
+        "yes_price": 0.0025,
+        "slippage_pct": 1.0043533024843616,
+        "market_impact": 0.0043533024843614414
+      },
+      {
+        "market_slug": "will-the-atlanta-hawks-win-the-2026-nba-finals",
+        "question": "Will the Atlanta Hawks win the 2026 NBA Finals?",
+        "liquidity": 655793.51053,
+        "yes_price": 0.0035,
+        "slippage_pct": 1.0038862231354373,
+        "market_impact": 0.00388622313543744
+      },
+      {
+        "market_slug": "will-the-brooklyn-nets-win-the-2026-nba-finals",
+        "question": "Will the Brooklyn Nets win the 2026 NBA Finals?",
+        "liquidity": 1111131.26848,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0028322317052134,
+        "market_impact": 0.0028322317052133614
+      },
+      {
+        "market_slug": "will-the-charlotte-hornets-win-the-2026-nba-finals",
+        "question": "Will the Charlotte Hornets win the 2026 NBA Finals?",
+        "liquidity": 250160.19968,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.013857569598011,
+        "market_impact": 0.013857569598010804
+      },
+      {
+        "market_slug": "will-the-utah-jazz-win-the-2026-nba-finals",
+        "question": "Will the Utah Jazz win the 2026 NBA Finals?",
+        "liquidity": 977974.11196,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0030576768594912,
+        "market_impact": 0.0030576768594912256
+      },
+      {
+        "market_slug": "will-the-sacramento-kings-win-the-2026-nba-finals",
+        "question": "Will the Sacramento Kings win the 2026 NBA Finals?",
+        "liquidity": 1127559.10759,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0028074007487116,
+        "market_impact": 0.0028074007487114867
+      },
+      {
+        "market_slug": "will-the-miami-heat-win-the-2026-nba-finals",
+        "question": "Will the Miami Heat win the 2026 NBA Finals?",
+        "liquidity": 173277.88305,
+        "yes_price": 0.0155,
+        "slippage_pct": 1.017273172783771,
+        "market_impact": 0.017273172783770992
+      },
+      {
+        "market_slug": "will-the-philadelphia-76ers-win-the-2026-nba-finals",
+        "question": "Will the Philadelphia 76ers win the 2026 NBA Finals?",
+        "liquidity": 249606.35853,
+        "yes_price": 0.0145,
+        "slippage_pct": 1.01387601020974,
+        "market_impact": 0.013876010209739947
+      },
+      {
+        "market_slug": "will-the-washington-wizards-win-the-2026-nba-finals",
+        "question": "Will the Washington Wizards win the 2026 NBA Finals?",
+        "liquidity": 1097279.27932,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0028536302152387,
+        "market_impact": 0.002853630215238749
+      },
+      {
+        "market_slug": "will-brentford-win-the-202526-english-premier-league",
+        "question": "Will Brentford win the 2025\u201326 English Premier League?",
+        "liquidity": 1098805.64193,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0028512511491774,
+        "market_impact": 0.002851251149177434
+      },
+      {
+        "market_slug": "will-newcastle-win-the-202526-english-premier-league",
+        "question": "Will Newcastle win the 2025\u201326 English Premier League?",
+        "liquidity": 330369.31475,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0117278438755186,
+        "market_impact": 0.011727843875518649
+      },
+      {
+        "market_slug": "will-crystal-palace-win-the-202526-english-premier-league",
+        "question": "Will Crystal Palace win the 2025\u201326 English Premier League?",
+        "liquidity": 1142156.26158,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.002785817657217,
+        "market_impact": 0.0027858176572169726
+      },
+      {
+        "market_slug": "will-nottm-forest-win-the-202526-english-premier-league",
+        "question": "Will Nottm Forest win the 2025\u201326 English Premier League?",
+        "liquidity": 1107094.04206,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0028384241522248,
+        "market_impact": 0.002838424152224713
+      },
+      {
+        "market_slug": "will-brighton-win-the-202526-english-premier-league",
+        "question": "Will Brighton win the 2025\u201326 English Premier League?",
+        "liquidity": 1116920.81199,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0028234140510923,
+        "market_impact": 0.00282341405109231
+      },
+      {
+        "market_slug": "will-liverpool-win-the-202526-english-premier-league",
+        "question": "Will Liverpool win the 2025\u201326 English Premier League?",
+        "liquidity": 328182.17497,
+        "yes_price": 0.0045,
+        "slippage_pct": 1.0117746770421159,
+        "market_impact": 0.011774677042115747
+      },
+      {
+        "market_slug": "will-arsenal-win-the-202526-english-premier-league",
+        "question": "Will Arsenal win the 2025\u201326 English Premier League?",
+        "liquidity": 139028.6327,
+        "yes_price": 0.805,
+        "slippage_pct": 1.0197131236678991,
+        "market_impact": 0.019713123667899013
+      },
+      {
+        "market_slug": "will-manchester-city-win-the-202526-english-premier-league",
+        "question": "Will Manchester City win the 2025\u201326 English Premier League?",
+        "liquidity": 454599.3922,
+        "yes_price": 0.145,
+        "slippage_pct": 1.0096836857379468,
+        "market_impact": 0.009683685737946748
+      },
+      {
+        "market_slug": "will-burnley-win-the-202526-english-premier-league",
+        "question": "Will Burnley win the 2025\u201326 English Premier League?",
+        "liquidity": 940151.47563,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0031309007635136,
+        "market_impact": 0.003130900763513545
+      },
+      {
+        "market_slug": "will-chelsea-win-the-202526-english-premier-league",
+        "question": "Will Chelsea win the 2025\u201326 English Premier League?",
+        "liquidity": 295346.3296,
+        "yes_price": 0.005,
+        "slippage_pct": 1.0125435091388224,
+        "market_impact": 0.01254350913882238
+      },
+      {
+        "market_slug": "will-sunderland-win-the-202526-english-premier-league",
+        "question": "Will Sunderland win the 2025\u201326 English Premier League?",
+        "liquidity": 719227.56888,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.003676784753129,
+        "market_impact": 0.003676784753128817
+      },
+      {
+        "market_slug": "will-manchester-united-win-the-202526-english-premier-league",
+        "question": "Will Manchester United win the 2025\u201326 English Premier Leagu",
+        "liquidity": 101109.45405,
+        "yes_price": 0.0195,
+        "slippage_pct": 1.0238639833953127,
+        "market_impact": 0.023863983395312628
+      },
+      {
+        "market_slug": "will-tottenham-win-the-202526-english-premier-league",
+        "question": "Will Tottenham win the 2025\u201326 English Premier League?",
+        "liquidity": 895990.33964,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0032225970514685,
+        "market_impact": 0.003222597051468612
+      },
+      {
+        "market_slug": "will-aston-villa-win-the-202526-english-premier-league",
+        "question": "Will Aston Villa win the 2025\u201326 English Premier League?",
+        "liquidity": 140760.1714,
+        "yes_price": 0.018,
+        "slippage_pct": 1.0195672649321026,
+        "market_impact": 0.01956726493210247
+      },
+      {
+        "market_slug": "will-bournemouth-win-the-202526-english-premier-league",
+        "question": "Will Bournemouth win the 2025\u201326 English Premier League?",
+        "liquidity": 819820.28323,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0033990441552707,
+        "market_impact": 0.0033990441552706474
+      },
+      {
+        "market_slug": "will-everton-win-the-202526-english-premier-league",
+        "question": "Will Everton win the 2025\u201326 English Premier League?",
+        "liquidity": 1149521.88481,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0027750937250481,
+        "market_impact": 0.0027750937250482703
+      },
+      {
+        "market_slug": "will-west-ham-win-the-202526-english-premier-league",
+        "question": "Will West Ham win the 2025\u201326 English Premier League?",
+        "liquidity": 966986.9615,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0030784749979025,
+        "market_impact": 0.0030784749979023353
+      },
+      {
+        "market_slug": "will-fulham-win-the-202526-english-premier-league",
+        "question": "Will Fulham win the 2025\u201326 English Premier League?",
+        "liquidity": 109941.59029,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0226945088667545,
+        "market_impact": 0.022694508866754504
+      },
+      {
+        "market_slug": "will-leeds-win-the-202526-english-premier-league",
+        "question": "Will Leeds win the 2025\u201326 English Premier League?",
+        "liquidity": 1005209.85326,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0030076961475742,
+        "market_impact": 0.003007696147574173
+      },
+      {
+        "market_slug": "will-real-madrid-win-the-202526-champions-league",
+        "question": "Will Real Madrid win the 2025\u201326 Champions League?",
+        "liquidity": 158207.9582,
+        "yes_price": 0.065,
+        "slippage_pct": 1.0182423591614471,
+        "market_impact": 0.01824235916144722
+      },
+      {
+        "market_slug": "will-arsenal-win-the-202526-champions-league",
+        "question": "Will Arsenal win the 2025\u201326 Champions League?",
+        "liquidity": 195116.6128,
+        "yes_price": 0.195,
+        "slippage_pct": 1.0160857549562643,
+        "market_impact": 0.01608575495626425
+      },
+      {
+        "market_slug": "will-man-city-win-the-202526-champions-league",
+        "question": "Will Man City win the 2025\u201326 Champions League?",
+        "liquidity": 219586.1561,
+        "yes_price": 0.095,
+        "slippage_pct": 1.0149849405250657,
+        "market_impact": 0.014984940525065568
+      },
+      {
+        "market_slug": "will-dortmund-win-the-202526-champions-league",
+        "question": "Will Dortmund win the 2025\u201326 Champions League?",
+        "liquidity": 157627.89541,
+        "yes_price": 0.0095,
+        "slippage_pct": 1.0182826081504976,
+        "market_impact": 0.01828260815049764
+      },
+      {
+        "market_slug": "will-bayern-munich-win-the-202526-champions-league",
+        "question": "Will Bayern Munich win the 2025\u201326 Champions League?",
+        "liquidity": 188163.8041,
+        "yes_price": 0.165,
+        "slippage_pct": 1.016439793067228,
+        "market_impact": 0.016439793067227815
+      },
+      {
+        "market_slug": "will-newcastle-win-the-202526-champions-league",
+        "question": "Will Newcastle win the 2025\u201326 Champions League?",
+        "liquidity": 517251.86007,
+        "yes_price": 0.0175,
+        "slippage_pct": 1.0044809156125458,
+        "market_impact": 0.004480915612545721
+      },
+      {
+        "market_slug": "will-galatasaray-win-the-202526-champions-league",
+        "question": "Will Galatasaray win the 2025\u201326 Champions League?",
+        "liquidity": 232547.31717,
+        "yes_price": 0.0035,
+        "slippage_pct": 1.014478087508659,
+        "market_impact": 0.014478087508659119
+      },
+      {
+        "market_slug": "will-atletico-madrid-win-the-202526-champions-league",
+        "question": "Will Atletico Madrid win the 2025\u201326 Champions League?",
+        "liquidity": 154942.28863,
+        "yes_price": 0.0175,
+        "slippage_pct": 1.01847208921571,
+        "market_impact": 0.018472089215709885
+      },
+      {
+        "market_slug": "will-tottenham-win-the-202526-champions-league",
+        "question": "Will Tottenham win the 2025\u201326 Champions League?",
+        "liquidity": 406036.20124,
+        "yes_price": 0.022,
+        "slippage_pct": 1.0103628483756428,
+        "market_impact": 0.010362848375642737
+      },
+      {
+        "market_slug": "will-leverkusen-win-the-202526-champions-league",
+        "question": "Will Leverkusen win the 2025\u201326 Champions League?",
+        "liquidity": 513318.37986,
+        "yes_price": 0.005,
+        "slippage_pct": 1.004501486093501,
+        "market_impact": 0.00450148609350101
+      },
+      {
+        "market_slug": "will-atalanta-win-the-202526-champions-league",
+        "question": "Will Atalanta win the 2025\u201326 Champions League?",
+        "liquidity": 372833.15548,
+        "yes_price": 0.0045,
+        "slippage_pct": 1.01090709966248,
+        "market_impact": 0.010907099662480012
+      },
+      {
+        "market_slug": "will-olympiakos-win-the-202526-champions-league",
+        "question": "Will Olympiakos win the 2025\u201326 Champions League?",
+        "liquidity": 760215.97066,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0035565245288063,
+        "market_impact": 0.0035565245288061435
+      },
+      {
+        "market_slug": "will-monaco-win-the-202526-champions-league",
+        "question": "Will Monaco win the 2025\u201326 Champions League?",
+        "liquidity": 755681.37965,
+        "yes_price": 0.0025,
+        "slippage_pct": 1.0035693141120257,
+        "market_impact": 0.0035693141120256037
+      },
+      {
+        "market_slug": "will-bodo-glimt-win-the-202526-champions-league",
+        "question": "Will Bodo Glimt win the 2025\u201326 Champions League?",
+        "liquidity": 126852.34338,
+        "yes_price": 0.0065,
+        "slippage_pct": 1.0208275842880592,
+        "market_impact": 0.020827584288059028
+      },
+      {
+        "market_slug": "will-chelsea-win-the-202526-champions-league",
+        "question": "Will Chelsea win the 2025\u201326 Champions League?",
+        "liquidity": 141589.08038,
+        "yes_price": 0.0445,
+        "slippage_pct": 1.019498452318276,
+        "market_impact": 0.019498452318275936
+      },
+      {
+        "market_slug": "will-inter-win-the-202526-champions-league",
+        "question": "Will Inter win the 2025\u201326 Champions League?",
+        "liquidity": 138295.93818,
+        "yes_price": 0.0275,
+        "slippage_pct": 1.0197757217354733,
+        "market_impact": 0.019775721735473244
+      },
+      {
+        "market_slug": "will-juventus-win-the-202526-champions-league",
+        "question": "Will Juventus win the 2025\u201326 Champions League?",
+        "liquidity": 194103.9634,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0161360546247606,
+        "market_impact": 0.016136054624760712
+      },
+      {
+        "market_slug": "will-psg-win-the-202526-champions-league",
+        "question": "Will PSG win the 2025\u201326 Champions League?",
+        "liquidity": 328225.9064,
+        "yes_price": 0.095,
+        "slippage_pct": 1.011773735732164,
+        "market_impact": 0.011773735732163858
+      },
+      {
+        "market_slug": "will-benfica-win-the-202526-champions-league",
+        "question": "Will Benfica win the 2025\u201326 Champions League?",
+        "liquidity": 247327.20428,
+        "yes_price": 0.0055,
+        "slippage_pct": 1.0139525910215144,
+        "market_impact": 0.013952591021514294
+      },
+      {
+        "market_slug": "will-liverpool-win-the-202526-champions-league",
+        "question": "Will Liverpool win the 2025\u201326 Champions League?",
+        "liquidity": 408949.4879,
+        "yes_price": 0.085,
+        "slippage_pct": 1.0103184911539569,
+        "market_impact": 0.010318491153956947
+      },
+      {
+        "market_slug": "will-sporting-win-the-202526-champions-league",
+        "question": "Will Sporting win the 2025\u201326 Champions League?",
+        "liquidity": 414165.82988,
+        "yes_price": 0.01,
+        "slippage_pct": 1.0102403178809145,
+        "market_impact": 0.010240317880914318
+      },
+      {
+        "market_slug": "will-club-brugge-win-the-202526-champions-league",
+        "question": "Will Club Brugge win the 2025\u201326 Champions League?",
+        "liquidity": 504662.81868,
+        "yes_price": 0.0035,
+        "slippage_pct": 1.0045476519220367,
+        "market_impact": 0.004547651922036727
+      },
+      {
+        "market_slug": "will-barcelona-win-the-202526-champions-league",
+        "question": "Will Barcelona win the 2025\u201326 Champions League?",
+        "liquidity": 128315.9101,
+        "yes_price": 0.115,
+        "slippage_pct": 1.0206847221824458,
+        "market_impact": 0.02068472218244573
+      },
+      {
+        "market_slug": "us-strikes-iran-by-february-5-2026",
+        "question": "US strikes Iran by February 5, 2026?",
+        "liquidity": 47483.17518,
+        "yes_price": 0.0265,
+        "slippage_pct": 1.112671843643203,
+        "market_impact": 0.11267184364320308
+      },
+      {
+        "market_slug": "us-strikes-iran-by-march-31-2026-393-221-132-633-215-592-866-184-321-377-931-222-297-655-719-935-944-321-534-925-937-744-476-586-454",
+        "question": "US strikes Iran by March 31, 2026?",
+        "liquidity": 77317.1809,
+        "yes_price": 0.435,
+        "slippage_pct": 1.056063781387927,
+        "market_impact": 0.05606378138792703
+      },
+      {
+        "market_slug": "us-strikes-iran-by-june-30-2026-699-664-723-485-753-218-567-164-387-443-377-384-159-973-494-631-694-956-361-443-224-518-537-678",
+        "question": "US strikes Iran by June 30, 2026?",
+        "liquidity": 83542.728,
+        "yes_price": 0.515,
+        "slippage_pct": 1.053518360607469,
+        "market_impact": 0.05351836060746899
+      },
+      {
+        "market_slug": "us-strikes-iran-by-february-28-2026-227-967-547-688-589-491-592-418-452-924-384-915-464-672-196-157",
+        "question": "US strikes Iran by February 28, 2026?",
+        "liquidity": 138709.0336,
+        "yes_price": 0.275,
+        "slippage_pct": 1.0197403636950435,
+        "market_impact": 0.01974036369504337
+      },
+      {
+        "market_slug": "us-strikes-iran-by-february-4-2026",
+        "question": "US strikes Iran by February 4, 2026?",
+        "liquidity": 44156.29415,
+        "yes_price": 0.0215,
+        "slippage_pct": 1.1176911161130596,
+        "market_impact": 0.11769111611305955
+      },
+      {
+        "market_slug": "us-strikes-iran-by-february-3-2026",
+        "question": "US strikes Iran by February 3, 2026?",
+        "liquidity": 411786.59645,
+        "yes_price": 0.013,
+        "slippage_pct": 1.0102757770651005,
+        "market_impact": 0.010275777065100465
+      },
+      {
+        "market_slug": "us-strikes-iran-by-february-6-2026-242-933-289-312-673-611-155-294",
+        "question": "US strikes Iran by February 6, 2026?",
+        "liquidity": 53896.23578,
+        "yes_price": 0.051,
+        "slippage_pct": 1.0696166197996468,
+        "market_impact": 0.06961661979964681
+      },
+      {
+        "market_slug": "us-strikes-iran-by-february-13-2026-721-759-497-124-197-797-992-641",
+        "question": "US strikes Iran by February 13, 2026?",
+        "liquidity": 91663.8072,
+        "yes_price": 0.13,
+        "slippage_pct": 1.0506208295859143,
+        "market_impact": 0.05062082958591441
+      },
+      {
+        "market_slug": "will-there-be-another-us-government-shutdown-by-january-31",
+        "question": "US government shutdown Saturday?",
+        "liquidity": 2846268.68435,
+        "yes_price": 0.9985,
+        "slippage_pct": 1.0016107289521152,
+        "market_impact": 0.0016107289521151064
+      },
+      {
+        "market_slug": "will-joo-cotrim-figueiredo-win-the-2026-portugal-presidential-election-643",
+        "question": "Will Jo\u00e3o Cotrim Figueiredo win the 2026 Portugal presidenti",
+        "liquidity": 367770.41159,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.010996941782453,
+        "market_impact": 0.010996941782453043
+      },
+      {
+        "market_slug": "will-rui-moreira-win-the-2026-portugal-presidential-election-693",
+        "question": "Will Rui Moreira win the 2026 Portugal presidential election",
+        "liquidity": 605070.33402,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.004078537741357,
+        "market_impact": 0.004078537741356815
+      },
+      {
+        "market_slug": "will-paulo-portas-win-the-2026-portugal-presidential-election-423",
+        "question": "Will Paulo Portas win the 2026 Portugal presidential electio",
+        "liquidity": 604987.8625,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0040788713223008,
+        "market_impact": 0.004078871322300611
+      },
+      {
+        "market_slug": "will-catarina-martins-win-the-2026-portugal-presidential-election-582",
+        "question": "Will Catarina Martins win the 2026 Portugal presidential ele",
+        "liquidity": 596670.11997,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0041128931581018,
+        "market_impact": 0.004112893158101672
+      },
+      {
+        "market_slug": "will-tim-vieira-win-the-2026-portugal-presidential-election",
+        "question": "Will Tim Vieira win the 2026 Portugal presidential election?",
+        "liquidity": 600447.11791,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0040973507504565,
+        "market_impact": 0.004097350750456456
+      },
+      {
+        "market_slug": "will-joana-amaral-dias-win-the-2026-portugal-presidential-election",
+        "question": "Will Joana Amaral Dias win the 2026 Portugal presidential el",
+        "liquidity": 558526.78345,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0042791902891601,
+        "market_impact": 0.004279190289160001
+      },
+      {
+        "market_slug": "will-andr-pestana-win-the-2026-portugal-presidential-election",
+        "question": "Will Andr\u00e9 Pestana win the 2026 Portugal presidential electi",
+        "liquidity": 558312.16192,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.004280177194873,
+        "market_impact": 0.0042801771948731355
+      },
+      {
+        "market_slug": "will-andr-ventura-win-the-2026-portugal-presidential-election",
+        "question": "Will Andr\u00e9 Ventura win the 2026 Portugal presidential electi",
+        "liquidity": 946492.0151,
+        "yes_price": 0.0075,
+        "slippage_pct": 1.0031182995285342,
+        "market_impact": 0.0031182995285342235
+      },
+      {
+        "market_slug": "will-orlando-cruz-win-the-2026-portugal-presidential-election",
+        "question": "Will Orlando Cruz win the 2026 Portugal presidential electio",
+        "liquidity": 551435.36975,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0043121238951176,
+        "market_impact": 0.004312123895117653
+      },
+      {
+        "market_slug": "will-aristides-teixeira-win-the-2026-portugal-presidential-election",
+        "question": "Will Aristides Teixeira win the 2026 Portugal presidential e",
+        "liquidity": 615459.19336,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0040370901151232,
+        "market_impact": 0.0040370901151230675
+      },
+      {
+        "market_slug": "will-manuela-magno-win-the-2026-portugal-presidential-election",
+        "question": "Will Manuela Magno win the 2026 Portugal presidential electi",
+        "liquidity": 608857.86711,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0040632958868747,
+        "market_impact": 0.004063295886874637
+      },
+      {
+        "market_slug": "will-lus-marques-mendes-win-the-2026-portugal-presidential-election",
+        "question": "Will Lu\u00eds Marques Mendes win the 2026 Portugal presidential ",
+        "liquidity": 466771.66482,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0095313695141588,
+        "market_impact": 0.009531369514158849
+      },
+      {
+        "market_slug": "will-pedro-tinoco-de-faria-win-the-2026-portugal-presidential-election",
+        "question": "Will Pedro Tinoco de Faria win the 2026 Portugal presidentia",
+        "liquidity": 625678.5522,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0039973966205453,
+        "market_impact": 0.003997396620545365
+      },
+      {
+        "market_slug": "will-henrique-gouveia-e-melo-win-the-2026-portugal-presidential-election",
+        "question": "Will Henrique Gouveia e Melo win the 2026 Portugal president",
+        "liquidity": 379113.69272,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0107983230290785,
+        "market_impact": 0.010798323029078568
+      },
+      {
+        "market_slug": "will-antnio-jos-seguro-win-the-2026-portugal-presidential-election",
+        "question": "Will Ant\u00f3nio Jos\u00e9 Seguro win the 2026 Portugal presidential ",
+        "liquidity": 250584.60477,
+        "yes_price": 0.9915,
+        "slippage_pct": 1.0138434828184684,
+        "market_impact": 0.01384348281846834
+      },
+      {
+        "market_slug": "will-vitorino-silva-win-the-2026-portugal-presidential-election",
+        "question": "Will Vitorino Silva win the 2026 Portugal presidential elect",
+        "liquidity": 602121.28355,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.004090511467182,
+        "market_impact": 0.0040905114671819925
+      },
+      {
+        "market_slug": "will-ngela-maryah-win-the-2026-portugal-presidential-election",
+        "question": "Will \u00c2ngela Maryah win the 2026 Portugal presidential electi",
+        "liquidity": 589150.57942,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0041443098328455,
+        "market_impact": 0.004144309832845537
+      },
+      {
+        "market_slug": "will-antnio-filipe-win-the-2026-portugal-presidential-election",
+        "question": "Will Ant\u00f3nio Filipe win the 2026 Portugal presidential elect",
+        "liquidity": 582587.245,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0041722605211398,
+        "market_impact": 0.0041722605211397075
+      },
+      {
+        "market_slug": "will-raul-perestrello-win-the-2026-portugal-presidential-election",
+        "question": "Will Raul Perestrello win the 2026 Portugal presidential ele",
+        "liquidity": 574803.63373,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0042060680878373,
+        "market_impact": 0.004206068087837296
+      },
+      {
+        "market_slug": "will-jos-cardoso-win-the-2026-portugal-presidential-election",
+        "question": "Will Jos\u00e9 Cardoso win the 2026 Portugal presidential electio",
+        "liquidity": 590997.01752,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0041365361894707,
+        "market_impact": 0.004136536189470601
+      },
+      {
+        "market_slug": "will-pedro-passos-coelho-win-the-2026-portugal-presidential-election",
+        "question": "Will Pedro Passos Coelho win the 2026 Portugal presidential ",
+        "liquidity": 576784.01506,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0041973972360694,
+        "market_impact": 0.004197397236069239
+      },
+      {
+        "market_slug": "will-jorge-pinto-win-the-2026-portugal-presidential-election",
+        "question": "Will Jorge Pinto win the 2026 Portugal presidential election",
+        "liquidity": 453153.53525,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0097022123103747,
+        "market_impact": 0.009702212310374714
+      },
+      {
+        "market_slug": "will-spain-win-the-2026-fifa-world-cup-963",
+        "question": "Will Spain win the 2026 FIFA World Cup?",
+        "liquidity": 224640.6965,
+        "yes_price": 0.155,
+        "slippage_pct": 1.0147817187655106,
+        "market_impact": 0.014781718765510675
+      },
+      {
+        "market_slug": "will-new-zealand-win-the-2026-fifa-world-cup-635",
+        "question": "Will New Zealand win the 2026 FIFA World Cup?",
+        "liquidity": 803393.76993,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0034405741812222,
+        "market_impact": 0.0034405741812222335
+      },
+      {
+        "market_slug": "will-switzerland-win-the-2026-fifa-world-cup",
+        "question": "Will Switzerland win the 2026 FIFA World Cup?",
+        "liquidity": 436686.98671,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0099200953682437,
+        "market_impact": 0.00992009536824368
+      },
+      {
+        "market_slug": "will-england-win-the-2026-fifa-world-cup-937",
+        "question": "Will England win the 2026 FIFA World Cup?",
+        "liquidity": 418832.0341,
+        "yes_price": 0.135,
+        "slippage_pct": 1.0101717121791236,
+        "market_impact": 0.010171712179123648
+      },
+      {
+        "market_slug": "will-france-win-the-2026-fifa-world-cup-924",
+        "question": "Will France win the 2026 FIFA World Cup?",
+        "liquidity": 596067.9485,
+        "yes_price": 0.125,
+        "slippage_pct": 1.0041153856592557,
+        "market_impact": 0.004115385659255827
+      },
+      {
+        "market_slug": "will-south-korea-win-the-2026-fifa-world-cup-485",
+        "question": "Will South Korea win the 2026 FIFA World Cup?",
+        "liquidity": 296694.40416,
+        "yes_price": 0.0045,
+        "slippage_pct": 1.0125092820332882,
+        "market_impact": 0.012509282033288159
+      },
+      {
+        "market_slug": "will-haiti-win-the-2026-fifa-world-cup",
+        "question": "Will Haiti win the 2026 FIFA World Cup?",
+        "liquidity": 926024.93454,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.00315947114401,
+        "market_impact": 0.003159471144009914
+      },
+      {
+        "market_slug": "will-brazil-win-the-2026-fifa-world-cup-183",
+        "question": "Will Brazil win the 2026 FIFA World Cup?",
+        "liquidity": 466981.0266,
+        "yes_price": 0.095,
+        "slippage_pct": 1.0095288053627178,
+        "market_impact": 0.00952880536271781
+      },
+      {
+        "market_slug": "will-jordan-win-the-2026-fifa-world-cup-233",
+        "question": "Will Jordan win the 2026 FIFA World Cup?",
+        "liquidity": 732910.86226,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0036354427238838,
+        "market_impact": 0.003635442723883939
+      },
+      {
+        "market_slug": "will-curaao-win-the-2026-fifa-world-cup",
+        "question": "Will Cura\u00e7ao win the 2026 FIFA World Cup?",
+        "liquidity": 694771.5324,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0037539008059921,
+        "market_impact": 0.003753900805992084
+      },
+      {
+        "market_slug": "will-argentina-win-the-2026-fifa-world-cup-245",
+        "question": "Will Argentina win the 2026 FIFA World Cup?",
+        "liquidity": 279440.3406,
+        "yes_price": 0.105,
+        "slippage_pct": 1.012967150046388,
+        "market_impact": 0.012967150046387828
+      },
+      {
+        "market_slug": "will-germany-win-the-2026-fifa-world-cup-467",
+        "question": "Will Germany win the 2026 FIFA World Cup?",
+        "liquidity": 247477.71128,
+        "yes_price": 0.0605,
+        "slippage_pct": 1.01394749912511,
+        "market_impact": 0.013947499125110037
+      },
+      {
+        "market_slug": "will-colombia-win-the-2026-fifa-world-cup-734",
+        "question": "Will Colombia win the 2026 FIFA World Cup?",
+        "liquidity": 284900.42313,
+        "yes_price": 0.0165,
+        "slippage_pct": 1.0128174650189323,
+        "market_impact": 0.01281746501893217
+      },
+      {
+        "market_slug": "will-iran-win-the-2026-fifa-world-cup-788",
+        "question": "Will Iran win the 2026 FIFA World Cup?",
+        "liquidity": 599728.35993,
+        "yes_price": 0.0025,
+        "slippage_pct": 1.0041002963820844,
+        "market_impact": 0.004100296382084507
+      },
+      {
+        "market_slug": "will-portugal-win-the-2026-fifa-world-cup-912",
+        "question": "Will Portugal win the 2026 FIFA World Cup?",
+        "liquidity": 228005.98687,
+        "yes_price": 0.0715,
+        "slippage_pct": 1.0146504257933735,
+        "market_impact": 0.014650425793373407
+      },
+      {
+        "market_slug": "will-ghana-win-the-2026-fifa-world-cup",
+        "question": "Will Ghana win the 2026 FIFA World Cup?",
+        "liquidity": 737933.58612,
+        "yes_price": 0.0025,
+        "slippage_pct": 1.0036205757264776,
+        "market_impact": 0.003620575726477691
+      },
+      {
+        "market_slug": "will-netherlands-win-the-2026-fifa-world-cup-739",
+        "question": "Will Netherlands win the 2026 FIFA World Cup?",
+        "liquidity": 175885.60285,
+        "yes_price": 0.0345,
+        "slippage_pct": 1.0171190563864645,
+        "market_impact": 0.017119056386464493
+      },
+      {
+        "market_slug": "will-algeria-win-the-2026-fifa-world-cup",
+        "question": "Will Algeria win the 2026 FIFA World Cup?",
+        "liquidity": 515687.6303,
+        "yes_price": 0.0025,
+        "slippage_pct": 1.0044890658201748,
+        "market_impact": 0.004489065820174698
+      },
+      {
+        "market_slug": "will-italy-win-the-2026-fifa-world-cup-813",
+        "question": "Will Italy win the 2026 FIFA World Cup?",
+        "liquidity": 265371.14068,
+        "yes_price": 0.0175,
+        "slippage_pct": 1.0133753693226113,
+        "market_impact": 0.013375369322611243
+      },
+      {
+        "market_slug": "will-usa-win-the-2026-fifa-world-cup-467",
+        "question": "Will USA win the 2026 FIFA World Cup?",
+        "liquidity": 306391.28032,
+        "yes_price": 0.0155,
+        "slippage_pct": 1.0122702145478975,
+        "market_impact": 0.01227021454789752
+      },
+      {
+        "market_slug": "will-canada-win-the-2026-fifa-world-cup-755",
+        "question": "Will Canada win the 2026 FIFA World Cup?",
+        "liquidity": 451663.87481,
+        "yes_price": 0.0045,
+        "slippage_pct": 1.0097213993434437,
+        "market_impact": 0.009721399343443834
+      },
+      {
+        "market_slug": "will-uruguay-win-the-2026-fifa-world-cup-932",
+        "question": "Will Uruguay win the 2026 FIFA World Cup?",
+        "liquidity": 434747.30331,
+        "yes_price": 0.0115,
+        "slippage_pct": 1.0099466276224607,
+        "market_impact": 0.009946627622460642
+      },
+      {
+        "market_slug": "will-mexico-win-the-2026-fifa-world-cup-529",
+        "question": "Will Mexico win the 2026 FIFA World Cup?",
+        "liquidity": 183465.68564,
+        "yes_price": 0.012,
+        "slippage_pct": 1.016691104971077,
+        "market_impact": 0.016691104971076915
+      },
+      {
+        "market_slug": "will-paraguay-win-the-2026-fifa-world-cup-967",
+        "question": "Will Paraguay win the 2026 FIFA World Cup?",
+        "liquidity": 632854.29316,
+        "yes_price": 0.0035,
+        "slippage_pct": 1.0039701394670526,
+        "market_impact": 0.003970139467052469
+      },
+      {
+        "market_slug": "will-scotland-win-the-2026-fifa-world-cup",
+        "question": "Will Scotland win the 2026 FIFA World Cup?",
+        "liquidity": 603102.42802,
+        "yes_price": 0.0035,
+        "slippage_pct": 1.0040865174296898,
+        "market_impact": 0.004086517429689808
+      },
+      {
+        "market_slug": "will-japan-win-the-2026-fifa-world-cup-112",
+        "question": "Will Japan win the 2026 FIFA World Cup?",
+        "liquidity": 188533.21354,
+        "yes_price": 0.0145,
+        "slippage_pct": 1.0164204583409207,
+        "market_impact": 0.016420458340920617
+      },
+      {
+        "market_slug": "will-norway-win-the-2026-fifa-world-cup-893",
+        "question": "Will Norway win the 2026 FIFA World Cup?",
+        "liquidity": 269471.18309,
+        "yes_price": 0.0245,
+        "slippage_pct": 1.0132528902023965,
+        "market_impact": 0.01325289020239647
+      },
+      {
+        "market_slug": "will-tunisia-win-the-2026-fifa-world-cup-165",
+        "question": "Will Tunisia win the 2026 FIFA World Cup?",
+        "liquidity": 818071.74489,
+        "yes_price": 0.0025,
+        "slippage_pct": 1.0034034013434545,
+        "market_impact": 0.0034034013434544636
+      },
+      {
+        "market_slug": "will-ecuador-win-the-2026-fifa-world-cup-986",
+        "question": "Will Ecuador win the 2026 FIFA World Cup?",
+        "liquidity": 383076.93148,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0107311532599588,
+        "market_impact": 0.010731153259958826
+      },
+      {
+        "market_slug": "will-uzbekistan-win-the-2026-fifa-world-cup-773",
+        "question": "Will Uzbekistan win the 2026 FIFA World Cup?",
+        "liquidity": 836331.72663,
+        "yes_price": 0.0025,
+        "slippage_pct": 1.0033586199116598,
+        "market_impact": 0.0033586199116596624
+      },
+      {
+        "market_slug": "will-morocco-win-the-2026-fifa-world-cup-464",
+        "question": "Will Morocco win the 2026 FIFA World Cup?",
+        "liquidity": 262653.37436,
+        "yes_price": 0.0185,
+        "slippage_pct": 1.013458238073413,
+        "market_impact": 0.013458238073412978
+      },
+      {
+        "market_slug": "will-south-africa-win-the-2026-fifa-world-cup",
+        "question": "Will South Africa win the 2026 FIFA World Cup?",
+        "liquidity": 464936.23381,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0095539279420773,
+        "market_impact": 0.009553927942077363
+      },
+      {
+        "market_slug": "will-senegal-win-the-2026-fifa-world-cup",
+        "question": "Will Senegal win the 2026 FIFA World Cup?",
+        "liquidity": 363766.64376,
+        "yes_price": 0.0055,
+        "slippage_pct": 1.0110694049006896,
+        "market_impact": 0.01106940490068948
+      },
+      {
+        "market_slug": "will-ivory-coast-win-the-2026-fifa-world-cup",
+        "question": "Will Ivory Coast win the 2026 FIFA World Cup?",
+        "liquidity": 343558.12181,
+        "yes_price": 0.0025,
+        "slippage_pct": 1.0114556006517381,
+        "market_impact": 0.011455600651737957
+      },
+      {
+        "market_slug": "will-cape-verde-win-the-2026-fifa-world-cup",
+        "question": "Will Cape Verde win the 2026 FIFA World Cup?",
+        "liquidity": 729226.89164,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.00364645112001,
+        "market_impact": 0.003646451120010041
+      },
+      {
+        "market_slug": "will-qatar-win-the-2026-fifa-world-cup",
+        "question": "Will Qatar win the 2026 FIFA World Cup?",
+        "liquidity": 799016.05154,
+        "yes_price": 0.0025,
+        "slippage_pct": 1.0034518721288268,
+        "market_impact": 0.0034518721288267526
+      },
+      {
+        "market_slug": "will-belgium-win-the-2026-fifa-world-cup-358",
+        "question": "Will Belgium win the 2026 FIFA World Cup?",
+        "liquidity": 317028.71518,
+        "yes_price": 0.0175,
+        "slippage_pct": 1.0120215048786128,
+        "market_impact": 0.012021504878612851
+      },
+      {
+        "market_slug": "will-australia-win-the-2026-fifa-world-cup-816",
+        "question": "Will Australia win the 2026 FIFA World Cup?",
+        "liquidity": 688018.9608,
+        "yes_price": 0.0025,
+        "slippage_pct": 1.003775963239176,
+        "market_impact": 0.0037759632391761028
+      },
+      {
+        "market_slug": "will-saudi-arabia-win-the-2026-fifa-world-cup",
+        "question": "Will Saudi Arabia win the 2026 FIFA World Cup?",
+        "liquidity": 730423.73702,
+        "yes_price": 0.0025,
+        "slippage_pct": 1.0036428649801306,
+        "market_impact": 0.003642864980130614
+      },
+      {
+        "market_slug": "will-austria-win-the-2026-fifa-world-cup",
+        "question": "Will Austria win the 2026 FIFA World Cup?",
+        "liquidity": 288694.6279,
+        "yes_price": 0.0055,
+        "slippage_pct": 1.0127161246341216,
+        "market_impact": 0.012716124634121485
+      },
+      {
+        "market_slug": "will-croatia-win-the-2026-fifa-world-cup",
+        "question": "Will Croatia win the 2026 FIFA World Cup?",
+        "liquidity": 368964.17526,
+        "yes_price": 0.0115,
+        "slippage_pct": 1.0109755799406193,
+        "market_impact": 0.010975579940619222
+      },
+      {
+        "market_slug": "will-egypt-win-the-2026-fifa-world-cup",
+        "question": "Will Egypt win the 2026 FIFA World Cup?",
+        "liquidity": 481832.77497,
+        "yes_price": 0.0045,
+        "slippage_pct": 1.009351476667164,
+        "market_impact": 0.009351476667164117
+      },
+      {
+        "market_slug": "will-celta-vigo-win-the-202526-la-liga",
+        "question": "Will Celta Vigo win the 2025\u201326 La Liga?",
+        "liquidity": 399696.61974,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0104611568110087,
+        "market_impact": 0.010461156811008657
+      },
+      {
+        "market_slug": "will-oviedo-win-the-202526-la-liga",
+        "question": "Will Oviedo win the 2025\u201326 La Liga?",
+        "liquidity": 358895.69099,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0111593025152597,
+        "market_impact": 0.011159302515259775
+      },
+      {
+        "market_slug": "will-betis-win-the-202526-la-liga",
+        "question": "Will Betis win the 2025\u201326 La Liga?",
+        "liquidity": 300047.3106,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0124252219249747,
+        "market_impact": 0.012425221924974684
+      },
+      {
+        "market_slug": "will-mallorca-win-the-202526-la-liga",
+        "question": "Will Mallorca win the 2025\u201326 La Liga?",
+        "liquidity": 301668.56787,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0123851126318606,
+        "market_impact": 0.012385112631860666
+      },
+      {
+        "market_slug": "will-osasuna-win-the-202526-la-liga",
+        "question": "Will Osasuna win the 2025\u201326 La Liga?",
+        "liquidity": 388029.43604,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0106487637949313,
+        "market_impact": 0.010648763794931342
+      },
+      {
+        "market_slug": "will-levante-win-the-202526-la-liga",
+        "question": "Will Levante win the 2025\u201326 La Liga?",
+        "liquidity": 347570.4408,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0113760710704218,
+        "market_impact": 0.01137607107042166
+      },
+      {
+        "market_slug": "will-rayo-vallecano-win-the-202526-la-liga",
+        "question": "Will Rayo Vallecano win the 2025\u201326 La Liga?",
+        "liquidity": 389693.69371,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0106214539545066,
+        "market_impact": 0.010621453954506584
+      },
+      {
+        "market_slug": "will-real-madrid-win-the-202526-la-liga",
+        "question": "Will Real Madrid win the 2025\u201326 La Liga?",
+        "liquidity": 93215.8288,
+        "yes_price": 0.385,
+        "slippage_pct": 1.0501134374936016,
+        "market_impact": 0.050113437493601615
+      },
+      {
+        "market_slug": "will-barcelona-win-the-202526-la-liga",
+        "question": "Will Barcelona win the 2025\u201326 La Liga?",
+        "liquidity": 56397.7495,
+        "yes_price": 0.585,
+        "slippage_pct": 1.067747134180495,
+        "market_impact": 0.06774713418049505
+      },
+      {
+        "market_slug": "will-villarreal-win-the-202526-la-liga",
+        "question": "Will Villarreal win the 2025\u201326 La Liga?",
+        "liquidity": 247299.15199,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0139535406242457,
+        "market_impact": 0.013953540624245711
+      },
+      {
+        "market_slug": "will-athletic-bilbao-win-the-202526-la-liga",
+        "question": "Will Athletic Bilbao win the 2025\u201326 La Liga?",
+        "liquidity": 32941.11918,
+        "yes_price": 0.004,
+        "slippage_pct": 1.1403124609871638,
+        "market_impact": 0.1403124609871638
+      },
+      {
+        "market_slug": "will-real-sociedad-win-the-202526-la-liga",
+        "question": "Will Real Sociedad win the 2025\u201326 La Liga?",
+        "liquidity": 383754.47351,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0107197813374487,
+        "market_impact": 0.010719781337448742
+      },
+      {
+        "market_slug": "will-girona-win-the-202526-la-liga",
+        "question": "Will Girona win the 2025\u201326 La Liga?",
+        "liquidity": 387348.91471,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0106599849442464,
+        "market_impact": 0.010659984944246288
+      },
+      {
+        "market_slug": "will-elche-win-the-202526-la-liga",
+        "question": "Will Elche win the 2025\u201326 La Liga?",
+        "liquidity": 356243.60401,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0112090744036093,
+        "market_impact": 0.011209074403609295
+      },
+      {
+        "market_slug": "will-valencia-win-the-202526-la-liga",
+        "question": "Will Valencia win the 2025\u201326 La Liga?",
+        "liquidity": 337700.07743,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0115744216990032,
+        "market_impact": 0.011574421699003225
+      },
+      {
+        "market_slug": "will-sevilla-win-the-202526-la-liga",
+        "question": "Will Sevilla win the 2025\u201326 La Liga?",
+        "liquidity": 343642.05014,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0114539218762795,
+        "market_impact": 0.011453921876279386
+      },
+      {
+        "market_slug": "will-espanyol-win-the-202526-la-liga",
+        "question": "Will Espanyol win the 2025\u201326 La Liga?",
+        "liquidity": 338675.17547,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0115544154433032,
+        "market_impact": 0.011554415443303146
+      },
+      {
+        "market_slug": "will-getafe-win-the-202526-la-liga",
+        "question": "Will Getafe win the 2025\u201326 La Liga?",
+        "liquidity": 361669.30719,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.011107875536863,
+        "market_impact": 0.011107875536862932
+      },
+      {
+        "market_slug": "will-alaves-win-the-202526-la-liga",
+        "question": "Will Alaves win the 2025\u201326 La Liga?",
+        "liquidity": 332657.83021,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0116793681202656,
+        "market_impact": 0.011679368120265592
+      },
+      {
+        "market_slug": "will-atletico-madrid-win-the-202526-la-liga",
+        "question": "Will Atletico Madrid win the 2025\u201326 La Liga?",
+        "liquidity": 185351.21413,
+        "yes_price": 0.007,
+        "slippage_pct": 1.01658902021177,
+        "market_impact": 0.016589020211769872
+      },
+      {
+        "market_slug": "will-the-fed-decrease-interest-rates-by-50-bps-after-the-march-2026-meeting",
+        "question": "Will the Fed decrease interest rates by 50+ bps after the Ma",
+        "liquidity": 1737817.52674,
+        "yes_price": 0.0095,
+        "slippage_pct": 1.0021656361781155,
+        "market_impact": 0.002165636178115528
+      },
+      {
+        "market_slug": "will-the-fed-decrease-interest-rates-by-25-bps-after-the-march-2026-meeting",
+        "question": "Will the Fed decrease interest rates by 25 bps after the Mar",
+        "liquidity": 775939.3972,
+        "yes_price": 0.065,
+        "slippage_pct": 1.0035131065341587,
+        "market_impact": 0.003513106534158756
+      },
+      {
+        "market_slug": "will-there-be-no-change-in-fed-interest-rates-after-the-march-2026-meeting",
+        "question": "Will there be no change in Fed interest rates after the Marc",
+        "liquidity": 1077242.8387,
+        "yes_price": 0.905,
+        "slippage_pct": 1.0028853588406517,
+        "market_impact": 0.002885358840651727
+      },
+      {
+        "market_slug": "will-the-fed-increase-interest-rates-by-25-bps-after-the-march-2026-meeting",
+        "question": "Will the Fed increase interest rates by 25+ bps after the Ma",
+        "liquidity": 671754.4987,
+        "yes_price": 0.0195,
+        "slippage_pct": 1.0038305545517334,
+        "market_impact": 0.003830554551733279
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-pvv-ja21",
+        "question": "Will the next Dutch government be PVV + JA21?",
+        "liquidity": 34053.03976,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1375452892132225,
+        "market_impact": 0.13754528921322245
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-pvv-vvd-ja21",
+        "question": "Will the next Dutch government be PVV + VVD + JA21?",
+        "liquidity": 41825.32944,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1215837767938601,
+        "market_impact": 0.12158377679386002
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-pvv-vvd-ja21-d66",
+        "question": "Will the next Dutch government be PVV + VVD + JA21 + D66?",
+        "liquidity": 38165.0529,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1284516629029064,
+        "market_impact": 0.1284516629029064
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-pvv-vvd",
+        "question": "Will the next Dutch government be PVV + VVD?",
+        "liquidity": 41779.87714,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1216631220799091,
+        "market_impact": 0.12166312207990909
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-pvv-cda",
+        "question": "Will the next Dutch government be PVV + CDA?",
+        "liquidity": 38354.50545,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1280705928072776,
+        "market_impact": 0.12807059280727773
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-pvv-vvd-d66",
+        "question": "Will the next Dutch government be PVV + VVD + D66?",
+        "liquidity": 45229.56679,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1160074272280232,
+        "market_impact": 0.1160074272280231
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-pvv-cda-ja21",
+        "question": "Will the next Dutch government be PVV + CDA + JA21?",
+        "liquidity": 37906.57602,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1289764792200712,
+        "market_impact": 0.12897647922007122
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-pvv-vvd-cda-ja21",
+        "question": "Will the next Dutch government be PVV + VVD + CDA + JA21?",
+        "liquidity": 38823.03839,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.127140975506897,
+        "market_impact": 0.12714097550689696
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-pvv-vvd-cda-ja21-d66",
+        "question": "Will the next Dutch government be PVV + VVD + CDA + JA21 + D",
+        "liquidity": 39261.89457,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.126286375998616,
+        "market_impact": 0.12628637599861578
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-pvv-vvd-cda",
+        "question": "Will the next Dutch government be PVV + VVD + CDA?",
+        "liquidity": 38828.1599,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1271309131558935,
+        "market_impact": 0.12713091315589356
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-pvv-cda-d66",
+        "question": "Will the next Dutch government be PVV + CDA + D66?",
+        "liquidity": 34539.98742,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1363785118289378,
+        "market_impact": 0.13637851182893782
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-pvv-vvd-cda-d66",
+        "question": "Will the next Dutch government be PVV + VVD + CDA + D66?",
+        "liquidity": 37164.87812,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1305147585811859,
+        "market_impact": 0.13051475858118583
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-vvd-ja21",
+        "question": "Will the next Dutch government be VVD + JA21?",
+        "liquidity": 40247.30061,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1244220056028125,
+        "market_impact": 0.12442200560281243
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-vvd-cda-ja21-d66",
+        "question": "Will the next Dutch government be VVD + CDA + JA21 + D66?",
+        "liquidity": 33383.59571,
+        "yes_price": 0.006,
+        "slippage_pct": 1.1391936376663219,
+        "market_impact": 0.1391936376663218
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-vvd-d66",
+        "question": "Will the next Dutch government be VVD + D66?",
+        "liquidity": 48852.22753,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.110766550073327,
+        "market_impact": 0.11076655007332707
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-glpvda-vvd-cda",
+        "question": "Will the next Dutch government be GL/PvdA + VVD + CDA?",
+        "liquidity": 46553.80011,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1140160968591442,
+        "market_impact": 0.11401609685914406
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-pvv-glpvda-vvd-cda-d66",
+        "question": "Will the next Dutch government be PVV + GL/PvdA + VVD + CDA ",
+        "liquidity": 37055.51277,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.13074574248493,
+        "market_impact": 0.13074574248493004
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-glpvda-d66",
+        "question": "Will the next Dutch government be GL/PvdA + D66?",
+        "liquidity": 38399.95576,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.127979620408384,
+        "market_impact": 0.12797962040838423
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-another-combination",
+        "question": "Will the next Dutch government be another combination?",
+        "liquidity": 53941.76522,
+        "yes_price": 0.002,
+        "slippage_pct": 1.0695813579838127,
+        "market_impact": 0.0695813579838128
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-vvd-cda-ja21",
+        "question": "Will the next Dutch government be VVD + CDA + JA21?",
+        "liquidity": 47898.7644,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1120842695396929,
+        "market_impact": 0.11208426953969276
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-vvd-cda",
+        "question": "Will the next Dutch government be VVD + CDA?",
+        "liquidity": 41657.11184,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1218781233274036,
+        "market_impact": 0.12187812332740354
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-cda-d66",
+        "question": "Will the next Dutch government be CDA + D66?",
+        "liquidity": 39157.51131,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1264882554932967,
+        "market_impact": 0.12648825549329656
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-glpvda-vvd",
+        "question": "Will the next Dutch government be GL/PvdA + VVD?",
+        "liquidity": 42353.06748,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1206725055013977,
+        "market_impact": 0.12067250550139771
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-glpvda-vvd-d66",
+        "question": "Will the next Dutch government be GL/PvdA + VVD + D66?",
+        "liquidity": 38920.08743,
+        "yes_price": 0.004,
+        "slippage_pct": 1.1269506613868743,
+        "market_impact": 0.12695066138687433
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-glpvda-d66-cda",
+        "question": "Will the next Dutch government be GL/PvdA + D66 + CDA?",
+        "liquidity": 37182.7561,
+        "yes_price": 0.003,
+        "slippage_pct": 1.130477102986187,
+        "market_impact": 0.13047710298618723
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-glpvda-cda",
+        "question": "Will the next Dutch government be GL/PvdA + CDA?",
+        "liquidity": 44014.85896,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1179178802209058,
+        "market_impact": 0.11791788022090574
+      },
+      {
+        "market_slug": "will-the-next-dutch-government-be-glpvda",
+        "question": "Will the next Dutch government be GL/PvdA?",
+        "liquidity": 65372.79828,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.062002578071643,
+        "market_impact": 0.062002578071643014
+      },
+      {
+        "market_slug": "will-there-be-no-coalition-by-october-31",
+        "question": "Will there be no coalition by October 31?",
+        "liquidity": 25719.47424,
+        "yes_price": 0.002,
+        "slippage_pct": 1.1627728622213285,
+        "market_impact": 0.1627728622213285
+      },
+      {
+        "market_slug": "new-stranger-things-episode-released-by-december-31-587",
+        "question": "New \"Stranger Things\" episode released by December 31? ",
+        "liquidity": 33859.4865,
+        "yes_price": 0.075,
+        "slippage_pct": 1.1380165069340427,
+        "market_impact": 0.13801650693404266
+      },
+      {
+        "market_slug": "will-grigor-dimitrov-win-the-2026-australian-open",
+        "question": "Will Grigor Dimitrov win the 2026 Australian Open?",
+        "liquidity": 1041697.18398,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0029440359413917,
+        "market_impact": 0.002944035941391793
+      },
+      {
+        "market_slug": "will-trump-acquire-greenland-before-2027",
+        "question": "Will Trump acquire Greenland before 2027?",
+        "liquidity": 643785.663,
+        "yes_price": 0.125,
+        "slippage_pct": 1.0039295536383184,
+        "market_impact": 0.003929553638318411
+      },
+      {
+        "market_slug": "us-anti-cartel-ground-operation-in-mexico-by-january-31",
+        "question": "U.S. anti-cartel ground operation in Mexico by January 31?",
+        "liquidity": 1719066.38686,
+        "yes_price": 0.9985,
+        "slippage_pct": 1.0021797787405742,
+        "market_impact": 0.002179778740574199
+      },
+      {
+        "market_slug": "will-the-government-shutdown-last-6-days-or-more-888",
+        "question": "Will the government shutdown last 6 days or more?",
+        "liquidity": 150032.14095,
+        "yes_price": 0.0025,
+        "slippage_pct": 1.0188324755990867,
+        "market_impact": 0.018832475599086785
+      },
+      {
+        "market_slug": "will-the-government-shutdown-last-10-days-or-more-772-652",
+        "question": "Will the government shutdown last 10 days or more?",
+        "liquidity": 121228.18599,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0214020726246895,
+        "market_impact": 0.02140207262468949
+      },
+      {
+        "market_slug": "will-the-government-shutdown-last-5-days-or-more",
+        "question": "Will the government shutdown last 5 days or more?",
+        "liquidity": 398010.81974,
+        "yes_price": 0.0135,
+        "slippage_pct": 1.0104877196694229,
+        "market_impact": 0.010487719669422847
+      },
+      {
+        "market_slug": "will-the-government-shutdown-last-14-days-or-more-343-693-775-861-153",
+        "question": "Will the government shutdown last 14 days or more?",
+        "liquidity": 196848.06512,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0160007119582888,
+        "market_impact": 0.016000711958288748
+      },
+      {
+        "market_slug": "will-the-government-shutdown-last-60-days-or-more-286-461-927-735-666",
+        "question": "Will the government shutdown last 60 days or more?",
+        "liquidity": 93988.97348,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0498656918835048,
+        "market_impact": 0.04986569188350456
+      },
+      {
+        "market_slug": "will-the-government-shutdown-last-7-days-or-more-188-769-669-728-992",
+        "question": "Will the government shutdown last 7 days or more?",
+        "liquidity": 126752.71875,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0208374047369508,
+        "market_impact": 0.020837404736950765
+      },
+      {
+        "market_slug": "will-the-government-shutdown-last-30-days-or-more-558-354-297-785-675",
+        "question": "Will the government shutdown last 30 days or more?",
+        "liquidity": 167307.2001,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0176404320876986,
+        "market_impact": 0.017640432087698565
+      },
+      {
+        "market_slug": "microstrategy-sells-any-bitcoin-by-march-31-2026",
+        "question": "MicroStrategy sells any Bitcoin by March 31, 2026?",
+        "liquidity": 91308.13715,
+        "yes_price": 0.0465,
+        "slippage_pct": 1.0507390467305124,
+        "market_impact": 0.05073904673051235
+      },
+      {
+        "market_slug": "microstrategy-sells-any-bitcoin-by-june-30-2026",
+        "question": "MicroStrategy sells any Bitcoin by June 30, 2026?",
+        "liquidity": 58295.8675,
+        "yes_price": 0.12,
+        "slippage_pct": 1.066414870690642,
+        "market_impact": 0.06641487069064203
+      },
+      {
+        "market_slug": "will-trae-young-win-the-20252026-nba-mvp",
+        "question": "Will Trae Young win the 2025\u20132026 NBA MVP?",
+        "liquidity": 78156.19427,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0557018925029844,
+        "market_impact": 0.055701892502984414
+      },
+      {
+        "market_slug": "will-kawhi-leonard-win-the-20252026-nba-mvp",
+        "question": "Will Kawhi Leonard win the 2025\u20132026 NBA MVP?",
+        "liquidity": 46341.57616,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1143290965463883,
+        "market_impact": 0.11432909654638815
+      },
+      {
+        "market_slug": "will-lebron-james-win-the-20252026-nba-mvp",
+        "question": "Will LeBron James win the 2025\u20132026 NBA MVP?",
+        "liquidity": 114252.64447,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0221767673694684,
+        "market_impact": 0.022176767369468425
+      },
+      {
+        "market_slug": "will-ja-morant-win-the-20252026-nba-mvp",
+        "question": "Will Ja Morant win the 2025\u20132026 NBA MVP?",
+        "liquidity": 44598.66024,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1169893059778957,
+        "market_impact": 0.11698930597789582
+      },
+      {
+        "market_slug": "will-devin-booker-win-the-20252026-nba-mvp",
+        "question": "Will Devin Booker win the 2025\u20132026 NBA MVP?",
+        "liquidity": 95798.53042,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0492983841779424,
+        "market_impact": 0.049298384177942266
+      },
+      {
+        "market_slug": "will-cooper-flagg-win-the-20252026-nba-mvp",
+        "question": "Will Cooper Flagg win the 2025\u20132026 NBA MVP?",
+        "liquidity": 90807.7849,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0509066060929884,
+        "market_impact": 0.0509066060929883
+      },
+      {
+        "market_slug": "will-tyrese-maxey-win-the-20252026-nba-mvp",
+        "question": "Will Tyrese Maxey win the 2025\u20132026 NBA MVP?",
+        "liquidity": 137435.64219,
+        "yes_price": 0.0035,
+        "slippage_pct": 1.019849902218112,
+        "market_impact": 0.01984990221811197
+      },
+      {
+        "market_slug": "will-nikola-jokic-win-the-20252026-nba-mvp",
+        "question": "Will Nikola Jokic win the 2025\u20132026 NBA MVP?",
+        "liquidity": 34870.72468,
+        "yes_price": 0.154,
+        "slippage_pct": 1.1356009300835754,
+        "market_impact": 0.1356009300835754
+      },
+      {
+        "market_slug": "will-shai-gilgeous-alexander-win-the-20252026-nba-mvp",
+        "question": "Will Shai Gilgeous-Alexander win the 2025\u20132026 NBA MVP?",
+        "liquidity": 47773.47,
+        "yes_price": 0.74,
+        "slippage_pct": 1.1122605536652452,
+        "market_impact": 0.11226055366524523
+      },
+      {
+        "market_slug": "will-luka-doncic-win-the-20252026-nba-mvp",
+        "question": "Will Luka Doncic win the 2025\u20132026 NBA MVP?",
+        "liquidity": 61954.51001,
+        "yes_price": 0.0685,
+        "slippage_pct": 1.06403305717326,
+        "market_impact": 0.06403305717325987
+      },
+      {
+        "market_slug": "will-giannis-antetokounmpo-win-the-20252026-nba-mvp",
+        "question": "Will Giannis Antetokounmpo win the 2025\u20132026 NBA MVP?",
+        "liquidity": 112701.05905,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0223594542525165,
+        "market_impact": 0.022359454252516456
+      },
+      {
+        "market_slug": "will-anthony-edwards-win-the-20252026-nba-mvp",
+        "question": "Will Anthony Edwards win the 2025\u20132026 NBA MVP?",
+        "liquidity": 113543.63047,
+        "yes_price": 0.0045,
+        "slippage_pct": 1.0222597525188104,
+        "market_impact": 0.022259752518810284
+      },
+      {
+        "market_slug": "will-victor-wembanyama-win-the-20252026-nba-mvp",
+        "question": "Will Victor Wembanyama win the 2025\u20132026 NBA MVP?",
+        "liquidity": 69308.73277,
+        "yes_price": 0.005,
+        "slippage_pct": 1.0598653075608488,
+        "market_impact": 0.05986530756084882
+      },
+      {
+        "market_slug": "will-jalen-brunson-win-the-20252026-nba-mvp",
+        "question": "Will Jalen Brunson win the 2025\u20132026 NBA MVP?",
+        "liquidity": 84128.50097,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0532944644897326,
+        "market_impact": 0.05329446448973246
+      },
+      {
+        "market_slug": "will-cade-cunningham-win-the-20252026-nba-mvp",
+        "question": "Will Cade Cunningham win the 2025\u20132026 NBA MVP?",
+        "liquidity": 69712.77,
+        "yes_price": 0.0195,
+        "slippage_pct": 1.0596568872694037,
+        "market_impact": 0.059656887269403804
+      },
+      {
+        "market_slug": "will-donovan-mitchell-win-the-20252026-nba-mvp",
+        "question": "Will Donovan Mitchell win the 2025\u20132026 NBA MVP?",
+        "liquidity": 69445.52249,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0597945281582872,
+        "market_impact": 0.05979452815828718
+      },
+      {
+        "market_slug": "will-kevin-durant-win-the-20252026-nba-mvp",
+        "question": "Will Kevin Durant win the 2025\u20132026 NBA MVP?",
+        "liquidity": 68890.45792,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.060083130165713,
+        "market_impact": 0.06008313016571302
+      },
+      {
+        "market_slug": "will-paolo-banchero-win-the-20252026-nba-mvp",
+        "question": "Will Paolo Banchero win the 2025\u20132026 NBA MVP?",
+        "liquidity": 41969.87668,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1213323575491103,
+        "market_impact": 0.12133235754911023
+      },
+      {
+        "market_slug": "will-stephen-curry-win-the-20252026-nba-mvp",
+        "question": "Will Stephen Curry win the 2025\u20132026 NBA MVP?",
+        "liquidity": 72432.03891,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0583028207384275,
+        "market_impact": 0.05830282073842765
+      },
+      {
+        "market_slug": "will-anthony-davis-win-the-20252026-nba-mvp",
+        "question": "Will Anthony Davis win the 2025\u20132026 NBA MVP?",
+        "liquidity": 53944.58604,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.069579174870881,
+        "market_impact": 0.06957917487088094
+      },
+      {
+        "market_slug": "will-joel-embiid-win-the-20252026-nba-mvp",
+        "question": "Will Joel Embiid win the 2025\u20132026 NBA MVP?",
+        "liquidity": 52300.81732,
+        "yes_price": 0.001,
+        "slippage_pct": 1.0708831334398332,
+        "market_impact": 0.07088313343983314
+      },
+      {
+        "market_slug": "will-jaylen-brown-win-the-20252026-nba-mvp",
+        "question": "Will Jaylen Brown win the 2025\u20132026 NBA MVP?",
+        "liquidity": 66973.39199,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0611092024924522,
+        "market_impact": 0.06110920249245218
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-27-february-3-340-359",
+        "question": "Will Elon Musk post 340-359 tweets from January 27 to Februa",
+        "liquidity": 108508.95205,
+        "yes_price": 0.9995,
+        "slippage_pct": 1.022873817717649,
+        "market_impact": 0.02287381771764893
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-27-february-3-360-379",
+        "question": "Will Elon Musk post 360-379 tweets from January 27 to Februa",
+        "liquidity": 142305.65839,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0194394823512027,
+        "market_impact": 0.019439482351202846
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-27-february-3-380-399",
+        "question": "Will Elon Musk post 380-399 tweets from January 27 to Februa",
+        "liquidity": 163319.14425,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.017897638835007,
+        "market_impact": 0.017897638835006745
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-27-february-3-400-419",
+        "question": "Will Elon Musk post 400-419 tweets from January 27 to Februa",
+        "liquidity": 175701.0719,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0171298417475736,
+        "market_impact": 0.017129841747573572
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-27-february-3-420-439",
+        "question": "Will Elon Musk post 420-439 tweets from January 27 to Februa",
+        "liquidity": 115191.33613,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0220681591809035,
+        "market_impact": 0.0220681591809036
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-27-february-3-440-459",
+        "question": "Will Elon Musk post 440-459 tweets from January 27 to Februa",
+        "liquidity": 150972.29476,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0187620221180818,
+        "market_impact": 0.01876202211808182
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-27-february-3-460-479",
+        "question": "Will Elon Musk post 460-479 tweets from January 27 to Februa",
+        "liquidity": 163973.17936,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0178547719234357,
+        "market_impact": 0.01785477192343564
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-27-february-3-480-499",
+        "question": "Will Elon Musk post 480-499 tweets from January 27 to Februa",
+        "liquidity": 153393.34359,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0185837814304108,
+        "market_impact": 0.018583781430410836
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-27-february-3-500-519",
+        "question": "Will Elon Musk post 500-519 tweets from January 27 to Februa",
+        "liquidity": 135354.93543,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0200324256613722,
+        "market_impact": 0.02003242566137211
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-27-february-3-520-539",
+        "question": "Will Elon Musk post 520-539 tweets from January 27 to Februa",
+        "liquidity": 132401.27465,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0202993764552986,
+        "market_impact": 0.020299376455298473
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-27-february-3-540-559",
+        "question": "Will Elon Musk post 540-559 tweets from January 27 to Februa",
+        "liquidity": 120720.84882,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0214559935102938,
+        "market_impact": 0.02145599351029378
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-27-february-3-560-579",
+        "question": "Will Elon Musk post 560-579 tweets from January 27 to Februa",
+        "liquidity": 112357.49858,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0224004508940734,
+        "market_impact": 0.022400450894073394
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-27-february-3-580-599",
+        "question": "Will Elon Musk post 580-599 tweets from January 27 to Februa",
+        "liquidity": 185347.82419,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0165892022551613,
+        "market_impact": 0.016589202255161157
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-27-february-3-600-619",
+        "question": "Will Elon Musk post 600-619 tweets from January 27 to Februa",
+        "liquidity": 163479.27754,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0178871179804025,
+        "market_impact": 0.017887117980402545
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-27-february-3-620-639",
+        "question": "Will Elon Musk post 620-639 tweets from January 27 to Februa",
+        "liquidity": 176701.01861,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0170716133338096,
+        "market_impact": 0.017071613333809618
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-27-february-3-640-659",
+        "question": "Will Elon Musk post 640-659 tweets from January 27 to Februa",
+        "liquidity": 182181.04433,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0167616236440273,
+        "market_impact": 0.016761623644027362
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-27-february-3-660-679",
+        "question": "Will Elon Musk post 660-679 tweets from January 27 to Februa",
+        "liquidity": 193593.98458,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0161615452388324,
+        "market_impact": 0.01616154523883234
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-27-february-3-680-699",
+        "question": "Will Elon Musk post 680-699 tweets from January 27 to Februa",
+        "liquidity": 239791.15727,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0142140585224504,
+        "market_impact": 0.014214058522450349
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-27-february-3-700-719",
+        "question": "Will Elon Musk post 700-719 tweets from January 27 to Februa",
+        "liquidity": 229302.40268,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0146006716435796,
+        "market_impact": 0.014600671643579706
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-27-february-3-720-739",
+        "question": "Will Elon Musk post 720-739 tweets from January 27 to Februa",
+        "liquidity": 242578.0318,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0141158526603207,
+        "market_impact": 0.014115852660320649
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-27-february-3-740plus",
+        "question": "Will Elon Musk post 740+ tweets from January 27 to February ",
+        "liquidity": 243457.48109,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.014085235830173,
+        "market_impact": 0.014085235830172998
+      },
+      {
+        "market_slug": "russia-ukraine-ceasefire-before-gta-vi-554",
+        "question": "Russia-Ukraine Ceasefire before GTA VI?",
+        "liquidity": 58193.0172,
+        "yes_price": 0.61,
+        "slippage_pct": 1.066485274774978,
+        "market_impact": 0.06648527477497791
+      },
+      {
+        "market_slug": "new-rhianna-album-before-gta-vi-926",
+        "question": "New Rihanna Album before GTA VI?",
+        "liquidity": 25124.433,
+        "yes_price": 0.595,
+        "slippage_pct": 1.1650750701127985,
+        "market_impact": 0.16507507011279846
+      },
+      {
+        "market_slug": "will-jesus-christ-return-before-gta-vi-665",
+        "question": "Will Jesus Christ return before GTA VI?",
+        "liquidity": 435858.1957,
+        "yes_price": 0.485,
+        "slippage_pct": 1.009931408995446,
+        "market_impact": 0.00993140899544604
+      },
+      {
+        "market_slug": "trump-out-as-president-before-gta-vi-846",
+        "question": "Trump out as President before GTA VI?",
+        "liquidity": 38891.58,
+        "yes_price": 0.525,
+        "slippage_pct": 1.1270064859132936,
+        "market_impact": 0.12700648591329364
+      },
+      {
+        "market_slug": "will-china-invades-taiwan-before-gta-vi-716",
+        "question": "Will China invades Taiwan before GTA VI?",
+        "liquidity": 51563.1131,
+        "yes_price": 0.52,
+        "slippage_pct": 1.0714898712919356,
+        "market_impact": 0.07148987129193557
+      },
+      {
+        "market_slug": "will-bitcoin-hit-1m-before-gta-vi-872",
+        "question": "Will bitcoin hit $1m before GTA VI?",
+        "liquidity": 174589.9111,
+        "yes_price": 0.485,
+        "slippage_pct": 1.0171951714755043,
+        "market_impact": 0.017195171475504308
+      },
+      {
+        "market_slug": "will-gpt-6-be-released",
+        "question": "Will GPT-6 be released before GTA VI?",
+        "liquidity": 42444.7353,
+        "yes_price": 0.58,
+        "slippage_pct": 1.1205160681725193,
+        "market_impact": 0.12051606817251924
+      },
+      {
+        "market_slug": "will-tarcisio-de-frietas-win-the-2026-brazilian-presidential-election",
+        "question": "Will Tarcisio de Freitas win the 2026 Brazilian presidential",
+        "liquidity": 54499.02502,
+        "yes_price": 0.0475,
+        "slippage_pct": 1.0691535935969099,
+        "market_impact": 0.06915359359690973
+      },
+      {
+        "market_slug": "will-luiz-incio-lula-da-silva-win-the-2026-brazilian-presidential-election",
+        "question": "Will Luiz In\u00e1cio Lula da Silva win the 2026 Brazilian presid",
+        "liquidity": 59063.8912,
+        "yes_price": 0.525,
+        "slippage_pct": 1.0658953485969669,
+        "market_impact": 0.06589534859696683
+      },
+      {
+        "market_slug": "will-jair-bolsonaro-win-the-2026-brazilian-presidential-election",
+        "question": "Will Jair Bolsonaro win the 2026 Brazilian presidential elec",
+        "liquidity": 61478.00569,
+        "yes_price": 0.009,
+        "slippage_pct": 1.0643303820431427,
+        "market_impact": 0.06433038204314254
+      },
+      {
+        "market_slug": "will-fernando-haddad-win-the-2026-brazilian-presidential-election",
+        "question": "Will Fernando Haddad win the 2026 Brazilian presidential ele",
+        "liquidity": 71945.7418,
+        "yes_price": 0.02,
+        "slippage_pct": 1.0585389510620564,
+        "market_impact": 0.0585389510620564
+      },
+      {
+        "market_slug": "will-michelle-bolsonaro-win-the-2026-brazilian-presidential-election",
+        "question": "Will Michelle Bolsonaro win the 2026 Brazilian presidential ",
+        "liquidity": 79189.12805,
+        "yes_price": 0.0025,
+        "slippage_pct": 1.055264806845717,
+        "market_impact": 0.05526480684571717
+      },
+      {
+        "market_slug": "will-eduardo-bolsonaro-win-the-2026-brazilian-presidential-election",
+        "question": "Will Eduardo Bolsonaro win the 2026 Brazilian presidential e",
+        "liquidity": 208291.72601,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0154673098671776,
+        "market_impact": 0.015467309867177455
+      },
+      {
+        "market_slug": "will-carlos-roberto-massa-jnior-win-the-2026-brazilian-presidential-election",
+        "question": "Will Carlos Roberto Massa J\u00fanior win the 2026 Brazilian pres",
+        "liquidity": 45456.96533,
+        "yes_price": 0.0565,
+        "slippage_pct": 1.1156588816402495,
+        "market_impact": 0.11565888164024965
+      },
+      {
+        "market_slug": "will-renan-santos-win-the-2026-brazilian-presidential-election",
+        "question": "Will Renan Santos win the 2026 Brazilian presidential electi",
+        "liquidity": 81731.38123,
+        "yes_price": 0.0675,
+        "slippage_pct": 1.0542268890469386,
+        "market_impact": 0.05422688904693858
+      },
+      {
+        "market_slug": "will-flvio-bolsonaro-win-the-2026-brazilian-presidential-election",
+        "question": "Will Fl\u00e1vio Bolsonaro win the 2026 Brazilian presidential el",
+        "liquidity": 78496.10075,
+        "yes_price": 0.268,
+        "slippage_pct": 1.055557045578179,
+        "market_impact": 0.05555704557817902
+      },
+      {
+        "market_slug": "will-mara-corina-machado-be-the-leader-of-venezuela-end-of-2026",
+        "question": "Will Mar\u00eda Corina Machado be the leader of Venezuela end of ",
+        "liquidity": 36025.4199,
+        "yes_price": 0.135,
+        "slippage_pct": 1.132976170317335,
+        "market_impact": 0.1329761703173349
+      },
+      {
+        "market_slug": "will-diosdado-cabello-rondn-be-the-leader-of-venezuela-end-of-2026",
+        "question": "Will Diosdado Cabello Rond\u00f3n be the leader of Venezuela end ",
+        "liquidity": 38279.22022,
+        "yes_price": 0.0205,
+        "slippage_pct": 1.128221662262723,
+        "market_impact": 0.12822166226272297
+      },
+      {
+        "market_slug": "will-dinorah-figuera-be-the-leader-of-venezuela-end-of-2026",
+        "question": "Will Dinorah Figuera be the leader of Venezuela end of 2026?",
+        "liquidity": 106560.7782,
+        "yes_price": 0.002,
+        "slippage_pct": 1.0231238193209953,
+        "market_impact": 0.02312381932099525
+      },
+      {
+        "market_slug": "will-vladimir-padrino-lpez-be-the-leader-of-venezuela-end-of-2026",
+        "question": "Will Vladimir Padrino L\u00f3pez be the leader of Venezuela end o",
+        "liquidity": 43578.8571,
+        "yes_price": 0.0185,
+        "slippage_pct": 1.1186243239528055,
+        "market_impact": 0.11862432395280549
+      },
+      {
+        "market_slug": "will-jorge-rodrguez-be-the-leader-of-venezuela-end-of-2026",
+        "question": "Will Jorge Rodr\u00edguez be the leader of Venezuela end of 2026?",
+        "liquidity": 46608.10366,
+        "yes_price": 0.003,
+        "slippage_pct": 1.113936373525231,
+        "market_impact": 0.113936373525231
+      },
+      {
+        "market_slug": "will-evan-pettus-be-the-leader-of-venezuela-end-of-2026",
+        "question": "Will Evan Pettus be the leader of Venezuela end of 2026?",
+        "liquidity": 113123.42617,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0223093269020351,
+        "market_impact": 0.022309326902035152
+      },
+      {
+        "market_slug": "will-dan-caine-be-the-leader-of-venezuela-end-of-2026",
+        "question": "Will Dan Caine be the leader of Venezuela end of 2026?",
+        "liquidity": 144911.66529,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0192289685456744,
+        "market_impact": 0.019228968545674303
+      },
+      {
+        "market_slug": "will-there-be-no-head-of-state-of-venezuela-end-of-2026",
+        "question": "Will there be no head of state of Venezuela end of 2026?",
+        "liquidity": 85442.89467,
+        "yes_price": 0.0035,
+        "slippage_pct": 1.0528010332452762,
+        "market_impact": 0.05280103324527623
+      },
+      {
+        "market_slug": "will-edmundo-gonzlez-be-the-leader-of-venezuela-end-of-2026",
+        "question": "Will Edmundo Gonz\u00e1lez be the leader of Venezuela end of 2026",
+        "liquidity": 79729.9182,
+        "yes_price": 0.05,
+        "slippage_pct": 1.055039591501559,
+        "market_impact": 0.05503959150155894
+      },
+      {
+        "market_slug": "will-delcy-rodrguez-be-the-leader-of-venezuela-end-of-2026",
+        "question": "Will Delcy Rodr\u00edguez be the leader of Venezuela end of 2026?",
+        "liquidity": 151947.9449,
+        "yes_price": 0.655,
+        "slippage_pct": 1.018689647012735,
+        "market_impact": 0.0186896470127349
+      },
+      {
+        "market_slug": "will-nicols-maduro-be-the-leader-of-venezuela-end-of-2026",
+        "question": "Will Nicol\u00e1s Maduro be the leader of Venezuela end of 2026?",
+        "liquidity": 33948.53288,
+        "yes_price": 0.0945,
+        "slippage_pct": 1.1377991839853658,
+        "market_impact": 0.1377991839853658
+      },
+      {
+        "market_slug": "will-donald-trump-be-the-leader-of-venezuela-end-of-2026",
+        "question": "Will Donald Trump be the leader of Venezuela end of 2026?",
+        "liquidity": 61199.42198,
+        "yes_price": 0.0035,
+        "slippage_pct": 1.0645059240461014,
+        "market_impact": 0.06450592404610132
+      },
+      {
+        "market_slug": "will-marco-rubio-be-the-leader-of-venezuela-end-of-2026",
+        "question": "Will Marco Rubio be the leader of Venezuela end of 2026?",
+        "liquidity": 30285.13311,
+        "yes_price": 0.004,
+        "slippage_pct": 1.14757118341482,
+        "market_impact": 0.14757118341481984
+      },
+      {
+        "market_slug": "will-pete-hegseth-be-the-leader-of-venezuela-end-of-2026",
+        "question": "Will Pete Hegseth be the leader of Venezuela end of 2026?",
+        "liquidity": 133699.7319,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0201808602770865,
+        "market_impact": 0.020180860277086553
+      },
+      {
+        "market_slug": "will-frank-donovan-be-the-leader-of-venezuela-end-of-2026",
+        "question": "Will Frank Donovan be the leader of Venezuela end of 2026?",
+        "liquidity": 136750.18289,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0199095410045795,
+        "market_impact": 0.019909541004579614
+      },
+      {
+        "market_slug": "will-richard-grenell-be-the-leader-of-venezuela-end-of-2026",
+        "question": "Will Richard Grenell be the leader of Venezuela end of 2026?",
+        "liquidity": 151973.46722,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0186877637135647,
+        "market_impact": 0.01868776371356468
+      },
+      {
+        "market_slug": "will-the-us-invade-venezuela-by-march-31-2026-255",
+        "question": "Will the U.S. invade Venezuela by March 31, 2026?",
+        "liquidity": 30246.30097,
+        "yes_price": 0.0235,
+        "slippage_pct": 1.1476848310500074,
+        "market_impact": 0.14768483105000738
+      },
+      {
+        "market_slug": "russia-x-ukraine-ceasefire-by-march-31-2026",
+        "question": "Russia x Ukraine ceasefire by March 31, 2026?",
+        "liquidity": 804494.6013,
+        "yes_price": 0.115,
+        "slippage_pct": 1.003437748658836,
+        "market_impact": 0.0034377486588359867
+      },
+      {
+        "market_slug": "will-bitcoin-reach-150k-in-february-2026",
+        "question": "Will Bitcoin reach $150,000 in February?",
+        "liquidity": 611431.81785,
+        "yes_price": 0.0045,
+        "slippage_pct": 1.0040530240500507,
+        "market_impact": 0.004053024050050704
+      },
+      {
+        "market_slug": "will-bitcoin-reach-120k-in-february-2026",
+        "question": "Will Bitcoin reach $120,000 in February?",
+        "liquidity": 167087.28785,
+        "yes_price": 0.0055,
+        "slippage_pct": 1.0176543589158589,
+        "market_impact": 0.017654358915858797
+      },
+      {
+        "market_slug": "will-bitcoin-reach-125k-in-february-2026",
+        "question": "Will Bitcoin reach $125,000 in February?",
+        "liquidity": 191069.36765,
+        "yes_price": 0.0035,
+        "slippage_pct": 1.016289335101255,
+        "market_impact": 0.016289335101255034
+      },
+      {
+        "market_slug": "will-bitcoin-dip-to-60k-in-february-2026",
+        "question": "Will Bitcoin dip to $60,000 in February?",
+        "liquidity": 55004.4778,
+        "yes_price": 0.165,
+        "slippage_pct": 1.068771605858183,
+        "market_impact": 0.06877160585818295
+      },
+      {
+        "market_slug": "will-bitcoin-reach-115k-in-february-2026",
+        "question": "Will Bitcoin reach $115,000 in February?",
+        "liquidity": 130495.74352,
+        "yes_price": 0.0085,
+        "slippage_pct": 1.0204767104724148,
+        "market_impact": 0.020476710472414828
+      },
+      {
+        "market_slug": "will-bitcoin-dip-to-55k-in-february-2026",
+        "question": "Will Bitcoin dip to $55,000 in February?",
+        "liquidity": 55379.77017,
+        "yes_price": 0.0875,
+        "slippage_pct": 1.0684915987303059,
+        "market_impact": 0.06849159873030579
+      },
+      {
+        "market_slug": "will-bitcoin-dip-to-70k-in-february-2026",
+        "question": "Will Bitcoin dip to $70,000 in February?",
+        "liquidity": 72713.2282,
+        "yes_price": 0.65,
+        "slippage_pct": 1.0581674382366018,
+        "market_impact": 0.05816743823660165
+      },
+      {
+        "market_slug": "will-bitcoin-reach-110k-in-february-2026",
+        "question": "Will Bitcoin reach $110,000 in February?",
+        "liquidity": 148844.36102,
+        "yes_price": 0.0135,
+        "slippage_pct": 1.018922502260458,
+        "market_impact": 0.01892250226045799
+      },
+      {
+        "market_slug": "will-bitcoin-dip-to-50k-in-february-2026",
+        "question": "Will Bitcoin dip to $50,000 in February?",
+        "liquidity": 51218.74046,
+        "yes_price": 0.0355,
+        "slippage_pct": 1.0717778848577222,
+        "market_impact": 0.07177788485772212
+      },
+      {
+        "market_slug": "will-bitcoin-reach-105k-in-february-2026",
+        "question": "Will Bitcoin reach $105,000 in February?",
+        "liquidity": 92477.84272,
+        "yes_price": 0.0205,
+        "slippage_pct": 1.0503530032817598,
+        "market_impact": 0.0503530032817598
+      },
+      {
+        "market_slug": "will-bitcoin-reach-100k-in-february-2026",
+        "question": "Will Bitcoin reach $100,000 in February?",
+        "liquidity": 108033.34875,
+        "yes_price": 0.0425,
+        "slippage_pct": 1.0229341841010438,
+        "market_impact": 0.022934184101043687
+      },
+      {
+        "market_slug": "will-bitcoin-reach-95k-in-february-2026",
+        "question": "Will Bitcoin reach $95,000 in February?",
+        "liquidity": 96880.4331,
+        "yes_price": 0.075,
+        "slippage_pct": 1.0489673216365287,
+        "market_impact": 0.04896732163652874
+      },
+      {
+        "market_slug": "will-bitcoin-reach-90k-in-february-2026",
+        "question": "Will Bitcoin reach $90,000 in February?",
+        "liquidity": 143670.0858,
+        "yes_price": 0.17,
+        "slippage_pct": 1.0193285015610463,
+        "market_impact": 0.019328501561046155
+      },
+      {
+        "market_slug": "will-bitcoin-dip-to-40k-in-february-2026",
+        "question": "Will Bitcoin dip to $40,000 in February?",
+        "liquidity": 76256.7235,
+        "yes_price": 0.0165,
+        "slippage_pct": 1.0565302763308941,
+        "market_impact": 0.056530276330894
+      },
+      {
+        "market_slug": "will-bitcoin-reach-85k-in-february-2026",
+        "question": "Will Bitcoin reach $85,000 in February?",
+        "liquidity": 61011.0292,
+        "yes_price": 0.355,
+        "slippage_pct": 1.0646253610363736,
+        "market_impact": 0.06462536103637365
+      },
+      {
+        "market_slug": "will-bitcoin-dip-to-65k-in-february-2026",
+        "question": "Will Bitcoin dip to $65,000 in February?",
+        "liquidity": 156026.2462,
+        "yes_price": 0.33,
+        "slippage_pct": 1.0183949834478754,
+        "market_impact": 0.018394983447875365
+      },
+      {
+        "market_slug": "will-bitcoin-dip-to-45k-in-february-2026",
+        "question": "Will Bitcoin dip to $45,000 in February?",
+        "liquidity": 65613.34644,
+        "yes_price": 0.021,
+        "slippage_pct": 1.0618660915658484,
+        "market_impact": 0.06186609156584847
+      },
+      {
+        "market_slug": "will-bitcoin-dip-to-35k-in-february-2026",
+        "question": "Will Bitcoin dip to $35,000 in February?",
+        "liquidity": 83271.23654,
+        "yes_price": 0.0125,
+        "slippage_pct": 1.0536229848581686,
+        "market_impact": 0.05362298485816869
+      },
+      {
+        "market_slug": "will-trump-talk-to-vladimir-putin-in-january",
+        "question": "Will Trump talk to Vladimir Putin in January?",
+        "liquidity": 286424.51795,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0127764995173185,
+        "market_impact": 0.012776499517318598
+      },
+      {
+        "market_slug": "will-bitcoin-reach-200000-by-december-31-2026-752",
+        "question": "Will Bitcoin reach $200,000 by December 31, 2026?",
+        "liquidity": 80936.6716,
+        "yes_price": 0.075,
+        "slippage_pct": 1.0545457337967352,
+        "market_impact": 0.05454573379673528
+      },
+      {
+        "market_slug": "will-bitcoin-reach-180000-by-december-31-2026-629",
+        "question": "Will Bitcoin reach $180,000 by December 31, 2026?",
+        "liquidity": 45961.3695,
+        "yes_price": 0.085,
+        "slippage_pct": 1.114895620695585,
+        "market_impact": 0.11489562069558476
+      },
+      {
+        "market_slug": "will-bitcoin-reach-160000-by-december-31-2026-934",
+        "question": "Will Bitcoin reach $160,000 by December 31, 2026?",
+        "liquidity": 45133.0993,
+        "yes_price": 0.115,
+        "slippage_pct": 1.1161561362645351,
+        "market_impact": 0.1161561362645351
+      },
+      {
+        "market_slug": "will-bitcoin-reach-140000-by-december-31-2026-131",
+        "question": "Will Bitcoin reach $140,000 by December 31, 2026?",
+        "liquidity": 43357.9923,
+        "yes_price": 0.155,
+        "slippage_pct": 1.118986517500865,
+        "market_impact": 0.118986517500865
+      },
+      {
+        "market_slug": "will-bitcoin-reach-120000-by-december-31-2026-625",
+        "question": "Will Bitcoin reach $120,000 by December 31, 2026?",
+        "liquidity": 29625.4404,
+        "yes_price": 0.28,
+        "slippage_pct": 1.1495341419626255,
+        "market_impact": 0.1495341419626254
+      },
+      {
+        "market_slug": "will-bitcoin-reach-100000-by-december-31-2026-571",
+        "question": "Will Bitcoin reach $100,000 by December 31, 2026?",
+        "liquidity": 80437.1459,
+        "yes_price": 0.55,
+        "slippage_pct": 1.05474872398303,
+        "market_impact": 0.05474872398303011
+      },
+      {
+        "market_slug": "will-bitcoin-dip-to-65000-by-december-31-2026-175",
+        "question": "Will Bitcoin dip to $65,000 by December 31, 2026?",
+        "liquidity": 119498.858,
+        "yes_price": 0.79,
+        "slippage_pct": 1.0215873704569218,
+        "market_impact": 0.021587370456921707
+      },
+      {
+        "market_slug": "will-bitcoin-dip-to-45000-by-december-31-2026-674",
+        "question": "Will Bitcoin dip to $45,000 by December 31, 2026?",
+        "liquidity": 61673.9823,
+        "yes_price": 0.29,
+        "slippage_pct": 1.0642076533931506,
+        "market_impact": 0.06420765339315075
+      },
+      {
+        "market_slug": "will-bitcoin-dip-to-25000-by-december-31-2026-948",
+        "question": "Will Bitcoin dip to $25,000 by December 31, 2026?",
+        "liquidity": 29369.8795,
+        "yes_price": 0.11,
+        "slippage_pct": 1.1503134882273756,
+        "market_impact": 0.15031348822737559
+      },
+      {
+        "market_slug": "will-bitcoin-reach-190000-by-december-31-2026-936",
+        "question": "Will Bitcoin reach $190,000 by December 31, 2026?",
+        "liquidity": 62328.4938,
+        "yes_price": 0.085,
+        "slippage_pct": 1.0638022528414293,
+        "market_impact": 0.06380225284142936
+      },
+      {
+        "market_slug": "will-bitcoin-reach-170000-by-december-31-2026-335",
+        "question": "Will Bitcoin reach $170,000 by December 31, 2026?",
+        "liquidity": 36011.6923,
+        "yes_price": 0.095,
+        "slippage_pct": 1.1330065821821362,
+        "market_impact": 0.13300658218213615
+      },
+      {
+        "market_slug": "will-bitcoin-reach-150000-by-december-31-2026-557",
+        "question": "Will Bitcoin reach $150,000 by December 31, 2026?",
+        "liquidity": 52338.173,
+        "yes_price": 0.14,
+        "slippage_pct": 1.0708527739648654,
+        "market_impact": 0.07085277396486526
+      },
+      {
+        "market_slug": "will-bitcoin-reach-130000-by-december-31-2026-756",
+        "question": "Will Bitcoin reach $130,000 by December 31, 2026?",
+        "liquidity": 40945.0542,
+        "yes_price": 0.2,
+        "slippage_pct": 1.1231454533556748,
+        "market_impact": 0.12314545335567466
+      },
+      {
+        "market_slug": "will-bitcoin-reach-110000-by-december-31-2026-658",
+        "question": "Will Bitcoin reach $110,000 by December 31, 2026?",
+        "liquidity": 44744.7713,
+        "yes_price": 0.39,
+        "slippage_pct": 1.1167599435981828,
+        "market_impact": 0.1167599435981827
+      },
+      {
+        "market_slug": "will-bitcoin-dip-to-55000-by-december-31-2026-527",
+        "question": "Will Bitcoin dip to $55,000 by December 31, 2026?",
+        "liquidity": 70213.7457,
+        "yes_price": 0.57,
+        "slippage_pct": 1.0594011301539201,
+        "market_impact": 0.059401130153919963
+      },
+      {
+        "market_slug": "will-bitcoin-dip-to-35000-by-december-31-2026-744",
+        "question": "Will Bitcoin dip to $35,000 by December 31, 2026?",
+        "liquidity": 40279.7741,
+        "yes_price": 0.165,
+        "slippage_pct": 1.1243618106007438,
+        "market_impact": 0.12436181060074374
+      },
+      {
+        "market_slug": "will-bitcoin-reach-250000-by-december-31-2026",
+        "question": "Will Bitcoin reach $250,000 by December 31, 2026?",
+        "liquidity": 87729.60257,
+        "yes_price": 0.0475,
+        "slippage_pct": 1.0519709069609577,
+        "market_impact": 0.05197090696095768
+      },
+      {
+        "market_slug": "will-bitcoin-dip-to-15000-by-december-31-2026",
+        "question": "Will Bitcoin dip to $15,000 by December 31, 2026?",
+        "liquidity": 51086.4667,
+        "yes_price": 0.0555,
+        "slippage_pct": 1.0718893361365824,
+        "market_impact": 0.07188933613658238
+      },
+      {
+        "market_slug": "will-one-battle-after-another-win-best-picture-at-the-98th-academy-awards",
+        "question": "Will One Battle After Another win Best Picture at the 98th A",
+        "liquidity": 55708.3897,
+        "yes_price": 0.685,
+        "slippage_pct": 1.0682488959200784,
+        "market_impact": 0.06824889592007825
+      },
+      {
+        "market_slug": "will-hamnet-win-best-picture-at-the-98th-academy-awards",
+        "question": "Will Hamnet win Best Picture at the 98th Academy Awards?",
+        "liquidity": 64354.27995,
+        "yes_price": 0.0615,
+        "slippage_pct": 1.0625895071528244,
+        "market_impact": 0.06258950715282438
+      },
+      {
+        "market_slug": "will-sinners-win-best-picture-at-the-98th-academy-awards",
+        "question": "Will Sinners win Best Picture at the 98th Academy Awards?",
+        "liquidity": 73153.09817,
+        "yes_price": 0.198,
+        "slippage_pct": 1.0579573284819321,
+        "market_impact": 0.05795732848193202
+      },
+      {
+        "market_slug": "will-sentimental-value-win-best-picture-at-the-98th-academy-awards",
+        "question": "Will Sentimental Value win Best Picture at the 98th Academy ",
+        "liquidity": 71722.72588,
+        "yes_price": 0.007,
+        "slippage_pct": 1.0586480964761145,
+        "market_impact": 0.05864809647611448
+      },
+      {
+        "market_slug": "will-marty-supreme-win-best-picture-at-the-98th-academy-awards",
+        "question": "Will Marty Supreme win Best Picture at the 98th Academy Awar",
+        "liquidity": 52578.79216,
+        "yes_price": 0.0335,
+        "slippage_pct": 1.0706580470984293,
+        "market_impact": 0.07065804709842916
+      },
+      {
+        "market_slug": "will-bugonia-win-best-picture-at-the-98th-academy-awards",
+        "question": "Will Bugonia win Best Picture at the 98th Academy Awards?",
+        "liquidity": 81137.72733,
+        "yes_price": 0.006,
+        "slippage_pct": 1.0544645963974124,
+        "market_impact": 0.05446459639741242
+      },
+      {
+        "market_slug": "will-frankenstein-win-best-picture-at-the-98th-academy-awards",
+        "question": "Will Frankenstein win Best Picture at the 98th Academy Award",
+        "liquidity": 103017.26898,
+        "yes_price": 0.008,
+        "slippage_pct": 1.0235978251002527,
+        "market_impact": 0.02359782510025272
+      },
+      {
+        "market_slug": "will-f1-win-best-picture-at-the-98th-academy-awards-948",
+        "question": "Will F1 win Best Picture at the 98th Academy Awards?",
+        "liquidity": 59190.05507,
+        "yes_price": 0.004,
+        "slippage_pct": 1.065811038895132,
+        "market_impact": 0.06581103889513204
+      },
+      {
+        "market_slug": "will-the-secret-agent-win-best-picture-at-the-98th-academy-awards-938",
+        "question": "Will The Secret Agent win Best Picture at the 98th Academy A",
+        "liquidity": 50422.81927,
+        "yes_price": 0.006,
+        "slippage_pct": 1.072455560154739,
+        "market_impact": 0.07245556015473906
+      },
+      {
+        "market_slug": "will-train-dreams-win-best-picture-at-the-98th-academy-awards-736",
+        "question": "Will Train Dreams win Best Picture at the 98th Academy Award",
+        "liquidity": 56306.87795,
+        "yes_price": 0.003,
+        "slippage_pct": 1.067812713751555,
+        "market_impact": 0.06781271375155508
+      },
+      {
+        "market_slug": "will-us-or-israel-strike-iran-by-february-15-2026-761",
+        "question": "Will US or Israel strike Iran by February 15, 2026?",
+        "liquidity": 38708.9804,
+        "yes_price": 0.175,
+        "slippage_pct": 1.1273656196568207,
+        "market_impact": 0.1273656196568205
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-total-45pt5",
+        "question": "Seahawks vs. Patriots: O/U 45.5",
+        "liquidity": 246752.3098,
+        "yes_price": 0.49,
+        "slippage_pct": 1.0139720863623203,
+        "market_impact": 0.013972086362320441
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-1h-total-21pt5",
+        "question": "Seahawks vs. Patriots: 1H O/U 21.5",
+        "liquidity": 33487.6203,
+        "yes_price": 0.505,
+        "slippage_pct": 1.1389340449612817,
+        "market_impact": 0.1389340449612816
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-team-total-sea-22pt5",
+        "question": "Seahawks Team Total: O/U 22.5",
+        "liquidity": 55955.3886,
+        "yes_price": 0.675,
+        "slippage_pct": 1.0680679769865575,
+        "market_impact": 0.06806797698655756
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-team-total-ne-17pt5",
+        "question": "Patriots Team Total: O/U 17.5",
+        "liquidity": 28550.1721,
+        "yes_price": 0.505,
+        "slippage_pct": 1.152888216266373,
+        "market_impact": 0.152888216266373
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-spread-away-4pt5",
+        "question": "Spread: Seahawks (-4.5)",
+        "liquidity": 1085553.6302,
+        "yes_price": 0.495,
+        "slippage_pct": 1.0028720846199137,
+        "market_impact": 0.0028720846199136686
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08",
+        "question": "Seahawks vs. Patriots",
+        "liquidity": 5405635.0122,
+        "yes_price": 0.675,
+        "slippage_pct": 1.0010961751952339,
+        "market_impact": 0.0010961751952339523
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-spread-away-5pt5",
+        "question": "Spread: Seahawks (-5.5)",
+        "liquidity": 746793.1846,
+        "yes_price": 0.475,
+        "slippage_pct": 1.0035947425658613,
+        "market_impact": 0.003594742565861144
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-team-total-sea-25pt5",
+        "question": "Seahawks Team Total: O/U 25.5",
+        "liquidity": 36802.0665,
+        "yes_price": 0.495,
+        "slippage_pct": 1.1312852479328606,
+        "market_impact": 0.1312852479328605
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-anytime-td-aj-barner",
+        "question": "AJ Barner: Anytime Touchdown",
+        "liquidity": 35108.476,
+        "yes_price": 0.275,
+        "slippage_pct": 1.1350492153982907,
+        "market_impact": 0.13504921539829087
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-anytime-td-stefon-diggs",
+        "question": "Stefon Diggs: Anytime Touchdown",
+        "liquidity": 33902.9028,
+        "yes_price": 0.275,
+        "slippage_pct": 1.1379104328008856,
+        "market_impact": 0.13791043280088552
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-first-td-jaxon-smith-njigba",
+        "question": "Jaxon Smith-Njigba: First Touchdown",
+        "liquidity": 45616.4667,
+        "yes_price": 0.145,
+        "slippage_pct": 1.1154160657455845,
+        "market_impact": 0.11541606574558452
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-first-td-aj-barner",
+        "question": "AJ Barner: First Touchdown",
+        "liquidity": 43198.9246,
+        "yes_price": 0.075,
+        "slippage_pct": 1.1192492045536748,
+        "market_impact": 0.11924920455367485
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-first-td-stefon-diggs",
+        "question": "Stefon Diggs: First Touchdown",
+        "liquidity": 46425.0666,
+        "yes_price": 0.06,
+        "slippage_pct": 1.1142056870597363,
+        "market_impact": 0.11420568705973622
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-first-td-rashid-shaheed",
+        "question": "Rashid Shaheed: First Touchdown",
+        "liquidity": 49528.1918,
+        "yes_price": 0.045,
+        "slippage_pct": 1.1098570084447734,
+        "market_impact": 0.10985700844477343
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-total-46pt5",
+        "question": "Seahawks vs. Patriots: O/U 46.5",
+        "liquidity": 351343.235,
+        "yes_price": 0.455,
+        "slippage_pct": 1.0113026177437996,
+        "market_impact": 0.011302617743799469
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-team-total-ne-20pt5",
+        "question": "Patriots Team Total: O/U 20.5",
+        "liquidity": 37909.9748,
+        "yes_price": 0.38,
+        "slippage_pct": 1.1289695411431,
+        "market_impact": 0.1289695411431
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-1h-total-23pt5",
+        "question": "Seahawks vs. Patriots: 1H O/U 23.5",
+        "liquidity": 63417.9623,
+        "yes_price": 0.445,
+        "slippage_pct": 1.0631423328098124,
+        "market_impact": 0.06314233280981242
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-anytime-td-rhamondre-stevenson",
+        "question": "Rhamondre Stevenson: Anytime Touchdown",
+        "liquidity": 25013.9264,
+        "yes_price": 0.385,
+        "slippage_pct": 1.165512245783232,
+        "market_impact": 0.16551224578323206
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-first-td-kenneth-walker-iii",
+        "question": "Kenneth Walker III: First Touchdown",
+        "liquidity": 42402.704,
+        "yes_price": 0.225,
+        "slippage_pct": 1.120587730252343,
+        "market_impact": 0.12058773025234297
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-first-td-rhamondre-stevenson",
+        "question": "Rhamondre Stevenson: First Touchdown",
+        "liquidity": 42162.4316,
+        "yes_price": 0.085,
+        "slippage_pct": 1.1209995798570263,
+        "market_impact": 0.1209995798570262
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-first-td-hunter-henry",
+        "question": "Hunter Henry: First Touchdown",
+        "liquidity": 41315.2169,
+        "yes_price": 0.055,
+        "slippage_pct": 1.1224822708996076,
+        "market_impact": 0.1224822708996076
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-first-td-mack-hollins",
+        "question": "Mack Hollins: First Touchdown",
+        "liquidity": 42547.1389,
+        "yes_price": 0.045,
+        "slippage_pct": 1.1203419475114635,
+        "market_impact": 0.12034194751146354
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-1h-moneyline",
+        "question": "Seahawks vs. Patriots: 1H Moneyline",
+        "liquidity": 114070.7699,
+        "yes_price": 0.62,
+        "slippage_pct": 1.022197975807812,
+        "market_impact": 0.022197975807811816
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-anytime-td-jaxon-smith-njigba",
+        "question": "Jaxon Smith-Njigba: Anytime Touchdown",
+        "liquidity": 30581.0949,
+        "yes_price": 0.505,
+        "slippage_pct": 1.1467126068330242,
+        "market_impact": 0.14671260683302423
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-anytime-td-hunter-henry",
+        "question": "Hunter Henry: Anytime Touchdown",
+        "liquidity": 32813.061,
+        "yes_price": 0.285,
+        "slippage_pct": 1.1406407599986446,
+        "market_impact": 0.14064075999864445
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-anytime-td-cooper-kupp",
+        "question": "Cooper Kupp: Anytime Touchdown",
+        "liquidity": 34534.1274,
+        "yes_price": 0.265,
+        "slippage_pct": 1.1363923964192886,
+        "market_impact": 0.13639239641928866
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-anytime-td-kayshon-boutte",
+        "question": "Kayshon Boutte: Anytime Touchdown",
+        "liquidity": 28987.4676,
+        "yes_price": 0.22,
+        "slippage_pct": 1.1515001582154172,
+        "market_impact": 0.1515001582154173
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-anytime-td-mack-hollins",
+        "question": "Mack Hollins: Anytime Touchdown",
+        "liquidity": 27284.9436,
+        "yes_price": 0.18,
+        "slippage_pct": 1.1571033391627545,
+        "market_impact": 0.15710333916275462
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-first-td-cooper-kupp",
+        "question": "Cooper Kupp: First Touchdown",
+        "liquidity": 47932.192,
+        "yes_price": 0.065,
+        "slippage_pct": 1.112037362890175,
+        "market_impact": 0.11203736289017499
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-anytime-td-rashid-shaheed",
+        "question": "Rashid Shaheed: Anytime Touchdown",
+        "liquidity": 35788.3011,
+        "yes_price": 0.2,
+        "slippage_pct": 1.133504099754327,
+        "market_impact": 0.1335040997543272
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-first-td-kayshon-boutte",
+        "question": "Kayshon Boutte: First Touchdown",
+        "liquidity": 43002.6289,
+        "yes_price": 0.045,
+        "slippage_pct": 1.1195755117824526,
+        "market_impact": 0.11957551178245264
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-1h-spread-away-3pt5",
+        "question": "1H Spread: Seahawks (-3.5)",
+        "liquidity": 51815.0944,
+        "yes_price": 0.445,
+        "slippage_pct": 1.0712810710769092,
+        "market_impact": 0.0712810710769091
+      },
+      {
+        "market_slug": "nfl-sea-ne-2026-02-08-1h-total-22pt5",
+        "question": "Seahawks vs. Patriots: 1H O/U 22.5",
+        "liquidity": 52441.0131,
+        "yes_price": 0.495,
+        "slippage_pct": 1.0707693732095462,
+        "market_impact": 0.07076937320954613
+      },
+      {
+        "market_slug": "khamenei-out-as-supreme-leader-of-iran-by-march-31",
+        "question": "Khamenei out as Supreme Leader of Iran by March 31?",
+        "liquidity": 330058.1691,
+        "yes_price": 0.185,
+        "slippage_pct": 1.0117344761244766,
+        "market_impact": 0.011734476124476577
+      },
+      {
+        "market_slug": "megaeth-market-cap-fdv-6b-one-day-after-launch-365-559-334-815",
+        "question": "MegaETH market cap (FDV) >$6B one day after launch?",
+        "liquidity": 30673.47907,
+        "yes_price": 0.009,
+        "slippage_pct": 1.1464473203611252,
+        "market_impact": 0.14644732036112515
+      },
+      {
+        "market_slug": "megaeth-market-cap-fdv-2b-one-day-after-launch-738-867",
+        "question": "MegaETH market cap (FDV) >$2B one day after launch?",
+        "liquidity": 71480.5178,
+        "yes_price": 0.165,
+        "slippage_pct": 1.0587672514447062,
+        "market_impact": 0.058767251444706264
+      },
+      {
+        "market_slug": "megaeth-market-cap-fdv-4b-one-day-after-launch-484-688-448",
+        "question": "MegaETH market cap (FDV) >$4B one day after launch?",
+        "liquidity": 36950.07653,
+        "yes_price": 0.0195,
+        "slippage_pct": 1.1309694629857103,
+        "market_impact": 0.13096946298571047
+      },
+      {
+        "market_slug": "megaeth-market-cap-fdv-2b-one-day-after-launch-392-656-565",
+        "question": "MegaETH market cap (FDV) >$3B one day after launch?",
+        "liquidity": 46294.1507,
+        "yes_price": 0.045,
+        "slippage_pct": 1.1143993559574124,
+        "market_impact": 0.11439935595741223
+      },
+      {
+        "market_slug": "megaeth-market-cap-fdv-1b-one-day-after-launch-gj9e",
+        "question": "MegaETH market cap (FDV) >$1B one day after launch?",
+        "liquidity": 62998.5718,
+        "yes_price": 0.595,
+        "slippage_pct": 1.0633942065737951,
+        "market_impact": 0.06339420657379492
+      },
+      {
+        "market_slug": "will-the-carolina-hurricanes-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Carolina Hurricanes win the 2026 NHL Stanley Cup?",
+        "liquidity": 77305.3425,
+        "yes_price": 0.09,
+        "slippage_pct": 1.0560689325336707,
+        "market_impact": 0.05606893253367072
+      },
+      {
+        "market_slug": "will-the-dallas-stars-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Dallas Stars win the 2026 NHL Stanley Cup?",
+        "liquidity": 83456.7156,
+        "yes_price": 0.045,
+        "slippage_pct": 1.0535514481371289,
+        "market_impact": 0.05355144813712889
+      },
+      {
+        "market_slug": "will-the-columbus-blue-jackets-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Columbus Blue Jackets win the 2026 NHL Stanley Cup?",
+        "liquidity": 73632.3297,
+        "yes_price": 0.009,
+        "slippage_pct": 1.0577307059324927,
+        "market_impact": 0.05773070593249279
+      },
+      {
+        "market_slug": "will-the-nashville-predators-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Nashville Predators win the 2026 NHL Stanley Cup?",
+        "liquidity": 85584.61731,
+        "yes_price": 0.0035,
+        "slippage_pct": 1.0527485547816038,
+        "market_impact": 0.052748554781603806
+      },
+      {
+        "market_slug": "will-the-florida-panthers-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Florida Panthers win the 2026 NHL Stanley Cup?",
+        "liquidity": 77685.96982,
+        "yes_price": 0.0365,
+        "slippage_pct": 1.055903942678684,
+        "market_impact": 0.05590394267868406
+      },
+      {
+        "market_slug": "will-the-edmonton-oilers-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Edmonton Oilers win the 2026 NHL Stanley Cup?",
+        "liquidity": 69714.6833,
+        "yes_price": 0.08,
+        "slippage_pct": 1.0596559049040524,
+        "market_impact": 0.059655904904052336
+      },
+      {
+        "market_slug": "will-the-calgary-flames-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Calgary Flames win the 2026 NHL Stanley Cup?",
+        "liquidity": 113576.31666,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0222559086097682,
+        "market_impact": 0.022255908609768105
+      },
+      {
+        "market_slug": "will-the-colorado-avalanche-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Colorado Avalanche win the 2026 NHL Stanley Cup?",
+        "liquidity": 78926.45024,
+        "yes_price": 0.2165,
+        "slippage_pct": 1.0553750907155899,
+        "market_impact": 0.05537509071559002
+      },
+      {
+        "market_slug": "will-the-vegas-golden-knights-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Vegas Golden Knights win the 2026 NHL Stanley Cup?",
+        "liquidity": 72238.43101,
+        "yes_price": 0.0625,
+        "slippage_pct": 1.0583965257940282,
+        "market_impact": 0.05839652579402824
+      },
+      {
+        "market_slug": "will-the-san-jose-sharks-win-the-2026-nhl-stanley-cup",
+        "question": "Will the San Jose Sharks win the 2026 NHL Stanley Cup?",
+        "liquidity": 77594.74124,
+        "yes_price": 0.011,
+        "slippage_pct": 1.0559433693613773,
+        "market_impact": 0.055943369361377344
+      },
+      {
+        "market_slug": "will-the-tampa-bay-lightning-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Tampa Bay Lightning win the 2026 NHL Stanley Cup?",
+        "liquidity": 76813.10566,
+        "yes_price": 0.1405,
+        "slippage_pct": 1.0562842389727904,
+        "market_impact": 0.056284238972790286
+      },
+      {
+        "market_slug": "will-the-montreal-canadiens-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Montreal Canadiens win the 2026 NHL Stanley Cup?",
+        "liquidity": 69926.76523,
+        "yes_price": 0.0265,
+        "slippage_pct": 1.0595472801901298,
+        "market_impact": 0.05954728019012975
+      },
+      {
+        "market_slug": "will-the-los-angeles-kings-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Los Angeles Kings win the 2026 NHL Stanley Cup?",
+        "liquidity": 96181.14258,
+        "yes_price": 0.011,
+        "slippage_pct": 1.0491806239046713,
+        "market_impact": 0.04918062390467121
+      },
+      {
+        "market_slug": "will-the-boston-bruins-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Boston Bruins win the 2026 NHL Stanley Cup?",
+        "liquidity": 87291.73152,
+        "yes_price": 0.015,
+        "slippage_pct": 1.052127167662566,
+        "market_impact": 0.052127167662566046
+      },
+      {
+        "market_slug": "will-the-new-jersey-devils-win-the-2026-nhl-stanley-cup",
+        "question": "Will the New Jersey Devils win the 2026 NHL Stanley Cup?",
+        "liquidity": 76677.11165,
+        "yes_price": 0.0045,
+        "slippage_pct": 1.0563441129532367,
+        "market_impact": 0.056344112953236665
+      },
+      {
+        "market_slug": "will-the-winnipeg-jets-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Winnipeg Jets win the 2026 NHL Stanley Cup?",
+        "liquidity": 105306.26496,
+        "yes_price": 0.008,
+        "slippage_pct": 1.0232887120852336,
+        "market_impact": 0.023288712085233587
+      },
+      {
+        "market_slug": "will-the-toronto-maple-leafs-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Toronto Maple Leafs win the 2026 NHL Stanley Cup?",
+        "liquidity": 84624.01898,
+        "yes_price": 0.011,
+        "slippage_pct": 1.0531070043873927,
+        "market_impact": 0.053107004387392624
+      },
+      {
+        "market_slug": "will-the-chicago-blackhawks-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Chicago Blackhawks win the 2026 NHL Stanley Cup?",
+        "liquidity": 133300.18652,
+        "yes_price": 0.0035,
+        "slippage_pct": 1.020217131836081,
+        "market_impact": 0.02021713183608102
+      },
+      {
+        "market_slug": "will-the-washington-capitals-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Washington Capitals win the 2026 NHL Stanley Cup?",
+        "liquidity": 86638.49425,
+        "yes_price": 0.016,
+        "slippage_pct": 1.0523626304830629,
+        "market_impact": 0.052362630483062854
+      },
+      {
+        "market_slug": "will-the-new-york-rangers-win-the-2026-nhl-stanley-cup",
+        "question": "Will the New York Rangers win the 2026 NHL Stanley Cup?",
+        "liquidity": 121791.76636,
+        "yes_price": 0.0035,
+        "slippage_pct": 1.0213425958200966,
+        "market_impact": 0.021342595820096563
+      },
+      {
+        "market_slug": "will-the-ottawa-senators-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Ottawa Senators win the 2026 NHL Stanley Cup?",
+        "liquidity": 108763.95141,
+        "yes_price": 0.01,
+        "slippage_pct": 1.0228416257266728,
+        "market_impact": 0.02284162572667267
+      },
+      {
+        "market_slug": "will-the-minnesota-wild-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Minnesota Wild win the 2026 NHL Stanley Cup?",
+        "liquidity": 53245.9839,
+        "yes_price": 0.072,
+        "slippage_pct": 1.070125485198135,
+        "market_impact": 0.07012548519813508
+      },
+      {
+        "market_slug": "will-the-utah-mammoth-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Utah Mammoth win the 2026 NHL Stanley Cup?",
+        "liquidity": 101944.04388,
+        "yes_price": 0.0335,
+        "slippage_pct": 1.0237465697273422,
+        "market_impact": 0.02374656972734224
+      },
+      {
+        "market_slug": "will-the-st-louis-blues-win-the-2026-nhl-stanley-cup",
+        "question": "Will the St. Louis Blues win the 2026 NHL Stanley Cup?",
+        "liquidity": 79046.51339,
+        "yes_price": 0.0035,
+        "slippage_pct": 1.0553246100911262,
+        "market_impact": 0.055324610091126186
+      },
+      {
+        "market_slug": "will-the-vancouver-canucks-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Vancouver Canucks win the 2026 NHL Stanley Cup?",
+        "liquidity": 105443.62918,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.0232705040448076,
+        "market_impact": 0.023270504044807537
+      },
+      {
+        "market_slug": "will-the-new-york-islanders-win-the-2026-nhl-stanley-cup",
+        "question": "Will the New York Islanders win the 2026 NHL Stanley Cup?",
+        "liquidity": 92500.22907,
+        "yes_price": 0.014,
+        "slippage_pct": 1.0503456912489155,
+        "market_impact": 0.050345691248915456
+      },
+      {
+        "market_slug": "will-the-philadelphia-flyers-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Philadelphia Flyers win the 2026 NHL Stanley Cup?",
+        "liquidity": 112168.53909,
+        "yes_price": 0.004,
+        "slippage_pct": 1.022423084795633,
+        "market_impact": 0.022423084795633156
+      },
+      {
+        "market_slug": "will-the-detroit-red-wings-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Detroit Red Wings win the 2026 NHL Stanley Cup?",
+        "liquidity": 91360.94249,
+        "yes_price": 0.0295,
+        "slippage_pct": 1.0507214488226333,
+        "market_impact": 0.05072144882263327
+      },
+      {
+        "market_slug": "will-the-anaheim-ducks-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Anaheim Ducks win the 2026 NHL Stanley Cup?",
+        "liquidity": 74473.43447,
+        "yes_price": 0.0145,
+        "slippage_pct": 1.0573386103892235,
+        "market_impact": 0.05733861038922364
+      },
+      {
+        "market_slug": "will-the-buffalo-sabres-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Buffalo Sabres win the 2026 NHL Stanley Cup?",
+        "liquidity": 88984.32594,
+        "yes_price": 0.02,
+        "slippage_pct": 1.0515299693411155,
+        "market_impact": 0.051529969341115506
+      },
+      {
+        "market_slug": "will-the-pittsburgh-penguins-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Pittsburgh Penguins win the 2026 NHL Stanley Cup?",
+        "liquidity": 81074.84956,
+        "yes_price": 0.0275,
+        "slippage_pct": 1.054489936547038,
+        "market_impact": 0.05448993654703785
+      },
+      {
+        "market_slug": "will-the-seattle-kraken-win-the-2026-nhl-stanley-cup",
+        "question": "Will the Seattle Kraken win the 2026 NHL Stanley Cup?",
+        "liquidity": 102908.64771,
+        "yes_price": 0.007,
+        "slippage_pct": 1.0236127666136363,
+        "market_impact": 0.023612766613636434
+      },
+      {
+        "market_slug": "will-dilan-yeilgz-zegerius-become-the-next-prime-minister-of-the-netherlands",
+        "question": "Will Dilan Ye\u015filg\u00f6z-Zegerius become the next Prime Minister ",
+        "liquidity": 27730.81922,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1555828176191847,
+        "market_impact": 0.1555828176191847
+      },
+      {
+        "market_slug": "will-frans-timmermans-become-the-next-prime-minister-of-the-netherlands",
+        "question": "Will Frans Timmermans become the next Prime Minister of the ",
+        "liquidity": 70991.23716,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0590099363593377,
+        "market_impact": 0.05900993635933759
+      },
+      {
+        "market_slug": "will-geert-wilders-become-the-next-prime-minister-of-the-netherlands",
+        "question": "Will Geert Wilders become the next Prime Minister of the Net",
+        "liquidity": 65787.98548,
+        "yes_price": 0.004,
+        "slippage_pct": 1.0617675023355657,
+        "market_impact": 0.06176750233556574
+      },
+      {
+        "market_slug": "will-nicolien-van-vroonhoven-kok-become-the-next-prime-minister-of-the-netherlands",
+        "question": "Will Nicolien van Vroonhoven-Kok become the next Prime Minis",
+        "liquidity": 85190.04053,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.052895009338828,
+        "market_impact": 0.052895009338828014
+      },
+      {
+        "market_slug": "will-dick-schoof-become-the-next-prime-minister-of-the-netherlands",
+        "question": "Will Dick Schoof become the next Prime Minister of the Nethe",
+        "liquidity": 67864.21417,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.060626639795134,
+        "market_impact": 0.06062663979513401
+      },
+      {
+        "market_slug": "will-ahmed-aboutaleb-become-the-next-prime-minister-of-the-netherlands",
+        "question": "Will Ahmed Aboutaleb become the next Prime Minister of the N",
+        "liquidity": 110870.3419,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0225802510064863,
+        "market_impact": 0.02258025100648633
+      },
+      {
+        "market_slug": "will-klaas-dijkhoff-become-the-next-prime-minister-of-the-netherlands",
+        "question": "Will Klaas Dijkhoff become the next Prime Minister of the Ne",
+        "liquidity": 101555.65276,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.023801018187696,
+        "market_impact": 0.02380101818769596
+      },
+      {
+        "market_slug": "russia-x-ukraine-ceasefire-before-2027",
+        "question": "Russia x Ukraine ceasefire by end of 2026?",
+        "liquidity": 556282.315,
+        "yes_price": 0.455,
+        "slippage_pct": 1.0042895412618678,
+        "market_impact": 0.00428954126186758
+      },
+      {
+        "market_slug": "will-china-invade-taiwan-before-2027",
+        "question": "Will China invade Taiwan by end of 2026?",
+        "liquidity": 495578.5366,
+        "yes_price": 0.125,
+        "slippage_pct": 1.0091949739682642,
+        "market_impact": 0.00919497396826408
+      },
+      {
+        "market_slug": "will-logan-pauls-psa-10-pokmon-illustrator-sale-price-be-over-4-million",
+        "question": "Will Logan Paul\u2019s PSA 10 Pok\u00e9mon Illustrator Sale Price be o",
+        "liquidity": 34395.44796,
+        "yes_price": 0.9595,
+        "slippage_pct": 1.136722084183075,
+        "market_impact": 0.136722084183075
+      },
+      {
+        "market_slug": "will-logan-pauls-psa-10-pokmon-illustrator-sale-price-be-over-5-million",
+        "question": "Will Logan Paul\u2019s PSA 10 Pok\u00e9mon Illustrator Sale Price be o",
+        "liquidity": 25735.0956,
+        "yes_price": 0.9665,
+        "slippage_pct": 1.1627135725502054,
+        "market_impact": 0.16271357255020535
+      },
+      {
+        "market_slug": "will-logan-pauls-psa-10-pokmon-illustrator-sale-price-be-over-6-million",
+        "question": "Will Logan Paul\u2019s PSA 10 Pok\u00e9mon Illustrator Sale Price be o",
+        "liquidity": 34171.27752,
+        "yes_price": 0.9615,
+        "slippage_pct": 1.1372595348463128,
+        "market_impact": 0.13725953484631268
+      },
+      {
+        "market_slug": "will-logan-pauls-psa-10-pokmon-illustrator-sale-price-be-over-8-million",
+        "question": "Will Logan Paul\u2019s PSA 10 Pok\u00e9mon Illustrator Sale Price be o",
+        "liquidity": 25925.83962,
+        "yes_price": 0.7095,
+        "slippage_pct": 1.161994233048935,
+        "market_impact": 0.1619942330489351
+      },
+      {
+        "market_slug": "will-logan-pauls-psa-10-pokmon-illustrator-sale-price-be-over-15-million-268",
+        "question": "Will Logan Paul\u2019s PSA 10 Pok\u00e9mon Illustrator Sale Price be o",
+        "liquidity": 28873.3622,
+        "yes_price": 0.145,
+        "slippage_pct": 1.1518591052848994,
+        "market_impact": 0.15185910528489943
+      },
+      {
+        "market_slug": "will-the-us-acquire-any-part-of-greenland-in-2026",
+        "question": "Will the US acquire part of Greenland in 2026?",
+        "liquidity": 211250.7327,
+        "yes_price": 0.205,
+        "slippage_pct": 1.015336952165089,
+        "market_impact": 0.015336952165088947
+      },
+      {
+        "market_slug": "will-khamenei-leave-iran-by-march-31-224-161-138-998",
+        "question": "Will Khamenei leave Iran by March 31?",
+        "liquidity": 30148.095,
+        "yes_price": 0.06,
+        "slippage_pct": 1.147973289027433,
+        "market_impact": 0.1479732890274329
+      },
+      {
+        "market_slug": "will-khamenei-leave-iran-by-february-28-2026-713-559",
+        "question": "Will Khamenei leave Iran by February 28, 2026?",
+        "liquidity": 43217.60814,
+        "yes_price": 0.021,
+        "slippage_pct": 1.1192182700796511,
+        "market_impact": 0.11921827007965118
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-160-179",
+        "question": "Will Elon Musk post 160-179 tweets from January 30 to Februa",
+        "liquidity": 141926.95717,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.019470587782044,
+        "market_impact": 0.019470587782043892
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-180-199",
+        "question": "Will Elon Musk post 180-199 tweets from January 30 to Februa",
+        "liquidity": 150875.54833,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0187692396929422,
+        "market_impact": 0.018769239692942086
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-200-219",
+        "question": "Will Elon Musk post 200-219 tweets from January 30 to Februa",
+        "liquidity": 49287.83888,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.1101781273185136,
+        "market_impact": 0.11017812731851356
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-520-539",
+        "question": "Will Elon Musk post 520-539 tweets from January 30 to Februa",
+        "liquidity": 28563.47201,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1528454990031958,
+        "market_impact": 0.15284549900319583
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-540-559",
+        "question": "Will Elon Musk post 540-559 tweets from January 30 to Februa",
+        "liquidity": 68172.09944,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0604622064381846,
+        "market_impact": 0.060462206438184604
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-220-239",
+        "question": "Will Elon Musk post 220-239 tweets from January 30 to Februa",
+        "liquidity": 41161.33071,
+        "yes_price": 0.0035,
+        "slippage_pct": 1.1227568139365736,
+        "market_impact": 0.1227568139365736
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-240-259",
+        "question": "Will Elon Musk post 240-259 tweets from January 30 to Februa",
+        "liquidity": 32442.87078,
+        "yes_price": 0.0065,
+        "slippage_pct": 1.1416014452747398,
+        "market_impact": 0.14160144527473975
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-260-279",
+        "question": "Will Elon Musk post 260-279 tweets from January 30 to Februa",
+        "liquidity": 27143.0887,
+        "yes_price": 0.0195,
+        "slippage_pct": 1.1575954565036959,
+        "market_impact": 0.15759545650369597
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-280-299",
+        "question": "Will Elon Musk post 280-299 tweets from January 30 to Februa",
+        "liquidity": 30759.73716,
+        "yes_price": 0.0595,
+        "slippage_pct": 1.1462007767672868,
+        "market_impact": 0.1462007767672867
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-340-359",
+        "question": "Will Elon Musk post 340-359 tweets from January 30 to Februa",
+        "liquidity": 26788.0743,
+        "yes_price": 0.185,
+        "slippage_pct": 1.1588452948802472,
+        "market_impact": 0.15884529488024707
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-360-379",
+        "question": "Will Elon Musk post 360-379 tweets from January 30 to Februa",
+        "liquidity": 25636.947,
+        "yes_price": 0.125,
+        "slippage_pct": 1.163087046891028,
+        "market_impact": 0.16308704689102788
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-380-399",
+        "question": "Will Elon Musk post 380-399 tweets from January 30 to Februa",
+        "liquidity": 39478.59531,
+        "yes_price": 0.067,
+        "slippage_pct": 1.1258700014348337,
+        "market_impact": 0.1258700014348337
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-400-419",
+        "question": "Will Elon Musk post 400-419 tweets from January 30 to Februa",
+        "liquidity": 39006.86161,
+        "yes_price": 0.0345,
+        "slippage_pct": 1.12678113819924,
+        "market_impact": 0.12678113819924003
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-420-439",
+        "question": "Will Elon Musk post 420-439 tweets from January 30 to Februa",
+        "liquidity": 37488.99346,
+        "yes_price": 0.016,
+        "slippage_pct": 1.1298365550901457,
+        "market_impact": 0.12983655509014552
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-440-459",
+        "question": "Will Elon Musk post 440-459 tweets from January 30 to Februa",
+        "liquidity": 38286.63013,
+        "yes_price": 0.008,
+        "slippage_pct": 1.1282067722436122,
+        "market_impact": 0.12820677224361202
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-460-479",
+        "question": "Will Elon Musk post 460-479 tweets from January 30 to Februa",
+        "liquidity": 45586.50623,
+        "yes_price": 0.004,
+        "slippage_pct": 1.115461572174695,
+        "market_impact": 0.11546157217469492
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-480-499",
+        "question": "Will Elon Musk post 480-499 tweets from January 30 to Februa",
+        "liquidity": 41209.58635,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.1226705461933477,
+        "market_impact": 0.12267054619334765
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-500-519",
+        "question": "Will Elon Musk post 500-519 tweets from January 30 to Februa",
+        "liquidity": 43178.19928,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.1192835446710356,
+        "market_impact": 0.11928354467103566
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-560-579",
+        "question": "Will Elon Musk post 560-579 tweets from January 30 to Februa",
+        "liquidity": 76257.69655,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.056529843533197,
+        "market_impact": 0.05652984353319685
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-580-599",
+        "question": "Will Elon Musk post 580-599 tweets from January 30 to Februa",
+        "liquidity": 73178.30685,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0579453484691146,
+        "market_impact": 0.057945348469114526
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-600-619",
+        "question": "Will Elon Musk post 600-619 tweets from January 30 to Februa",
+        "liquidity": 85882.23871,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0526387998601514,
+        "market_impact": 0.05263879986015138
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-620-639",
+        "question": "Will Elon Musk post 620-639 tweets from January 30 to Februa",
+        "liquidity": 89832.41331,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0512375261384248,
+        "market_impact": 0.051237526138424916
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-640-659",
+        "question": "Will Elon Musk post 640-659 tweets from January 30 to Februa",
+        "liquidity": 86974.03603,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.052241329237976,
+        "market_impact": 0.05224132923797608
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-660-679",
+        "question": "Will Elon Musk post 660-679 tweets from January 30 to Februa",
+        "liquidity": 91856.43863,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0505571089142123,
+        "market_impact": 0.05055710891421229
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-680-699",
+        "question": "Will Elon Musk post 680-699 tweets from January 30 to Februa",
+        "liquidity": 90371.08954,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0510540597240579,
+        "market_impact": 0.05105405972405794
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-700-719",
+        "question": "Will Elon Musk post 700-719 tweets from January 30 to Februa",
+        "liquidity": 95061.19744,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0495274564428558,
+        "market_impact": 0.04952745644285581
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-720-739",
+        "question": "Will Elon Musk post 720-739 tweets from January 30 to Februa",
+        "liquidity": 92631.09712,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.050303002526381,
+        "market_impact": 0.05030300252638115
+      },
+      {
+        "market_slug": "elon-musk-of-tweets-january-30-february-6-740plus",
+        "question": "Will Elon Musk post 740+ tweets from January 30 to February ",
+        "liquidity": 75005.86722,
+        "yes_price": 0.0005,
+        "slippage_pct": 1.0570940499974666,
+        "market_impact": 0.057094049997466555
+      },
+      {
+        "market_slug": "will-the-next-prime-minister-of-hungary-be-viktor-orbn",
+        "question": "Will the next Prime Minister of Hungary be Viktor Orb\u00e1n?",
+        "liquidity": 36926.782,
+        "yes_price": 0.445,
+        "slippage_pct": 1.1310190284303476,
+        "market_impact": 0.1310190284303476
+      },
+      {
+        "market_slug": "will-the-next-prime-minister-of-hungary-be-pter-magyar",
+        "question": "Will the next Prime Minister of Hungary be P\u00e9ter Magyar?",
+        "liquidity": 95757.7221,
+        "yes_price": 0.535,
+        "slippage_pct": 1.0493109885680074,
+        "market_impact": 0.04931098856800745
+      },
+      {
+        "market_slug": "will-the-next-prime-minister-of-hungary-be-klra-dobrev",
+        "question": "Will the next Prime Minister of Hungary be Kl\u00e1ra Dobrev?",
+        "liquidity": 170569.27838,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.017437230567193,
+        "market_impact": 0.017437230567193096
+      },
+      {
+        "market_slug": "will-the-next-prime-minister-of-hungary-be-lszl-toroczkai",
+        "question": "Will the next Prime Minister of Hungary be L\u00e1szl\u00f3 Toroczkai?",
+        "liquidity": 28344.11924,
+        "yes_price": 0.0095,
+        "slippage_pct": 1.1535541195926677,
+        "market_impact": 0.15355411959266774
+      },
+      {
+        "market_slug": "will-the-next-prime-minister-of-hungary-be-jnos-lzr",
+        "question": "Will the next Prime Minister of Hungary be J\u00e1nos L\u00e1z\u00e1r?",
+        "liquidity": 25388.45406,
+        "yes_price": 0.0015,
+        "slippage_pct": 1.1640429225624882,
+        "market_impact": 0.16404292256248815
+      }
+    ],
+    "timestamp": "2026-02-03T20:56:28.408839"
+  },
+  {
+    "step": "outcomes",
+    "updated": 0,
+    "unresolved": 25,
+    "performance": {
+      "total_trades": 0,
+      "winning_trades": 0,
+      "losing_trades": 0,
+      "win_rate": 0,
+      "total_pnl": 0,
+      "avg_pnl": 0,
+      "avg_entry_price": 0,
+      "avg_edge": 0,
+      "open_trades": 25
+    },
+    "timestamp": "2026-02-03T20:56:30.443958"
+  },
+  {
+    "step": "monitoring",
+    "status": "insufficient_data",
+    "timestamp": "2026-02-03T20:56:30.444374"
+  },
+  {
+    "step": "comparison",
+    "status": "insufficient_data",
+    "timestamp": "2026-02-03T20:56:30.446042"
+  }
+]
