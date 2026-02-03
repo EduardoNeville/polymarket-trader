@@ -27,6 +27,7 @@ alerts.json
 *.log
 data/*.json
 data/*.csv
+data/live_markets/
 
 # OS
 .DS_Store
