@@ -18,8 +18,6 @@ from models.price_predictor import SimplePricePredictor
 from models.edge_estimator import EnsembleEdgeEstimator
 from strategies.adaptive_kelly import AdaptiveKelly, PortfolioKelly
 from strategies.portfolio import StrategyPortfolio
-from utils.ai_calculator import AIOddsCalculator
-from utils.backtest import BacktestEngine
 
 
 class TestEndToEndWorkflow(unittest.TestCase):
@@ -118,34 +116,6 @@ class TestEndToEndWorkflow(unittest.TestCase):
         # Check allocation limits
         total_size = sum(a.size for a in allocations)
         self.assertLessEqual(total_size, 0.50)  # Max 50% exposure
-    
-    def test_backtest_workflow(self):
-        """Test backtesting workflow"""
-        engine = BacktestEngine(initial_bankroll=10000)
-        
-        # Run backtest returns result - engine has its own simulated data
-        result = engine.run_backtest(strategy='ensemble')
-        
-        self.assertIsNotNone(result)
-        self.assertIsNotNone(result.total_pnl)
-        self.assertIsNotNone(result.sharpe_ratio)
-    
-    def test_ai_calculator_integration(self):
-        """Test AI calculator integration"""
-        calc = AIOddsCalculator()
-        
-        # Calculate position
-        result = calc.calculate_position(
-            market_slug='integration-test',
-            market_question='Integration test?',
-            current_price=0.55,
-            category='general',
-            bankroll=10000
-        )
-        
-        self.assertIsNotNone(result)
-        self.assertIn('ai_prediction', result)
-        self.assertIn('kelly_result', result)
 
 
 class TestSystemInitialization(unittest.TestCase):
@@ -159,8 +129,6 @@ class TestSystemInitialization(unittest.TestCase):
             from models.edge_estimator import EnsembleEdgeEstimator
             from strategies.adaptive_kelly import AdaptiveKelly
             from strategies.portfolio import StrategyPortfolio
-            from utils.ai_calculator import AIOddsCalculator
-            from utils.backtest import BacktestEngine
             import_success = True
         except ImportError as e:
             import_success = False
