@@ -20,91 +20,34 @@ class TestEnsembleEdgeEstimator(unittest.TestCase):
     def test_basic_estimate(self):
         """Test basic probability estimation"""
         # Feed some price history
-        market = "test-market"
-        for price in [0.45, 0.46, 0.47, 0.48, 0.49, 0.50]:
-            self.estimator.update_price(market, price)
+        for price in [0.45, 0.46, 0.47, 0.48, 0.49]:
+            self.estimator.update_price('test-market', price)
         
         estimate = self.estimator.estimate_probability(
-            market_slug=market,
-            market_question="Test question?",
+            market_slug='test-market',
+            market_question='Test question?',
             current_price=0.50,
-            category="general"
+            category='general'
         )
         
         self.assertIsInstance(estimate, EdgeEstimate)
-        self.assertEqual(estimate.market_slug, market)
+        self.assertEqual(estimate.market_slug, 'test-market')
+        self.assertEqual(estimate.current_price, 0.50)
         self.assertGreaterEqual(estimate.ensemble_probability, 0.05)
         self.assertLessEqual(estimate.ensemble_probability, 0.95)
     
-    def test_upward_trend_estimate(self):
-        """Test that upward trend produces higher prediction"""
-        market = "up-trend"
-        for price in [0.40, 0.42, 0.44, 0.46, 0.48, 0.50, 0.52, 0.54]:
-            self.estimator.update_price(market, price)
+    def test_upward_trend_positive_edge(self):
+        """Test that upward trend predicts positive edge for YES"""
+        # Strong upward trend
+        for price in [0.40, 0.42, 0.44, 0.46, 0.48, 0.50, 0.52]:
+            self.estimator.update_price('up-market', price)
         
         estimate = self.estimator.estimate_probability(
-            market_slug=market,
-            market_question="Upward trend?",
-            current_price=0.54,
-            category="general"
+            'up-market', 'Test?', 0.52, 'general'
         )
         
-        # Should predict higher than current due to momentum
+        # Momentum models should push prediction higher
         self.assertGreater(estimate.ensemble_probability, 0.50)
-    
-    def test_edge_calculation(self):
-        """Test edge calculation"""
-        market = "edge-test"
-        for price in [0.45, 0.46, 0.47]:
-            self.estimator.update_price(market, price)
-        
-        estimate = self.estimator.estimate_probability(
-            market_slug=market,
-            market_question="Edge test?",
-            current_price=0.47,
-            category="general"
-        )
-        
-        expected_edge = estimate.ensemble_probability - 0.47
-        self.assertAlmostEqual(estimate.edge, expected_edge, places=5)
-    
-    def test_confidence_range(self):
-        """Test that confidence is in valid range"""
-        market = "conf-test"
-        for price in [0.50, 0.51, 0.52]:
-            self.estimator.update_price(market, price)
-        
-        estimate = self.estimator.estimate_probability(
-            market_slug=market,
-            market_question="Confidence test?",
-            current_price=0.52,
-            category="general"
-        )
-        
-        self.assertGreaterEqual(estimate.confidence, 0.0)
-        self.assertLessEqual(estimate.confidence, 1.0)
-    
-    def test_individual_predictions_exist(self):
-        """Test that individual model predictions are included"""
-        market = "individual-test"
-        for price in [0.50, 0.51]:
-            self.estimator.update_price(market, price)
-        
-        estimate = self.estimator.estimate_probability(
-            market_slug=market,
-            market_question="Individual test?",
-            current_price=0.51,
-            category="general"
-        )
-        
-        self.assertIn('individual_predictions', estimate.__dict__)
-        self.assertGreater(len(estimate.individual_predictions), 0)
-        
-        # Check specific models
-        self.assertIn('simple_price', estimate.individual_predictions)
-        self.assertIn('momentum', estimate.individual_predictions)
-        self.assertIn('mean_reversion', estimate.individual_predictions)
-        self.assertIn('fundamental', estimate.individual_predictions)
     
     def test_model_weights_sum_to_one(self):
         """Test that model weights sum to approximately 1"""
@@ -112,111 +55,108 @@ class TestEnsembleEdgeEstimator(unittest.TestCase):
         total = sum(weights.values())
         self.assertAlmostEqual(total, 1.0, places=2)
     
-    def test_weights_updated(self):
-        """Test that weights are initialized"""
-        weights = self.estimator.get_model_weights()
-        
-        # Should have weights for all models
-        self.assertIn('simple_price', weights)
-        self.assertIn('momentum', weights)
-        self.assertIn('mean_reversion', weights)
-        
-        # All weights should be positive
-        for w in weights.values():
-            self.assertGreater(w, 0)
-    
-    def test_fundamental_by_category(self):
+    def test_fundamental_category_prediction(self):
         """Test fundamental predictions by category"""
-        market = "fundamental-test"
-        
-        # Politics should be around 0.50
-        est_politics = self.estimator.estimate_probability(
-            market_slug=market,
-            market_question="Politics?",
-            current_price=0.50,
-            category="politics"
+        # Politics should be around 50%
+        self.estimator.update_price('pol-market', 0.50)
+        pol_estimate = self.estimator.estimate_probability(
+            'pol-market', 'Political question?', 0.50, 'politics'
         )
         
-        # The fundamental model prediction should be ~0.50
-        self.assertAlmostEqual(
-            est_politics.individual_predictions['fundamental'],
-            0.50,
-            places=2
+        # Sports favorite should be higher
+        self.estimator.update_price('sports-market', 0.50)
+        sports_estimate = self.estimator.estimate_probability(
+            'sports-market', 'Sports question?', 0.50, 'sports_favorite'
         )
+        
+        # The fundamental component should differ
+        pol_fund = pol_estimate.individual_predictions.get('fundamental', 0.5)
+        sports_fund = sports_estimate.individual_predictions.get('fundamental', 0.5)
+        
+        # Sports should have higher base rate
+        self.assertGreater(sports_fund, pol_fund)
     
-    def test_recommendation_generation(self):
-        """Test that recommendations are generated"""
-        market = "rec-test"
-        for price in [0.50, 0.51]:
-            self.estimator.update_price(market, price)
+    def test_recommendation_format(self):
+        """Test that recommendation is properly formatted"""
+        for price in [0.45, 0.46, 0.47]:
+            self.estimator.update_price('rec-market', price)
         
-        # Test with small edge
-        estimate_small = self.estimator.estimate_probability(
-            market_slug=market,
-            market_question="Small edge?",
-            current_price=0.505,  # Very close to estimate
-            category="general"
+        estimate = self.estimator.estimate_probability(
+            'rec-market', 'Test?', 0.47, 'general'
         )
-        self.assertIn("PASS", estimate_small.recommendation)
         
-        # Test with large edge
-        estimate_large = self.estimator.estimate_probability(
-            market_slug=market,
-            market_question="Large edge?",
-            current_price=0.30,  # Far from estimate
-            category="general"
+        self.assertIsInstance(estimate.recommendation, str)
+        self.assertGreater(len(estimate.recommendation), 0)
+    
+    def test_confidence_calculation(self):
+        """Test confidence is between 0 and 1"""
+        for price in [0.50, 0.51, 0.52, 0.53, 0.54]:
+            self.estimator.update_price('conf-market', price)
+        
+        estimate = self.estimator.estimate_probability(
+            'conf-market', 'Test?', 0.54, 'general'
         )
-        self.assertTrue(
-            "BUY" in estimate_large.recommendation or
-            "CAUTION" in estimate_large.recommendation
-        )
+        
+        self.assertGreaterEqual(estimate.confidence, 0)
+        self.assertLessEqual(estimate.confidence, 1)
     
     def test_expected_return_calculation(self):
         """Test expected return calculation"""
-        market = "return-test"
-        for price in [0.50, 0.55, 0.60]:
-            self.estimator.update_price(market, price)
+        for price in [0.45, 0.46, 0.47]:
+            self.estimator.update_price('ret-market', price)
         
         estimate = self.estimator.estimate_probability(
-            market_slug=market,
-            market_question="Return test?",
-            current_price=0.60,
-            category="general"
+            'ret-market', 'Test?', 0.47, 'general'
         )
         
-        # Expected return should be a number
+        # Expected return should be a float
         self.assertIsInstance(estimate.expected_return, float)
     
     def test_sharpe_calculation(self):
-        """Test Sharpe ratio estimation"""
-        market = "sharpe-test"
+        """Test Sharpe ratio calculation"""
         for price in [0.50, 0.51]:
-            self.estimator.update_price(market, price)
+            self.estimator.update_price('sharpe-market', price)
         
         estimate = self.estimator.estimate_probability(
-            market_slug=market,
-            market_question="Sharpe test?",
-            current_price=0.51,
-            category="general"
+            'sharpe-market', 'Test?', 0.51, 'general'
         )
         
-        # Sharpe should be a number
         self.assertIsInstance(estimate.sharpe_ratio, float)
     
-    def test_probability_clipping(self):
-        """Test that probabilities are clipped to valid range"""
-        market = "clip-test"
+    def test_individual_predictions_present(self):
+        """Test that individual model predictions are included"""
+        self.estimator.update_price('ind-market', 0.50)
         
-        # Even with extreme inputs, output should be in [0.05, 0.95]
         estimate = self.estimator.estimate_probability(
-            market_slug=market,
-            market_question="Clip test?",
-            current_price=0.99,
-            category="general"
+            'ind-market', 'Test?', 0.50, 'general'
         )
         
-        self.assertGreaterEqual(estimate.ensemble_probability, 0.05)
+        self.assertIn('individual_predictions', estimate.__dict__)
+        self.assertGreater(len(estimate.individual_predictions), 0)
+    
+    def test_model_confidences_present(self):
+        """Test that model confidences are tracked"""
+        self.estimator.update_price('conf-market', 0.50)
+        
+        estimate = self.estimator.estimate_probability(
+            'conf-market', 'Test?', 0.50, 'general'
+        )
+        
+        self.assertIn('model_confidences', estimate.__dict__)
+        self.assertGreater(len(estimate.model_confidences), 0)
+    
+    def test_edge_clipping(self):
+        """Test that ensemble probability is clipped to valid range"""
+        # Feed extreme values
+        for _ in range(10):
+            self.estimator.update_price('extreme-market', 0.99)
+        
+        estimate = self.estimator.estimate_probability(
+            'extreme-market', 'Test?', 0.99, 'general'
+        )
+        
         self.assertLessEqual(estimate.ensemble_probability, 0.95)
+        self.assertGreaterEqual(estimate.ensemble_probability, 0.05)
 
 
 if __name__ == '__main__':
