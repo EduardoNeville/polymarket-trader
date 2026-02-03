@@ -25,6 +25,8 @@ ENV/
 positions.json
 alerts.json
 *.log
+data/*.json
+data/*.csv
 
 # OS
 .DS_Store

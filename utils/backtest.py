@@ -65,9 +65,10 @@ class BacktestEngine:
     - Equity curve generation
     """
     
-    def __init__(self, initial_bankroll: float = 10000):
+    def __init__(self, initial_bankroll: float = 10000, max_position_pct: float = 0.20):
         self.initial_bankroll = initial_bankroll
         self.current_bankroll = initial_bankroll
+        self.max_position_pct = max_position_pct  # Cap position size
         self.kelly = AdaptiveKelly()
         self.estimator = EnsembleEdgeEstimator()
         
@@ -185,13 +186,20 @@ class BacktestEngine:
         if abs(edge) < min_edge:
             return
         
-        # Calculate position size
+        # Calculate position size with cap
+        max_position_size = self.initial_bankroll * self.max_position_pct
+        
         kelly_result = self.kelly.calculate_position_size(
-            bankroll=self.current_bankroll,
+            bankroll=min(self.current_bankroll, self.initial_bankroll),  # Cap bankroll reference
             market_price=entry_price,
             estimated_prob=predicted_prob,
             confidence=estimate.confidence
         )
+        
+        # Apply position size cap
+        if kelly_result.position_size > max_position_size:
+            kelly_result.position_size = max_position_size
+            kelly_result.shares = max_position_size / entry_price if kelly_result.side == 'YES' else max_position_size / (1 - entry_price)
         
         if kelly_result.position_size <= 0:
             return
