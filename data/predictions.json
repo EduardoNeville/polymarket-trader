@@ -1,0 +1,47 @@
+[
+  {
+    "market_slug": "workflow-test",
+    "question": "Will it happen?",
+    "predicted_prob": 0.5399613025086136,
+    "market_price": 0.55,
+    "edge": -0.010038697491386417,
+    "side": "NO",
+    "position_size": 45.61211924075906,
+    "timestamp": "2026-02-03T13:30:08.036108",
+    "resolved": true,
+    "actual_outcome": 1,
+    "pnl": -45.61211924075906,
+    "brier_score": 0.2116356031895713,
+    "model_predictions": null
+  },
+  {
+    "market_slug": "test-market",
+    "question": "Test question?",
+    "predicted_prob": 0.7,
+    "market_price": 0.55,
+    "edge": 0.1499999999999999,
+    "side": "YES",
+    "position_size": 1000,
+    "timestamp": "2026-02-03T13:30:08.037808",
+    "resolved": true,
+    "actual_outcome": 1,
+    "pnl": 818.181818181818,
+    "brier_score": 0.09000000000000002,
+    "model_predictions": null
+  },
+  {
+    "market_slug": "workflow-test",
+    "question": "Will it happen?",
+    "predicted_prob": 0.5375138530460184,
+    "market_price": 0.55,
+    "edge": -0.012486146953981647,
+    "side": "NO",
+    "position_size": 56.72125447277553,
+    "timestamp": "2026-02-03T13:30:54.846747",
+    "resolved": true,
+    "actual_outcome": 1,
+    "pnl": -56.72125447277553,
+    "brier_score": 0.21389343612433986,
+    "model_predictions": null
+  }
+]
