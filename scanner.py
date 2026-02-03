@@ -35,10 +35,12 @@ class PolymarketScanner:
         })
     
     def get_active_markets(self, limit: int = 100) -> List[Market]:
-        """Fetch all active markets"""
-        url = f"{GAMMA_API}/markets"
+        """Fetch all active markets from events endpoint"""
+        url = f"{GAMMA_API}/events"
         params = {
+            'active': 'true',
             'closed': 'false',
+            'archived': 'false',
             'limit': limit,
             'order': 'volume',
             'ascending': 'false'
@@ -47,33 +49,70 @@ class PolymarketScanner:
         try:
             response = self.session.get(url, params=params, timeout=30)
             response.raise_for_status()
-            data = response.json()
+            events = response.json()
             
             markets = []
-            for item in data:
-                try:
-                    prices = json.loads(item.get('outcomePrices', '{}'))
-                    market = Market(
-                        id=item.get('conditionId', ''),
-                        question=item.get('question', ''),
-                        slug=item.get('slug', ''),
-                        yes_price=float(prices.get('Yes', 0)),
-                        no_price=float(prices.get('No', 0)),
-                        volume=float(item.get('volume', 0)),
-                        liquidity=float(item.get('liquidity', 0)),
-                        end_date=item.get('endDate', ''),
-                        category=item.get('category', ''),
-                        description=item.get('description', '')[:200],
-                        resolution_source=item.get('resolutionSource', '')
-                    )
-                    markets.append(market)
-                except (KeyError, ValueError, json.JSONDecodeError) as e:
-                    continue
+            for event in events:
+                # Markets are nested under events
+                event_markets = event.get('markets', [])
+                for item in event_markets:
+                    try:
+                        market = self._parse_market(item, event)
+                        if market:
+                            markets.append(market)
+                    except (KeyError, ValueError, json.JSONDecodeError) as e:
+                        continue
             
             return markets
         except Exception as e:
             print(f"Error fetching markets: {e}")
             return []
+    
+    def _parse_market(self, item: Dict, event: Dict) -> Optional[Market]:
+        """Parse a market from API response"""
+        # Parse outcomePrices - it's a JSON array like '["0.29", "0.71"]'
+        outcome_prices_str = item.get('outcomePrices')
+        if not outcome_prices_str:
+            return None
+        
+        try:
+            outcome_prices = json.loads(outcome_prices_str)
+            if not isinstance(outcome_prices, list) or len(outcome_prices) < 2:
+                return None
+            
+            yes_price = float(outcome_prices[0]) if outcome_prices[0] else 0.0
+            no_price = float(outcome_prices[1]) if outcome_prices[1] else 0.0
+        except (json.JSONDecodeError, ValueError, IndexError):
+            return None
+        
+        # Skip markets with no price data
+        if yes_price == 0 and no_price == 0:
+            return None
+        
+        # Parse volume and liquidity (can be string or number)
+        volume_str = item.get('volume', '0')
+        liquidity_str = item.get('liquidity', '0')
+        
+        try:
+            volume = float(volume_str) if volume_str else 0.0
+            liquidity = float(liquidity_str) if liquidity_str else 0.0
+        except ValueError:
+            volume = 0.0
+            liquidity = 0.0
+        
+        return Market(
+            id=item.get('conditionId', ''),
+            question=item.get('question', ''),
+            slug=item.get('slug', ''),
+            yes_price=yes_price,
+            no_price=no_price,
+            volume=volume,
+            liquidity=liquidity,
+            end_date=item.get('endDate', ''),
+            category=event.get('category', 'general'),
+            description=item.get('description', '')[:200],
+            resolution_source=item.get('resolutionSource', '')
+        )
     
     def get_markets_by_category(self, category: str, limit: int = 50) -> List[Market]:
         """Get markets filtered by category"""
@@ -89,7 +128,7 @@ class PolymarketScanner:
             total = market.yes_price + market.no_price
             spread = abs(1.0 - total)
             
-            if spread > 0.02:  # 2% arbitrage threshold
+            if spread > 0.02 and total > 0:  # 2% arbitrage threshold
                 opportunities.append({
                     'question': market.question,
                     'slug': market.slug,
@@ -161,15 +200,18 @@ class PolymarketScanner:
         
         for market in markets:
             try:
+                if not market.end_date:
+                    continue
                 end = datetime.fromisoformat(market.end_date.replace('Z', '+00:00'))
                 if end <= cutoff:
+                    days_left = (end - datetime.now()).days
                     closing.append({
                         'question': market.question[:80],
                         'slug': market.slug,
                         'end_date': market.end_date,
                         'yes_price': market.yes_price,
                         'volume': market.volume,
-                        'days_left': (end - datetime.now()).days
+                        'days_left': days_left
                     })
             except:
                 continue
@@ -183,6 +225,11 @@ def main():
     print("=" * 80)
     print("POLYMARKET MARKET SCANNER")
     print("=" * 80)
+    print()
+    
+    # First, show how many markets we fetched
+    all_markets = scanner.get_active_markets(limit=100)
+    print(f"Fetched {len(all_markets)} active markets")
     print()
     
     # Arbitrage opportunities
