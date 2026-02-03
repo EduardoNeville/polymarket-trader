@@ -8,10 +8,16 @@ from .price_predictor import (
     MeanReversionPredictor,
     PricePrediction
 )
+from .edge_estimator import (
+    EnsembleEdgeEstimator,
+    EdgeEstimate
+)
 
 __all__ = [
     'SimplePricePredictor',
     'MomentumPredictor', 
     'MeanReversionPredictor',
-    'PricePrediction'
+    'PricePrediction',
+    'EnsembleEdgeEstimator',
+    'EdgeEstimate'
 ]
