@@ -30,6 +30,13 @@ class Trade:
     exit_price: Optional[float] = None
     pnl: Optional[float] = None
     pnl_pct: Optional[float] = None
+    
+    # Take-profit fields (Step 2a: 50% Edge Rule)
+    take_profit_price: Optional[float] = None  # Target exit price
+    take_profit_pct: Optional[float] = None    # Calculated % move
+    exit_reason: Optional[str] = None          # 'tp' | 'resolution' | 'stop_loss'
+    holding_days: Optional[int] = None         # Days from entry to exit
+    exit_timestamp: Optional[str] = None       # When actually exited
 
 
 @dataclass
@@ -53,6 +60,12 @@ class BacktestResult:
     sortino_ratio: float
     trades: List[Trade] = field(default_factory=list)
     equity_curve: List[Tuple[str, float]] = field(default_factory=list)
+    
+    # Take-profit metrics (Step 2a: 50% Edge Rule)
+    tp_exit_count: int = 0              # Number of trades exited via take-profit
+    resolution_exit_count: int = 0      # Number of trades held to resolution
+    avg_holding_days: float = 0.0       # Average holding time
+    tp_hit_rate: float = 0.0            # Percentage of trades hitting TP
 
 
 class BacktestEngine:
@@ -263,7 +276,11 @@ class BacktestEngine:
                 sharpe_ratio=0.0,
                 sortino_ratio=0.0,
                 trades=[],
-                equity_curve=self.equity_curve
+                equity_curve=self.equity_curve,
+                tp_exit_count=0,
+                resolution_exit_count=0,
+                avg_holding_days=0.0,
+                tp_hit_rate=0.0
             )
         
         # Basic stats
@@ -296,6 +313,15 @@ class BacktestEngine:
         else:
             sortino = 0
         
+        # Calculate take-profit metrics
+        tp_exit_count = sum(1 for t in self.trades if t.exit_reason == 'tp')
+        resolution_exit_count = sum(1 for t in self.trades if t.exit_reason == 'resolution')
+        tp_hit_rate = tp_exit_count / total_trades if total_trades > 0 else 0.0
+        
+        # Calculate average holding days
+        holding_days_list = [t.holding_days for t in self.trades if t.holding_days is not None]
+        avg_holding_days = np.mean(holding_days_list) if holding_days_list else 0.0
+        
         return BacktestResult(
             strategy_name='backtest',
             start_date=self.trades[0].timestamp if self.trades else '',
@@ -314,7 +340,11 @@ class BacktestEngine:
             sharpe_ratio=sharpe,
             sortino_ratio=sortino,
             trades=self.trades,
-            equity_curve=self.equity_curve
+            equity_curve=self.equity_curve,
+            tp_exit_count=tp_exit_count,
+            resolution_exit_count=resolution_exit_count,
+            avg_holding_days=avg_holding_days,
+            tp_hit_rate=tp_hit_rate
         )
     
     def _print_results(self, result: BacktestResult):
@@ -452,12 +482,22 @@ class BacktestEngine:
                     'position_size': t.position_size,
                     'estimated_prob': t.estimated_prob,
                     'actual_outcome': t.actual_outcome,
+                    'exit_price': t.exit_price,
                     'pnl': t.pnl,
-                    'pnl_pct': t.pnl_pct
+                    'pnl_pct': t.pnl_pct,
+                    'take_profit_price': t.take_profit_price,
+                    'take_profit_pct': t.take_profit_pct,
+                    'exit_reason': t.exit_reason,
+                    'holding_days': t.holding_days,
+                    'exit_timestamp': t.exit_timestamp
                 }
                 for t in result.trades
             ],
-            'equity_curve': result.equity_curve
+            'equity_curve': result.equity_curve,
+            'tp_exit_count': result.tp_exit_count,
+            'resolution_exit_count': result.resolution_exit_count,
+            'avg_holding_days': result.avg_holding_days,
+            'tp_hit_rate': result.tp_hit_rate
         }
         
         with open(filepath, 'w') as f:

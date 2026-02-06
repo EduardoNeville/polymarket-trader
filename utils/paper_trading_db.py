@@ -75,6 +75,37 @@ class PaperTradingDB:
             """)
             
             conn.commit()
+        
+        # Migrate: Add take-profit columns if they don't exist
+        self._migrate_add_take_profit_columns()
+    
+    def _migrate_add_take_profit_columns(self):
+        """Add take-profit columns to existing database (migration)"""
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.cursor()
+            
+            # Get existing columns
+            cursor.execute("PRAGMA table_info(paper_trades)")
+            existing_columns = [row[1] for row in cursor.fetchall()]
+            
+            # Add new columns if they don't exist
+            new_columns = {
+                'take_profit_price': 'REAL',
+                'take_profit_pct': 'REAL',
+                'exit_reason': 'TEXT',
+                'holding_days': 'INTEGER',
+                'exit_timestamp': 'TEXT'
+            }
+            
+            for column, data_type in new_columns.items():
+                if column not in existing_columns:
+                    cursor.execute(f"""
+                        ALTER TABLE paper_trades 
+                        ADD COLUMN {column} {data_type}
+                    """)
+                    print(f"Added column: {column}")
+            
+            conn.commit()
     
     def save_trade(self, trade: Dict[str, Any]) -> str:
         """
@@ -96,8 +127,10 @@ class PaperTradingDB:
                     id, timestamp, market_slug, market_question,
                     intended_side, intended_price, intended_size,
                     executed_price, executed_timestamp, outcome, pnl,
-                    strategy, edge, confidence, status, notes
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    strategy, edge, confidence, status, notes,
+                    take_profit_price, take_profit_pct, exit_reason,
+                    holding_days, exit_timestamp
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (
                 trade_id,
                 trade.get('timestamp', datetime.now().isoformat()),
@@ -114,7 +147,12 @@ class PaperTradingDB:
                 trade.get('edge', 0.0),
                 trade.get('confidence', 0.0),
                 trade.get('status', 'open'),
-                trade.get('notes', '')
+                trade.get('notes', ''),
+                trade.get('take_profit_price'),
+                trade.get('take_profit_pct'),
+                trade.get('exit_reason'),
+                trade.get('holding_days'),
+                trade.get('exit_timestamp')
             ))
             
             conn.commit()
@@ -310,6 +348,115 @@ class PaperTradingDB:
                 'avg_edge': 0,
                 'open_trades': len(self.get_open_trades())
             }
+    
+    def get_trades_by_exit_reason(self, exit_reason: str) -> List[Dict]:
+        """Get all trades with a specific exit reason ('tp', 'resolution', etc.)"""
+        with sqlite3.connect(self.db_path) as conn:
+            conn.row_factory = sqlite3.Row
+            cursor = conn.cursor()
+            
+            cursor.execute(
+                "SELECT * FROM paper_trades WHERE exit_reason = ? ORDER BY timestamp",
+                (exit_reason,)
+            )
+            
+            return [dict(row) for row in cursor.fetchall()]
+    
+    def get_avg_holding_time(self) -> Dict:
+        """Get average holding time metrics for closed trades"""
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.cursor()
+            
+            cursor.execute("""
+                SELECT 
+                    AVG(holding_days) as avg_holding_days,
+                    MIN(holding_days) as min_holding_days,
+                    MAX(holding_days) as max_holding_days,
+                    COUNT(*) as closed_with_holding_data
+                FROM paper_trades 
+                WHERE status = 'closed' AND holding_days IS NOT NULL
+            """)
+            
+            row = cursor.fetchone()
+            if row and row[0] is not None:
+                return {
+                    'avg_holding_days': row[0],
+                    'min_holding_days': row[1],
+                    'max_holding_days': row[2],
+                    'closed_with_holding_data': row[3]
+                }
+            
+            return {
+                'avg_holding_days': None,
+                'min_holding_days': None,
+                'max_holding_days': None,
+                'closed_with_holding_data': 0
+            }
+    
+    def update_trade_take_profit(
+        self,
+        trade_id: str,
+        exit_price: float,
+        pnl: float,
+        exit_reason: str,
+        holding_days: int,
+        notes: str = ""
+    ) -> bool:
+        """
+        Update a trade when take-profit is hit.
+        
+        Args:
+            trade_id: Trade UUID
+            exit_price: Price at exit
+            pnl: Profit/loss amount
+            exit_reason: 'tp' or 'resolution'
+            holding_days: Days held
+            notes: Optional notes
+            
+        Returns:
+            True if updated successfully
+        """
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.cursor()
+            
+            cursor.execute("""
+                UPDATE paper_trades 
+                SET executed_price = ?, pnl = ?, status = 'closed',
+                    exit_reason = ?, holding_days = ?, exit_timestamp = ?,
+                    notes = ?, updated_at = CURRENT_TIMESTAMP
+                WHERE id = ?
+            """, (exit_price, pnl, exit_reason, holding_days, 
+                  datetime.now().isoformat(), notes, trade_id))
+            
+            conn.commit()
+            return cursor.rowcount > 0
+    
+    def get_exit_reason_summary(self) -> Dict:
+        """Get summary of trades by exit reason"""
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.cursor()
+            
+            cursor.execute("""
+                SELECT 
+                    exit_reason,
+                    COUNT(*) as count,
+                    AVG(pnl) as avg_pnl,
+                    SUM(pnl) as total_pnl
+                FROM paper_trades 
+                WHERE status = 'closed' AND exit_reason IS NOT NULL
+                GROUP BY exit_reason
+            """)
+            
+            results = {}
+            for row in cursor.fetchall():
+                reason = row[0] or 'unknown'
+                results[reason] = {
+                    'count': row[1],
+                    'avg_pnl': row[2],
+                    'total_pnl': row[3]
+                }
+            
+            return results
     
     def to_dataframe(self, status: Optional[str] = None) -> pd.DataFrame:
         """Export all trades to pandas DataFrame"""
