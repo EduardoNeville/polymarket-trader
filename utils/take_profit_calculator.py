@@ -27,7 +27,7 @@ def calculate_take_profit(
     entry_price: float,
     estimated_prob: float,
     side: str,
-    edge_capture_ratio: float = 0.5,
+    edge_capture_ratio: float = 0.75,
     min_edge_threshold: float = 0.05,
     min_price: float = 0.01,
     max_price: float = 0.99
@@ -41,7 +41,7 @@ def calculate_take_profit(
         entry_price: Market YES price at entry (0.0 - 1.0)
         estimated_prob: Your estimated probability of YES (0.0 - 1.0)
         side: 'YES' or 'NO' - which side we're trading
-        edge_capture_ratio: How much edge to capture (default 0.5 = 50%)
+        edge_capture_ratio: How much edge to capture (default 0.75 = 75%)
         min_edge_threshold: Minimum |edge| to apply TP (default 0.05 = 5%)
         min_price: Minimum valid price (default 0.01)
         max_price: Maximum valid price (default 0.99)
@@ -53,13 +53,13 @@ def calculate_take_profit(
         - Side is invalid
     
     Examples:
-        >>> # YES position: 10% edge at $0.40 entry
+        >>> # YES position: 10% edge at $0.40 entry (75% capture)
         >>> tp = calculate_take_profit(0.40, 0.50, 'YES')
-        >>> print(f"Target: ${tp.target_price:.2f}")  # $0.45
+        >>> print(f"Target: ${tp.target_price:.2f}")  # $0.475
         
-        >>> # NO position: 15% edge at YES=$0.65 (NO=$0.35)
+        >>> # NO position: 15% edge at YES=$0.65 (NO=$0.35) (75% capture)
         >>> tp = calculate_take_profit(0.65, 0.50, 'NO')
-        >>> print(f"Target: ${tp.target_price:.2f}")  # $0.725
+        >>> print(f"Target: ${tp.target_price:.2f}")  # $0.788
     """
     # Validate inputs
     if side not in ('YES', 'NO'):

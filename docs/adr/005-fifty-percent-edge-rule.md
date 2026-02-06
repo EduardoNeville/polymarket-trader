@@ -1,4 +1,4 @@
-# ADR 005: 50% Edge Rule Take-Profit Strategy
+# ADR 005: 75% Edge Rule Take-Profit Strategy
 
 ## Status
 Proposed
@@ -12,18 +12,18 @@ The current backtesting and paper trading systems hold all positions until marke
 We need a systematic take-profit mechanism that captures a portion of our edge while freeing up capital for reuse.
 
 ## Decision
-Implement the **50% Edge Rule** take-profit strategy with the following formula:
+Implement the **75% Edge Rule** take-profit strategy with the following formula:
 
 ### Formula
 
 ```
-Take-Profit % = (Initial Edge × 0.5) / Entry Price
+Take-Profit % = (Initial Edge × 0.75) / Entry Price
 ```
 
 Where:
 - **Initial Edge** = Estimated Probability - Market Price
 - **Entry Price** = Market price at position entry
-- **0.5** = Capture 50% of the edge (configurable)
+- **0.75** = Capture 75% of the edge (configurable)
 
 ### Target Price Calculation
 
@@ -45,26 +45,26 @@ Target YES Price = 1 - Target NO Price
 - Market Price: $0.40
 - Estimated Probability: 50% (0.50)
 - Initial Edge: 10% (0.10)
-- Take-Profit %: (0.10 × 0.5) / 0.40 = 12.5%
-- Target Price: 0.40 + (0.40 × 0.125) = **$0.45**
-- Captured Edge: $0.05 (50% of original $0.10 edge)
+- Take-Profit %: (0.10 × 0.75) / 0.40 = 18.75%
+- Target Price: 0.40 + (0.40 × 0.1875) = **$0.475**
+- Captured Edge: $0.075 (75% of original $0.10 edge)
 
 #### Example 2: NO Position
 - Market Price (YES): $0.65
 - Estimated Probability (YES): 50% (0.50)
 - Initial Edge (YES): -15% (-0.15) → Trade NO side
 - NO Entry Price: 1 - 0.65 = $0.35
-- Take-Profit %: (0.15 × 0.5) / 0.35 = 21.4%
-- Target NO Price: 0.35 - (0.35 × 0.214) = $0.275
-- Target YES Price: 1 - 0.275 = **$0.725**
-- Captured Edge: $0.075 (50% of original $0.15 edge)
+- Take-Profit %: (0.15 × 0.75) / 0.35 = 32.1%
+- Target NO Price: 0.35 - (0.35 × 0.321) = $0.238
+- Target YES Price: 1 - 0.238 = **$0.762**
+- Captured Edge: $0.112 (75% of original $0.15 edge)
 
 #### Example 3: Small Edge Position
 - Market Price: $0.55
 - Estimated Probability: 60% (0.60)
 - Initial Edge: 5% (0.05)
-- Take-Profit %: (0.05 × 0.5) / 0.55 = 4.5%
-- Target Price: 0.55 + (0.55 × 0.045) = **$0.575**
+- Take-Profit %: (0.05 × 0.75) / 0.55 = 6.8%
+- Target Price: 0.55 + (0.55 × 0.068) = **$0.587**
 
 ## Edge Cases and Validation Rules
 
@@ -89,11 +89,12 @@ Target YES Price = 1 - Target NO Price
 - **Action**: Signal should not generate a trade
 
 ### 5. Edge Capture Ratio
-- **Default**: 0.5 (50%)
-- **Range**: Configurable from 0.3 to 0.7
+- **Default**: 0.75 (75%)
+- **Range**: Configurable from 0.5 to 0.9
 - **Rationale**: 
-  - < 30%: Transaction costs and slippage may dominate
-  - > 70%: TP becomes unlikely to trigger, defeating the purpose
+  - < 50%: TP triggers too frequently, leaving profit on table
+  - 75%: Balanced - captures most edge while allowing capital recycling
+  - > 90%: TP becomes unlikely to trigger, defeating the purpose
 
 ## Trade Exit Reasons
 
@@ -116,7 +117,7 @@ When a trade closes, record the reason:
 
 ## Expected Trade-offs
 
-1. **Smaller Per-Trade Profits**: Capture 50% of edge vs. full potential
+1. **Smaller Per-Trade Profits**: Capture 75% of edge vs. full potential (better than 50%)
 2. **Missed Runners**: Some trades would have been more profitable if held
 3. **Target Calculation Overhead**: Additional computation for each trade
 
