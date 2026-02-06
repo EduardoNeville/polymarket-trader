@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-02-06T11:30:54.989195",
+  "baseline": {
+    "total_trades": 180,
+    "total_pnl": 174881.13713060776,
+    "total_pnl_pct": 1748.8113713060777,
+    "win_rate": 0.7111111111111111,
+    "sharpe_ratio": 0.42095946590173305,
+    "max_drawdown_pct": 5.743130811165672,
+    "avg_holding_days": 13.661111111111111,
+    "capital_turns_per_year": 26.718178121187474,
+    "tp_exit_count": 0,
+    "resolution_exit_count": 180
+  },
+  "take_profit": {
+    "total_trades": 180,
+    "total_pnl": 50323.97701988183,
+    "total_pnl_pct": 503.2397701988183,
+    "win_rate": 0.7444444444444445,
+    "sharpe_ratio": -0.0015745686984641096,
+    "max_drawdown_pct": 14.43003610542187,
+    "avg_holding_days": 8.061111111111112,
+    "capital_turns_per_year": 45.279117849758784,
+    "tp_exit_count": 132,
+    "resolution_exit_count": 48,
+    "tp_hit_rate": 0.7333333333333333
+  },
+  "deltas": {
+    "pnl_absolute": -124557.16011072593,
+    "pnl_percentage": -71.2238965016004,
+    "win_rate": 0.033333333333333326,
+    "avg_holding_days": -5.6,
+    "holding_days_percentage": -40.99227328182187,
+    "capital_turns": 18.56093972857131,
+    "capital_turns_percentage": 69.46933149552031,
+    "sharpe_ratio": -0.4225340346001972,
+    "max_drawdown_pct": 8.686905294256198
+  },
+  "validation": {
+    "tp_hit_rate_target_met": false,
+    "holding_time_reduced": "True",
+    "capital_turns_improved": "True"
+  }
+}
