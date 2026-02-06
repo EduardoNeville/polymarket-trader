@@ -15,6 +15,11 @@ import json
 from strategies.adaptive_kelly import AdaptiveKelly
 from models.edge_estimator import EnsembleEdgeEstimator
 from utils.prediction_tracker import PredictionTracker
+from utils.take_profit_calculator import (
+    calculate_take_profit,
+    check_take_profit_hit,
+    calculate_holding_days
+)
 
 
 @dataclass
@@ -96,6 +101,7 @@ class BacktestEngine:
         historical_data: List[Dict],
         strategy: str = 'ensemble',
         min_edge: float = 0.03,
+        use_take_profit: bool = False,
         verbose: bool = False
     ) -> BacktestResult:
         """
@@ -111,6 +117,7 @@ class BacktestEngine:
                 - category: str
             strategy: Which strategy to use
             min_edge: Minimum edge to trade
+            use_take_profit: Enable 50% Edge Rule take-profit exits
             verbose: Print progress
         
         Returns:
@@ -120,6 +127,7 @@ class BacktestEngine:
             print(f"\n🔄 Running backtest with {len(historical_data)} data points...")
             print(f"   Strategy: {strategy}")
             print(f"   Min edge: {min_edge:.1%}")
+            print(f"   Use take-profit: {use_take_profit}")
         
         # Reset state
         self.current_bankroll = self.initial_bankroll
@@ -141,7 +149,7 @@ class BacktestEngine:
         
         # Process each market
         for market_slug, market_data in markets.items():
-            self._process_market(market_slug, market_data, strategy, min_edge)
+            self._process_market(market_slug, market_data, strategy, min_edge, use_take_profit)
         
         # Calculate results
         result = self._calculate_results()
@@ -156,7 +164,8 @@ class BacktestEngine:
         market_slug: str,
         market_data: List[Dict],
         strategy: str,
-        min_edge: float
+        min_edge: float,
+        use_take_profit: bool = False
     ):
         """Process a single market's data"""
         if len(market_data) < 2:
@@ -171,7 +180,6 @@ class BacktestEngine:
             return
         
         entry_price = entry_data['price']
-        exit_price = exit_data['price']
         actual_outcome = exit_data['outcome']
         
         # Feed price history to estimator
@@ -218,6 +226,42 @@ class BacktestEngine:
         if kelly_result.position_size <= 0:
             return
         
+        # Determine exit price, reason, and timestamp
+        exit_price = exit_data['price']
+        exit_reason = 'resolution'
+        exit_timestamp = exit_data['timestamp']
+        take_profit_price = None
+        take_profit_pct = None
+        
+        # Take-profit logic (Step 4: 50% Edge Rule)
+        if use_take_profit:
+            tp_level = calculate_take_profit(
+                entry_price=entry_price,
+                estimated_prob=predicted_prob,
+                side=kelly_result.side
+            )
+            
+            if tp_level and tp_level.is_reachable:
+                take_profit_price = tp_level.target_price
+                take_profit_pct = tp_level.target_pct_move
+                
+                # Iterate through price history to check if TP is hit
+                for data in market_data[1:]:  # Skip entry
+                    current_price = data['price']
+                    
+                    if check_take_profit_hit(entry_price, current_price, tp_level, kelly_result.side):
+                        # TP hit - exit at target price
+                        exit_price = tp_level.target_price
+                        exit_reason = 'tp'
+                        exit_timestamp = data['timestamp']
+                        break
+        
+        # Calculate holding days
+        holding_days = calculate_holding_days(
+            entry_data['timestamp'],
+            exit_timestamp
+        )
+        
         # Execute trade
         trade = Trade(
             timestamp=entry_data['timestamp'],
@@ -227,16 +271,35 @@ class BacktestEngine:
             position_size=kelly_result.position_size,
             estimated_prob=predicted_prob,
             actual_outcome=actual_outcome,
-            exit_price=exit_price
+            exit_price=exit_price,
+            take_profit_price=take_profit_price,
+            take_profit_pct=take_profit_pct,
+            exit_reason=exit_reason,
+            holding_days=holding_days,
+            exit_timestamp=exit_timestamp
         )
         
-        # Calculate P&L
+        # Calculate P&L (actual outcome still determines P&L, but exit_price affects it for TP)
         if kelly_result.side == 'YES':
-            trade.pnl = (actual_outcome - entry_price) * kelly_result.shares
+            # For TP exits, we don't know actual outcome yet, so use exit_price as proxy
+            # At resolution, actual_outcome is 1 or 0, so P&L is (outcome - entry) for full hold
+            # For TP exit, we realize the TP price movement
+            if exit_reason == 'tp':
+                # TP exit: P&L based on target price achieved
+                trade.pnl = (exit_price - entry_price) * kelly_result.shares
+            else:
+                # Resolution exit: P&L based on actual outcome
+                trade.pnl = (actual_outcome - entry_price) * kelly_result.shares
             trade.pnl_pct = trade.pnl / kelly_result.position_size if kelly_result.position_size > 0 else 0
         else:  # NO
             no_entry = 1 - entry_price
-            trade.pnl = ((1 - actual_outcome) - no_entry) * kelly_result.shares
+            if exit_reason == 'tp':
+                # TP exit: P&L based on target price achieved
+                no_exit = 1 - exit_price
+                trade.pnl = (no_entry - no_exit) * kelly_result.shares
+            else:
+                # Resolution exit: P&L based on actual outcome
+                trade.pnl = ((1 - actual_outcome) - no_entry) * kelly_result.shares
             trade.pnl_pct = trade.pnl / kelly_result.position_size if kelly_result.position_size > 0 else 0
         
         self.trades.append(trade)
@@ -245,7 +308,7 @@ class BacktestEngine:
         self.current_bankroll += trade.pnl
         
         # Track equity curve
-        self.equity_curve.append((exit_data['timestamp'], self.current_bankroll))
+        self.equity_curve.append((exit_timestamp, self.current_bankroll))
         
         # Update drawdown
         if self.current_bankroll > self.peak_bankroll:
@@ -362,6 +425,14 @@ class BacktestEngine:
         print(f"\nMax Drawdown:     ${result.max_drawdown:,.2f} ({result.max_drawdown_pct:.2f}%)")
         print(f"Sharpe Ratio:     {result.sharpe_ratio:.2f}")
         print(f"Sortino Ratio:    {result.sortino_ratio:.2f}")
+        
+        # Print take-profit metrics if available
+        if result.tp_exit_count > 0 or result.resolution_exit_count > 0:
+            print(f"\n🎯 TAKE-PROFIT METRICS")
+            print(f"TP Exits:         {result.tp_exit_count} ({result.tp_hit_rate:.1%})")
+            print(f"Resolution Exits: {result.resolution_exit_count}")
+            print(f"Avg Holding Time: {result.avg_holding_days:.1f} days")
+        
         print("=" * 70)
     
     def compare_strategies(
