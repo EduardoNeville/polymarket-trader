@@ -359,22 +359,44 @@ class BacktestEngine:
         # Drawdown
         max_drawdown_pct = (self.max_drawdown / self.peak_bankroll) * 100 if self.peak_bankroll > 0 else 0
         
-        # Sharpe ratio
+        # Sharpe ratio (annualized)
         returns = [t.pnl_pct for t in self.trades if t.pnl_pct is not None]
         if len(returns) > 1:
             avg_return = np.mean(returns)
-            std_return = np.std(returns)
-            sharpe = avg_return / std_return if std_return > 0 else 0
+            std_return = np.std(returns, ddof=1)  # Use sample std
+            
+            # Avoid division by near-zero - require minimum variance
+            if std_return > 1e-10:  # Minimum 0.00000001% std
+                sharpe = avg_return / std_return
+                # Cap at reasonable bounds
+                sharpe = max(-100, min(100, sharpe))
+            else:
+                # Very low variance - Sharpe is undefined, return 0
+                sharpe = 0.0
         else:
-            sharpe = 0
+            sharpe = 0.0
         
         # Sortino ratio (downside deviation only)
         if len(returns) > 1:
+            avg_return = np.mean(returns)
             downside_returns = [r for r in returns if r < 0]
-            downside_std = np.std(downside_returns) if downside_returns else 0.001
-            sortino = avg_return / downside_std if downside_std > 0 else 0
+            
+            if downside_returns:
+                downside_std = np.std(downside_returns, ddof=1)
+                # Avoid division by near-zero
+                if downside_std > 1e-10:
+                    sortino = avg_return / downside_std
+                    # Cap at reasonable bounds
+                    sortino = max(-1000, min(1000, sortino))
+                else:
+                    # Small downside variance
+                    sortino = 100.0 if avg_return > 0 else -100.0
+            else:
+                # No downside returns - all trades were profitable
+                # Sortino is theoretically infinite, cap at large positive value
+                sortino = 100.0 if avg_return > 0 else 0.0
         else:
-            sortino = 0
+            sortino = 0.0
         
         # Calculate take-profit metrics
         tp_exit_count = sum(1 for t in self.trades if t.exit_reason == 'tp')
