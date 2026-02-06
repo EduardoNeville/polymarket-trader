@@ -268,10 +268,43 @@ def main():
     
     trader = PaperTrader(bankroll=1000)
     
-    if len(sys.argv) > 1 and sys.argv[1] == 'update':
-        trader.update_trade_outcomes()
-    elif len(sys.argv) > 1 and sys.argv[1] == 'compare':
-        trader.compare_to_backtest()
+    if len(sys.argv) > 1:
+        cmd = sys.argv[1]
+        
+        if cmd == 'update':
+            trader.update_trade_outcomes()
+        elif cmd == 'compare':
+            trader.compare_to_backtest()
+        elif cmd == 'check-tp':
+            # Check TP/SL hits once
+            from utils.paper_trading_tp_monitor import TPSLMonitor
+            monitor = TPSLMonitor()
+            monitor.run_once(verbose=True)
+        elif cmd == 'monitor-tp':
+            # Run continuous TP/SL monitoring
+            from utils.paper_trading_tp_monitor import TPSLMonitor
+            interval = int(sys.argv[2]) if len(sys.argv) > 2 else 5
+            monitor = TPSLMonitor()
+            monitor.run_continuous(interval_minutes=interval)
+        elif cmd == 'tp-stats':
+            # Show TP/SL statistics
+            from utils.paper_trading_tp_monitor import TPSLMonitor
+            monitor = TPSLMonitor()
+            monitor.display_stats()
+        elif cmd == 'report':
+            # Show full performance report
+            from utils.paper_trading_updater import PaperTradingUpdater
+            updater = PaperTradingUpdater()
+            updater.display_performance_report()
+        else:
+            print(f"Unknown command: {cmd}")
+            print("\nUsage:")
+            print("  python3 paper_trading.py              # Generate signals")
+            print("  python3 paper_trading.py update       # Update outcomes")
+            print("  python3 paper_trading.py check-tp     # Check TP/SL hits once")
+            print("  python3 paper_trading.py monitor-tp [min]  # Monitor TP/SL continuously")
+            print("  python3 paper_trading.py tp-stats     # Show TP/SL statistics")
+            print("  python3 paper_trading.py report       # Full performance report")
     else:
         trader.run_paper_session(max_markets=20)
 

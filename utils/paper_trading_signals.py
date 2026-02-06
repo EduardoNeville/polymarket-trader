@@ -9,6 +9,7 @@ from typing import Dict, List, Optional
 import json
 
 from utils.paper_trading_db import PaperTradingDB
+from utils.take_profit_calculator import calculate_take_profit, calculate_stop_loss
 from models.edge_estimator import EnsembleEdgeEstimator
 from strategies.adaptive_kelly import AdaptiveKelly
 from scanner import PolymarketScanner, Market
@@ -89,7 +90,23 @@ class PaperTradingSignalGenerator:
         if kelly_result.position_size <= 0:
             return None
         
-        return {
+        # Calculate Take-Profit level (75% edge capture)
+        tp_level = calculate_take_profit(
+            entry_price=market.yes_price,
+            estimated_prob=estimate.ensemble_probability,
+            side=kelly_result.side,
+            edge_capture_ratio=0.75,
+            min_edge_threshold=self.min_edge
+        )
+        
+        # Calculate Stop-Loss level (50% risk)
+        sl_level = calculate_stop_loss(
+            entry_price=market.yes_price,
+            side=kelly_result.side,
+            risk_pct=0.50
+        )
+        
+        signal = {
             'timestamp': datetime.now().isoformat(),
             'market_slug': market.slug,
             'market_question': market.question,
@@ -101,8 +118,19 @@ class PaperTradingSignalGenerator:
             'edge': estimate.edge,
             'confidence': estimate.confidence,
             'strategy': 'ensemble',
-            'recommendation': estimate.recommendation
+            'recommendation': estimate.recommendation,
+            'take_profit_price': tp_level.target_price if tp_level else None,
+            'take_profit_pct': tp_level.target_pct_move if tp_level else None,
+            'stop_loss_price': sl_level.stop_price if sl_level else None,
+            'stop_loss_pct': sl_level.stop_pct_move if sl_level else None,
         }
+        
+        return signal
+    
+    def get_current_exposure(self) -> float:
+        """Get total exposure from open trades"""
+        open_trades = self.db.get_open_trades()
+        return sum(t.get('intended_size', 0) for t in open_trades)
     
     def generate_signals_for_markets(
         self,
@@ -121,6 +149,23 @@ class PaperTradingSignalGenerator:
         """
         print(f"Scanning for paper trading signals...")
         
+        # Check current exposure
+        current_exposure = self.get_current_exposure()
+        available_capital = self.bankroll - current_exposure
+        
+        print(f"Current exposure: ${current_exposure:.2f} / ${self.bankroll:.2f}")
+        print(f"Available capital: ${available_capital:.2f}")
+        
+        # Don't trade if less than $20 available (min trade size)
+        MIN_TRADE_SIZE = 20
+        if available_capital < MIN_TRADE_SIZE:
+            print(f"❌ Insufficient capital. Need at least ${MIN_TRADE_SIZE} to trade.")
+            return []
+        
+        # NO MAX POSITIONS - take as many as capital allows
+        open_trade_count = len(self.db.get_open_trades())
+        print(f"Open positions: {open_trade_count} (no limit, capital constrained only)")
+        
         # Fetch markets
         markets = self.scanner.get_active_markets(limit=100)
         print(f"Fetched {len(markets)} markets")
@@ -129,11 +174,22 @@ class PaperTradingSignalGenerator:
         suitable = [m for m in markets if self.should_trade_market(m)]
         print(f"{len(suitable)} markets pass filters")
         
-        # Generate signals
+        # Generate signals (capital constrained only - no position count limit)
         signals = []
         for market in suitable[:max_markets]:
+            # Check if we still have capital
+            if available_capital < MIN_TRADE_SIZE:
+                break
+            
             signal = self.generate_signal(market)
             if signal:
+                # Size based on available capital (can use up to all remaining)
+                position_size = min(signal['intended_size'], available_capital)
+                if position_size < MIN_TRADE_SIZE:  # Minimum $20 trade
+                    continue
+                
+                signal['intended_size'] = position_size
+                available_capital -= position_size
                 signals.append(signal)
         
         print(f"Generated {len(signals)} trading signals")
@@ -170,6 +226,16 @@ class PaperTradingSignalGenerator:
             print(f"   Edge:      {signal['edge']:+.1%}")
             print(f"   Conf:      {signal['confidence']:.0%}")
             print(f"   Strategy:  {signal['strategy']}")
+            
+            # Display TP/SL info
+            tp = signal.get('take_profit_price')
+            sl = signal.get('stop_loss_price')
+            if tp:
+                print(f"   🎯 TP:      ${tp:.2f} ({signal['take_profit_pct']:.1%})")
+            if sl:
+                side = signal['intended_side']
+                sl_pct = signal.get('stop_loss_pct', 0) * 100
+                print(f"   🛑 SL:      ${sl:.2f} ({sl_pct:.0f}% risk)")
         
         print("\n" + "=" * 80)
         print(f"Total signals: {len(signals)}")

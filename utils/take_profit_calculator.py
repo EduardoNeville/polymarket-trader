@@ -23,6 +23,18 @@ class TakeProfitLevel:
     side: str                    # 'YES' or 'NO'
 
 
+@dataclass
+class StopLossLevel:
+    """Result from stop-loss calculation"""
+    stop_price: float            # Stop exit price (YES price)
+    stop_pct_move: float         # Calculated percentage move to stop
+    risk_amount: float           # Amount at risk if stop hit
+    is_reachable: bool           # False if target outside [0.01, 0.99]
+    risk_ratio: float            # Risk as % of position
+    entry_price: float           # Entry price (YES price)
+    side: str                    # 'YES' or 'NO'
+
+
 def calculate_take_profit(
     entry_price: float,
     estimated_prob: float,
@@ -195,6 +207,96 @@ def calculate_holding_days(
     exit_date = exit_dt.date()
     days = (exit_date - entry_date).days
     return max(0, days)
+
+
+def calculate_stop_loss(
+    entry_price: float,
+    side: str,
+    risk_pct: float = 0.50,
+    min_price: float = 0.01,
+    max_price: float = 0.99
+) -> Optional[StopLossLevel]:
+    """
+    Calculate stop-loss level based on risk percentage.
+    
+    Default: 50% risk - if position loses 50% of its value, exit.
+    
+    Args:
+        entry_price: Market YES price at entry (0.0 - 1.0)
+        side: 'YES' or 'NO' - which side we're trading
+        risk_pct: How much of position value to risk (default 0.50 = 50%)
+        min_price: Minimum valid price (default 0.01)
+        max_price: Maximum valid price (default 0.99)
+    
+    Returns:
+        StopLossLevel if valid, None if inputs invalid
+    """
+    if side not in ('YES', 'NO'):
+        raise ValueError(f"Side must be 'YES' or 'NO', got '{side}'")
+    
+    if not (0.0 <= entry_price <= 1.0):
+        raise ValueError(f"Entry price must be between 0 and 1, got {entry_price}")
+    
+    # Calculate stop price
+    if side == 'YES':
+        # For YES, stop is when price drops below entry
+        # Risk = (entry - stop) / entry = risk_pct
+        stop_price = entry_price * (1 - risk_pct)
+    else:  # NO
+        # For NO, entry is at (1 - yes_price)
+        # Stop is when YES price rises (NO value drops)
+        no_entry = 1 - entry_price
+        no_stop = no_entry * (1 - risk_pct)
+        stop_price = 1 - no_stop
+    
+    # Check if stop is reachable
+    is_reachable = min_price <= stop_price <= max_price
+    
+    # Calculate metrics
+    if side == 'YES':
+        pct_move = (entry_price - stop_price) / entry_price if entry_price > 0 else 0
+        risk_amount = entry_price - stop_price
+    else:
+        no_entry = 1 - entry_price
+        no_stop = 1 - stop_price
+        pct_move = (no_entry - no_stop) / no_entry if no_entry > 0 else 0
+        risk_amount = no_entry - no_stop
+    
+    return StopLossLevel(
+        stop_price=round(stop_price, 4),
+        stop_pct_move=round(pct_move, 4),
+        risk_amount=round(risk_amount, 4),
+        is_reachable=is_reachable,
+        risk_ratio=risk_pct,
+        entry_price=entry_price,
+        side=side
+    )
+
+
+def check_stop_loss_hit(
+    entry_price: float,
+    current_price: float,
+    sl_level: StopLossLevel,
+    side: str
+) -> bool:
+    """
+    Check if price has hit the stop-loss level.
+    
+    Args:
+        entry_price: Original entry price (YES price)
+        current_price: Current market price (YES price)
+        sl_level: StopLossLevel from calculate_stop_loss()
+        side: 'YES' or 'NO'
+    
+    Returns:
+        True if stop-loss level has been hit or exceeded
+    """
+    if side == 'YES':
+        # For YES positions, SL hit when current <= stop
+        return current_price <= sl_level.stop_price
+    else:  # NO
+        # For NO positions, SL hit when current >= stop (YES rises)
+        return current_price >= sl_level.stop_price
 
 
 def get_tp_summary(tp_level: TakeProfitLevel) -> str:

@@ -88,7 +88,7 @@ class PaperTradingUpdater:
         if not open_trades:
             if verbose:
                 print("\n✅ No open trades to update")
-            return {'updated': 0, 'unresolved': 0, 'errors': 0}
+            return {'updated': 0, 'unresolved': 0, 'errors': 0, 'tp_exits': 0, 'sl_exits': 0}
         
         if verbose:
             print(f"\nFound {len(open_trades)} open trades")
@@ -103,6 +103,8 @@ class PaperTradingUpdater:
         updated = 0
         unresolved = 0
         errors = 0
+        tp_exits = 0
+        sl_exits = 0
         
         if verbose:
             print("\nProcessing trades...")
@@ -111,6 +113,14 @@ class PaperTradingUpdater:
             slug = trade['market_slug']
             
             try:
+                # Skip trades already closed via TP/SL (they have exit_reason set)
+                if trade.get('exit_reason') in ['tp', 'stop_loss']:
+                    if trade['exit_reason'] == 'tp':
+                        tp_exits += 1
+                    else:
+                        sl_exits += 1
+                    continue
+                
                 # Find market
                 market = markets_by_slug.get(slug)
                 
@@ -126,19 +136,21 @@ class PaperTradingUpdater:
                     # Calculate P&L
                     pnl = self.calculate_pnl(trade, outcome)
                     
-                    # Update database
-                    success = self.db.update_trade_outcome(
+                    # Update database with resolution exit
+                    success = self.db.update_trade_take_profit(
                         trade['id'],
-                        outcome,
-                        pnl,
-                        f"Resolved on {datetime.now().strftime('%Y-%m-%d')}"
+                        exit_price=market.yes_price,
+                        pnl=pnl,
+                        exit_reason='resolution',
+                        holding_days=self._calculate_holding_days(trade['timestamp']),
+                        notes=f"Resolved on {datetime.now().strftime('%Y-%m-%d')}"
                     )
                     
                     if success:
                         updated += 1
                         if verbose:
                             side = trade['intended_side']
-                            print(f"  ✓ {slug[:40]:<40} | {side:<4} | Outcome: {outcome} | P&L: ${pnl:+.2f}")
+                            print(f"  ✓ {slug[:40]:<40} | {side:<4} | Resolution | P&L: ${pnl:+.2f}")
                     else:
                         errors += 1
                 else:
@@ -152,18 +164,27 @@ class PaperTradingUpdater:
         summary = {
             'updated': updated,
             'unresolved': unresolved,
-            'errors': errors
+            'errors': errors,
+            'tp_exits': tp_exits,
+            'sl_exits': sl_exits
         }
         
         if verbose:
             print(f"\n{'='*80}")
             print("📊 UPDATE SUMMARY:")
-            print(f"  Updated:     {updated}")
-            print(f"  Unresolved:  {unresolved}")
-            print(f"  Errors:      {errors}")
+            print(f"  Updated (resolution): {updated}")
+            print(f"  Already TP exits:     {tp_exits}")
+            print(f"  Already SL exits:     {sl_exits}")
+            print(f"  Unresolved:           {unresolved}")
+            print(f"  Errors:               {errors}")
             print(f"{'='*80}")
         
         return summary
+    
+    def _calculate_holding_days(self, entry_timestamp: str) -> int:
+        """Calculate days held from entry to now"""
+        from utils.take_profit_calculator import calculate_holding_days
+        return calculate_holding_days(entry_timestamp, datetime.now().isoformat())
     
     def get_performance_report(self) -> Dict:
         """
@@ -185,12 +206,36 @@ class PaperTradingUpdater:
         yes_wins = sum(1 for t in yes_trades if t.get('pnl', 0) > 0)
         no_wins = sum(1 for t in no_trades if t.get('pnl', 0) > 0)
         
+        # Calculate by exit reason
+        tp_trades = [t for t in closed_trades if t.get('exit_reason') == 'tp']
+        sl_trades = [t for t in closed_trades if t.get('exit_reason') == 'stop_loss']
+        resolution_trades = [t for t in closed_trades if t.get('exit_reason') == 'resolution']
+        
+        tp_wins = sum(1 for t in tp_trades if t.get('pnl', 0) > 0)
+        sl_wins = sum(1 for t in sl_trades if t.get('pnl', 0) > 0)
+        res_wins = sum(1 for t in resolution_trades if t.get('pnl', 0) > 0)
+        
+        # Get holding time stats
+        holding_stats = self.db.get_avg_holding_time()
+        
         return {
             **summary,
             'yes_win_rate': yes_wins / len(yes_trades) if yes_trades else 0,
             'no_win_rate': no_wins / len(no_trades) if no_trades else 0,
             'open_trades_count': len(open_trades),
-            'closed_trades_count': len(closed_trades)
+            'closed_trades_count': len(closed_trades),
+            # TP/SL stats
+            'tp_exits': len(tp_trades),
+            'sl_exits': len(sl_trades),
+            'resolution_exits': len(resolution_trades),
+            'tp_win_rate': tp_wins / len(tp_trades) if tp_trades else 0,
+            'sl_win_rate': sl_wins / len(sl_trades) if sl_trades else 0,
+            'resolution_win_rate': res_wins / len(resolution_trades) if resolution_trades else 0,
+            'tp_pnl': sum(t.get('pnl', 0) for t in tp_trades),
+            'sl_pnl': sum(t.get('pnl', 0) for t in sl_trades),
+            'resolution_pnl': sum(t.get('pnl', 0) for t in resolution_trades),
+            # Holding stats
+            'avg_holding_days': holding_stats.get('avg_holding_days'),
         }
     
     def display_performance_report(self):
@@ -215,6 +260,19 @@ class PaperTradingUpdater:
         print(f"\n📈 BY SIDE:")
         print(f"  YES Trades Win Rate: {report['yes_win_rate']:.1%}")
         print(f"  NO Trades Win Rate:  {report['no_win_rate']:.1%}")
+        
+        print(f"\n🎯 EXIT REASON BREAKDOWN:")
+        total_exits = report['tp_exits'] + report['sl_exits'] + report['resolution_exits']
+        if total_exits > 0:
+            print(f"  Take-Profit Exits:   {report['tp_exits']} ({report['tp_exits']/total_exits:.1%}) | Win: {report['tp_win_rate']:.1%} | P&L: ${report['tp_pnl']:+.2f}")
+            print(f"  Stop-Loss Exits:     {report['sl_exits']} ({report['sl_exits']/total_exits:.1%}) | Win: {report['sl_win_rate']:.1%} | P&L: ${report['sl_pnl']:+.2f}")
+            print(f"  Resolution Exits:    {report['resolution_exits']} ({report['resolution_exits']/total_exits:.1%}) | Win: {report['resolution_win_rate']:.1%} | P&L: ${report['resolution_pnl']:+.2f}")
+        
+        print(f"\n⏱️  HOLDING TIME:")
+        if report.get('avg_holding_days') is not None:
+            print(f"  Average Holding:     {report['avg_holding_days']:.1f} days")
+        else:
+            print(f"  Average Holding:     N/A")
         
         print(f"\n📊 STRATEGY METRICS:")
         print(f"  Average Entry Edge:  {report['avg_edge']:.1%}")
