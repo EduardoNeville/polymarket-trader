@@ -6,11 +6,16 @@ Finds trading opportunities across active markets
 
 import requests
 import json
+import time
 from datetime import datetime, timedelta
 from typing import List, Dict, Optional
 from dataclasses import dataclass
 
 GAMMA_API = "https://gamma-api.polymarket.com"
+
+# Retry configuration
+MAX_RETRIES = 3
+RETRY_DELAY = 2  # seconds between retries
 
 @dataclass
 class Market:
@@ -35,7 +40,7 @@ class PolymarketScanner:
         })
     
     def get_active_markets(self, limit: int = 100) -> List[Market]:
-        """Fetch all active markets from events endpoint"""
+        """Fetch all active markets from events endpoint with retry logic"""
         url = f"{GAMMA_API}/events"
         params = {
             'active': 'true',
@@ -46,27 +51,42 @@ class PolymarketScanner:
             'ascending': 'false'
         }
         
-        try:
-            response = self.session.get(url, params=params, timeout=30)
-            response.raise_for_status()
-            events = response.json()
-            
-            markets = []
-            for event in events:
-                # Markets are nested under events
-                event_markets = event.get('markets', [])
-                for item in event_markets:
-                    try:
-                        market = self._parse_market(item, event)
-                        if market:
-                            markets.append(market)
-                    except (KeyError, ValueError, json.JSONDecodeError) as e:
-                        continue
-            
-            return markets
-        except Exception as e:
-            print(f"Error fetching markets: {e}")
-            return []
+        last_error = None
+        for attempt in range(MAX_RETRIES):
+            try:
+                response = self.session.get(url, params=params, timeout=30)
+                response.raise_for_status()
+                events = response.json()
+                
+                markets = []
+                for event in events:
+                    # Markets are nested under events
+                    event_markets = event.get('markets', [])
+                    for item in event_markets:
+                        try:
+                            market = self._parse_market(item, event)
+                            if market:
+                                markets.append(market)
+                        except (KeyError, ValueError, json.JSONDecodeError) as e:
+                            continue
+                
+                return markets
+                
+            except (requests.exceptions.ConnectionError, 
+                    requests.exceptions.Timeout,
+                    requests.exceptions.RequestException) as e:
+                last_error = e
+                if attempt < MAX_RETRIES - 1:
+                    wait_time = RETRY_DELAY * (attempt + 1)
+                    print(f"⚠️  API connection failed (attempt {attempt + 1}/{MAX_RETRIES}): {e}")
+                    print(f"   Retrying in {wait_time}s...")
+                    time.sleep(wait_time)
+                else:
+                    print(f"❌ API connection failed after {MAX_RETRIES} attempts: {e}")
+                    return []
+            except Exception as e:
+                print(f"❌ Unexpected error fetching markets: {e}")
+                return []
     
     def _parse_market(self, item: Dict, event: Dict) -> Optional[Market]:
         """Parse a market from API response"""

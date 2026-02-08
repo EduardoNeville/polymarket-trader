@@ -78,6 +78,35 @@ class PaperTradingDB:
         
         # Migrate: Add take-profit columns if they don't exist
         self._migrate_add_take_profit_columns()
+        
+        # NEW: Migrate: Add resolution time columns
+        self._migrate_add_resolution_columns()
+    
+    def _migrate_add_resolution_columns(self):
+        """Add resolution time columns to existing database (migration)"""
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.cursor()
+            
+            # Get existing columns
+            cursor.execute("PRAGMA table_info(paper_trades)")
+            existing_columns = [row[1] for row in cursor.fetchall()]
+            
+            # Add new columns if they don't exist
+            new_columns = {
+                'resolution_date': 'TEXT',
+                'days_to_resolve': 'REAL',
+                'priority_score': 'REAL'
+            }
+            
+            for column, data_type in new_columns.items():
+                if column not in existing_columns:
+                    cursor.execute(f"""
+                        ALTER TABLE paper_trades 
+                        ADD COLUMN {column} {data_type}
+                    """)
+                    print(f"Added resolution column: {column}")
+            
+            conn.commit()
     
     def _migrate_add_take_profit_columns(self):
         """Add take-profit columns to existing database (migration)"""
@@ -129,8 +158,9 @@ class PaperTradingDB:
                     executed_price, executed_timestamp, outcome, pnl,
                     strategy, edge, confidence, status, notes,
                     take_profit_price, take_profit_pct, exit_reason,
-                    holding_days, exit_timestamp
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    holding_days, exit_timestamp,
+                    resolution_date, days_to_resolve, priority_score
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (
                 trade_id,
                 trade.get('timestamp', datetime.now().isoformat()),
@@ -152,7 +182,10 @@ class PaperTradingDB:
                 trade.get('take_profit_pct'),
                 trade.get('exit_reason'),
                 trade.get('holding_days'),
-                trade.get('exit_timestamp')
+                trade.get('exit_timestamp'),
+                trade.get('resolution_date'),
+                trade.get('days_to_resolve'),
+                trade.get('priority_score')
             ))
             
             conn.commit()
@@ -270,6 +303,47 @@ class PaperTradingDB:
                     notes = ?, updated_at = CURRENT_TIMESTAMP
                 WHERE id = ?
             """, (executed_price, datetime.now().isoformat(), notes, trade_id))
+            
+            conn.commit()
+            return cursor.rowcount > 0
+    
+    def update_resolution_data(
+        self,
+        trade_id: str,
+        resolution_date: str,
+        days_to_resolve: float,
+        priority_score: float = None
+    ) -> bool:
+        """
+        Update resolution time data for an existing trade.
+        Used for migration/backfill of existing trades.
+        
+        Args:
+            trade_id: Trade UUID
+            resolution_date: Market end date (ISO format)
+            days_to_resolve: Days until resolution at entry
+            priority_score: Optional priority score used for ranking
+            
+        Returns:
+            True if updated successfully
+        """
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.cursor()
+            
+            if priority_score is not None:
+                cursor.execute("""
+                    UPDATE paper_trades 
+                    SET resolution_date = ?, days_to_resolve = ?, priority_score = ?,
+                        updated_at = CURRENT_TIMESTAMP
+                    WHERE id = ?
+                """, (resolution_date, days_to_resolve, priority_score, trade_id))
+            else:
+                cursor.execute("""
+                    UPDATE paper_trades 
+                    SET resolution_date = ?, days_to_resolve = ?,
+                        updated_at = CURRENT_TIMESTAMP
+                    WHERE id = ?
+                """, (resolution_date, days_to_resolve, trade_id))
             
             conn.commit()
             return cursor.rowcount > 0

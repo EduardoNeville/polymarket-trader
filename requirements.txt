@@ -3,3 +3,4 @@ numpy>=1.24.0
 pandas>=2.0.0
 pyarrow>=14.0.0
 schedule>=1.2.0
+psutil>=5.9.0

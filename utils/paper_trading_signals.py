@@ -4,7 +4,7 @@ Generates and records trading signals without executing
 Timestamp: 2026-02-03 20:26 GMT+1
 """
 
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, List, Optional
 import json
 
@@ -34,14 +34,53 @@ class PaperTradingSignalGenerator:
         self.kelly = AdaptiveKelly()
         self.scanner = PolymarketScanner()
     
+    def calculate_time_to_resolution(self, market: Market) -> Optional[float]:
+        """
+        Calculate days until market resolution.
+        Returns float (days), or None if unparseable.
+        """
+        if not market.end_date:
+            return None
+        
+        try:
+            # Parse ISO 8601 datetime
+            end = datetime.fromisoformat(market.end_date.replace('Z', '+00:00'))
+            now = datetime.now(timezone.utc)
+            delta = end - now
+            return max(0, delta.days + delta.seconds / 86400)
+        except (ValueError, TypeError):
+            return None
+    
+    def get_resolution_priority(self, days_to_resolve: float, edge: float) -> float:
+        """
+        Calculate combined score balancing time and edge.
+        Higher score = higher priority.
+        
+        Formula: edge * time_multiplier
+        time_multiplier gives bonus for faster resolution
+        """
+        # Time bonus: +50% for <7 days, +25% for <30 days, +10% for <90 days
+        if days_to_resolve < 7:
+            time_multiplier = 1.5
+        elif days_to_resolve < 30:
+            time_multiplier = 1.25
+        elif days_to_resolve < 90:
+            time_multiplier = 1.1
+        else:
+            time_multiplier = 1.0
+        
+        # Combined score
+        return edge * time_multiplier
+    
     def should_trade_market(self, market: Market) -> bool:
         """
         Filter markets suitable for trading.
         
         Criteria:
         - Sufficient liquidity (>$50K)
-        - Price not at extremes (<0.95, >0.05)
-        - Active market
+        - Price not at extremes (<0.98, >0.02)
+        - Active market with valid end date
+        - Resolution within 2 years (optional)
         """
         # Check liquidity
         if market.liquidity < 50000:
@@ -53,6 +92,11 @@ class PaperTradingSignalGenerator:
         
         # Check has valid end date
         if not market.end_date:
+            return False
+        
+        # NEW: Skip markets resolving >2 years out
+        days = self.calculate_time_to_resolution(market)
+        if days is not None and days > 365 * 2:
             return False
         
         return True
@@ -174,23 +218,43 @@ class PaperTradingSignalGenerator:
         suitable = [m for m in markets if self.should_trade_market(m)]
         print(f"{len(suitable)} markets pass filters")
         
-        # Generate signals (capital constrained only - no position count limit)
+        # NEW: Score and sort markets by resolution priority
+        scored_markets = []
+        for market in suitable:
+            signal = self.generate_signal(market)
+            if signal:
+                days = self.calculate_time_to_resolution(market)
+                if days is not None:
+                    score = self.get_resolution_priority(days, abs(signal['edge']))
+                    scored_markets.append((score, days, market.end_date, market, signal))
+                else:
+                    # If can't parse time, still include but with base score
+                    scored_markets.append((signal['edge'], 999, market.end_date, market, signal))
+        
+        # Sort by score descending (highest priority first)
+        scored_markets.sort(reverse=True, key=lambda x: x[0])
+        print(f"Scored {len(scored_markets)} opportunities by resolution time + edge")
+        
+        # Generate signals in priority order
         signals = []
-        for market in suitable[:max_markets]:
+        for score, days, end_date, market, signal in scored_markets[:max_markets]:
             # Check if we still have capital
             if available_capital < MIN_TRADE_SIZE:
                 break
             
-            signal = self.generate_signal(market)
-            if signal:
-                # Size based on available capital (can use up to all remaining)
-                position_size = min(signal['intended_size'], available_capital)
-                if position_size < MIN_TRADE_SIZE:  # Minimum $20 trade
-                    continue
-                
-                signal['intended_size'] = position_size
-                available_capital -= position_size
-                signals.append(signal)
+            # Size based on available capital
+            position_size = min(signal['intended_size'], available_capital)
+            if position_size < MIN_TRADE_SIZE:
+                continue
+            
+            # Add resolution data to signal
+            signal['intended_size'] = position_size
+            signal['days_to_resolve'] = days
+            signal['resolution_date'] = end_date
+            signal['priority_score'] = score
+            
+            available_capital -= position_size
+            signals.append(signal)
         
         print(f"Generated {len(signals)} trading signals")
         
@@ -226,6 +290,17 @@ class PaperTradingSignalGenerator:
             print(f"   Edge:      {signal['edge']:+.1%}")
             print(f"   Conf:      {signal['confidence']:.0%}")
             print(f"   Strategy:  {signal['strategy']}")
+            
+            # Display resolution time
+            days = signal.get('days_to_resolve')
+            if days is not None and days < 999:
+                if days < 30:
+                    time_str = f"{days:.0f} days"
+                elif days < 365:
+                    time_str = f"{days/30:.0f} months"
+                else:
+                    time_str = f"{days/365:.1f} years"
+                print(f"   ⏰ Resolves: {time_str}")
             
             # Display TP/SL info
             tp = signal.get('take_profit_price')

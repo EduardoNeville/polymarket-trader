@@ -28,17 +28,26 @@ MIN_TRADE_SIZE = 20.0  # Minimum $20 per trade (no tiny positions)
 
 
 def calculate_exposure():
-    """Calculate current exposure from open trades"""
+    """Calculate current exposure and available capital including realized PnL"""
     db = PaperTradingDB()
     open_trades = db.get_open_trades()
+    closed_trades = db.get_closed_trades()
     
-    # Sum position sizes
+    # Sum position sizes for open trades
     total_exposure = sum(t.get('intended_size', 0) for t in open_trades)
+    
+    # Sum realized PnL from closed trades
+    realized_pnl = sum(t.get('pnl', 0) for t in closed_trades)
+    
+    # Available = Bankroll - Open Exposure + Realized PnL
+    available = BANKROLL - total_exposure + realized_pnl
     
     return {
         'open_count': len(open_trades),
+        'closed_count': len(closed_trades),
         'total_exposure': total_exposure,
-        'available': BANKROLL - total_exposure
+        'realized_pnl': realized_pnl,
+        'available': available
     }
 
 
@@ -79,7 +88,9 @@ def run_paper_trading_cycle():
     
     # Step 3: Generate new signals (only if we have capital)
     print("\n📈 Step 3: Checking for new opportunities...")
-    print(f"   Current: {exposure['open_count']} positions | ${exposure['total_exposure']:.2f} deployed | ${exposure['available']:.2f} available")
+    print(f"   Open: {exposure['open_count']} positions | Closed: {exposure['closed_count']} trades")
+    print(f"   Deployed: ${exposure['total_exposure']:.2f} | Realized PnL: ${exposure['realized_pnl']:+.2f}")
+    print(f"   Available: ${exposure['available']:.2f}")
     
     new_signals = []
     
@@ -89,8 +100,8 @@ def run_paper_trading_cycle():
     else:
         print(f"   ✅ Can take trades up to ${exposure['available']:.2f} total")
         
-        # Generate signals with full available bankroll (no position limit)
-        generator = PaperTradingSignalGenerator(bankroll=exposure['available'], min_edge=0.05)
+        # Generate signals with FULL bankroll (generator calculates available from DB)
+        generator = PaperTradingSignalGenerator(bankroll=BANKROLL, min_edge=0.05)
         
         raw_signals = generator.generate_signals_for_markets(
             max_markets=50,  # Check more markets since we can take many
@@ -125,7 +136,17 @@ def run_paper_trading_cycle():
         
         if new_signals:
             for sig in new_signals[:5]:
-                print(f"      • {sig['market_question'][:40]}... | {sig['intended_side']} | ${sig['intended_size']:.2f} | Edge: {sig['edge']:+.1%}")
+                days = sig.get('days_to_resolve')
+                if days is not None:
+                    if days < 30:
+                        time_str = f"{days:.0f}d"
+                    elif days < 365:
+                        time_str = f"{days/30:.0f}mo"
+                    else:
+                        time_str = f"{days/365:.1f}yr"
+                else:
+                    time_str = "?"
+                print(f"      • {sig['market_question'][:40]}... | {sig['intended_side']} | ${sig['intended_size']:.2f} | Edge: {sig['edge']:+.1%} | Res: {time_str}")
             if len(new_signals) > 5:
                 print(f"      ... and {len(new_signals) - 5} more")
     
@@ -134,7 +155,9 @@ def run_paper_trading_cycle():
     
     print(f"\n{'='*70}")
     print(f"✅ CYCLE COMPLETE")
-    print(f"   Positions: {final_exposure['open_count']} | Deployed: ${final_exposure['total_exposure']:.2f} | Available: ${final_exposure['available']:.2f}")
+    print(f"   Positions: {final_exposure['open_count']} open | {final_exposure['closed_count']} closed")
+    print(f"   Deployed: ${final_exposure['total_exposure']:.2f} | Realized PnL: ${final_exposure['realized_pnl']:+.2f}")
+    print(f"   Available: ${final_exposure['available']:.2f}")
     print(f"{'='*70}")
     
     # Return summary for logging
@@ -145,7 +168,9 @@ def run_paper_trading_cycle():
         'resolved': update_result['updated'],
         'new_signals': len(new_signals),
         'open_trades': final_exposure['open_count'],
+        'closed_trades': final_exposure['closed_count'],
         'exposure': final_exposure['total_exposure'],
+        'realized_pnl': final_exposure['realized_pnl'],
         'available': final_exposure['available']
     }
 
@@ -155,7 +180,7 @@ if __name__ == '__main__':
         result = run_paper_trading_cycle()
         
         # Log to file
-        log_line = f"{result['timestamp']}, TP:{result['tp_hits']}, SL:{result['sl_hits']}, Res:{result['resolved']}, New:{result['new_signals']}, Open:{result['open_trades']}, Exp:${result['exposure']:.0f}, Avail:${result['available']:.0f}\n"
+        log_line = f"{result['timestamp']}, TP:{result['tp_hits']}, SL:{result['sl_hits']}, Res:{result['resolved']}, New:{result['new_signals']}, Open:{result['open_trades']}, Closed:{result['closed_trades']}, Exp:${result['exposure']:.0f}, PnL:${result['realized_pnl']:+.0f}, Avail:${result['available']:.0f}\n"
         
         log_file = Path('logs/paper_trading_cron.log')
         log_file.parent.mkdir(parents=True, exist_ok=True)

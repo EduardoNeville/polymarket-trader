@@ -52,7 +52,7 @@ class TPSLMonitor:
         # Filter to trades with TP price set
         return [t for t in open_trades if t.get('take_profit_price') is not None]
     
-    def fetch_current_prices(self, market_slugs: List[str]) -> Dict[str, float]:
+    def fetch_current_prices(self, market_slugs: List[str], verbose: bool = True) -> Dict[str, float]:
         """
         Fetch current YES prices for markets.
         
@@ -77,7 +77,9 @@ class TPSLMonitor:
                     prices[slug] = None
                     
         except Exception as e:
-            print(f"❌ Error fetching prices: {e}")
+            # Log error but don't crash - will retry next cycle
+            if verbose:
+                print(f"⚠️  Could not fetch prices (will retry): {e}")
         
         return prices
     
@@ -209,7 +211,13 @@ class TPSLMonitor:
         
         # Fetch current prices
         slugs = [t['market_slug'] for t in trades]
-        prices = self.fetch_current_prices(slugs)
+        prices = self.fetch_current_prices(slugs, verbose=verbose)
+        
+        # If we couldn't fetch any prices (network error), skip this check
+        if not prices:
+            if verbose:
+                print("⚠️  Could not fetch market prices - skipping check (will retry next cycle)")
+            return {'checked': 0, 'tp_hits': 0, 'sl_hits': 0, 'errors': 0, 'skipped': True}
         
         tp_hits = 0
         sl_hits = 0
