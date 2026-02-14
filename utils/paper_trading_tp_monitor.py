@@ -394,6 +394,64 @@ def check_once():
     monitor.run_once(verbose=True)
 
 
+def check_all_tp_sl(db_path: str = "data/paper_trading.db") -> Tuple[int, int, int]:
+    """
+    Check TP/SL for all open trades and return counts.
+    
+    Returns:
+        Tuple of (tp_hits, sl_hits, resolved)
+    """
+    monitor = TPSLMonitor(db_path=db_path)
+    tp_hits = 0
+    sl_hits = 0
+    resolved = 0
+    
+    try:
+        trades = monitor.get_open_trades_with_tp_sl()
+        for trade in trades:
+            slug = trade['market_slug']
+            current = monitor.scanner.get_market_by_slug(slug)
+            
+            if current:
+                outcome = monitor.determine_outcome(current.yes_price, current.no_price)
+                if outcome is not None:
+                    monitor.close_trade_by_resolution(trade, outcome)
+                    resolved += 1
+                    continue
+                
+                side = trade['intended_side']
+                tp_price = trade.get('take_profit_price')
+                sl_price = trade.get('stop_loss_price')
+                
+                if tp_price and check_take_profit_hit(trade['intended_price'], 
+                                                       current.yes_price,
+                                                       TakeProfitLevel(target_price=tp_price, 
+                                                                      target_pct_move=0, 
+                                                                      captured_edge=0, 
+                                                                      is_reachable=True,
+                                                                      edge_capture_ratio=0,
+                                                                      initial_edge=0,
+                                                                      entry_price=trade['intended_price'],
+                                                                      side=side), side):
+                    monitor.close_trade_by_tp_sl(trade, current.yes_price, 'tp')
+                    tp_hits += 1
+                elif sl_price and check_stop_loss_hit(trade['intended_price'],
+                                                       current.yes_price,
+                                                       StopLossLevel(stop_price=sl_price,
+                                                                    stop_pct_move=0,
+                                                                    risk_amount=0,
+                                                                    is_reachable=True,
+                                                                    risk_ratio=0,
+                                                                    entry_price=trade['intended_price'],
+                                                                    side=side), side):
+                    monitor.close_trade_by_tp_sl(trade, current.yes_price, 'stop_loss')
+                    sl_hits += 1
+    except Exception as e:
+        print(f"Error checking TP/SL: {e}")
+    
+    return tp_hits, sl_hits, resolved
+
+
 def show_stats():
     """Show TP/SL statistics"""
     monitor = TPSLMonitor()

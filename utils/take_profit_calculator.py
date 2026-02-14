@@ -95,8 +95,8 @@ def calculate_take_profit(
     if abs(initial_edge) < min_edge_threshold:
         return None
     
-    # Check extreme prices - skip TP for prices > 0.90 or < 0.10
-    if entry_price > 0.90 or entry_price < 0.10:
+    # Check extreme prices - skip TP for prices > 0.95 or < 0.05
+    if entry_price > 0.95 or entry_price < 0.05:
         return None
     
     # Calculate take-profit percentage
@@ -359,9 +359,9 @@ if __name__ == "__main__":
         print("  Result: None (edge below 5% threshold)")
     
     # Example 4: Extreme price
-    print("\n\n4. Extreme Price: $0.95 entry (above 0.90 threshold)")
+    print("\n\n4. Extreme Price: $0.96 entry (above 0.95 threshold)")
     print("-" * 50)
-    tp4 = calculate_take_profit(entry_price=0.95, estimated_prob=0.99, side='YES')
+    tp4 = calculate_take_profit(entry_price=0.96, estimated_prob=0.99, side='YES')
     if tp4:
         print(get_tp_summary(tp4))
     else:

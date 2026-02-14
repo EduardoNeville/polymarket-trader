@@ -1,0 +1,514 @@
+# Polymarket Trading Toolkit - LLM Documentation
+
+> **Version**: 3.0  
+> **Last Updated**: 2026-02-14  
+> **Repository**: `/home/eduardoneville/projects/polymarket-trader`
+
+---
+
+## Executive Summary
+
+This is a comprehensive AI-powered trading system for Polymarket prediction markets. It implements ensemble machine learning models, adaptive Kelly criterion position sizing, and three parallel paper trading strategies with automated take-profit/stop-loss monitoring.
+
+**Key Capabilities:**
+- Two-layer ensemble probability forecasting (20% ROI improvement over single models)
+- Dynamic position sizing based on calibration accuracy
+- Three parallel strategy implementations (A/B/C) with isolated databases
+- Automated TP/SL monitoring every 5 minutes
+- Real-time strategy comparison dashboard
+
+---
+
+## Architecture Overview
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    CRON SCHEDULER (5 min)                       │
+└─────────────────────────┬───────────────────────────────────────┘
+                          │
+        ┌─────────────────┼─────────────────┐
+        │                 │                 │
+        ▼                 ▼                 ▼
+┌───────────────┐ ┌───────────────┐ ┌───────────────┐
+│  STRATEGY A   │ │  STRATEGY B   │ │  STRATEGY C   │
+│  (7-Day)      │ │  (Multipliers)│ │  (Tiered)     │
+└───────┬───────┘ └───────┬───────┘ └───────┬───────┘
+        │                 │                 │
+        ▼                 ▼                 ▼
+┌───────────────┐ ┌───────────────┐ ┌───────────────┐
+│  DB: strategy │ │  DB: strategy │ │  DB: strategy │
+│      _a.db    │ │      _b.db    │ │      _c.db    │
+└───────────────┘ └───────────────┘ └───────────────┘
+                          │
+                          ▼
+              ┌───────────────────────┐
+              │  STRATEGY DASHBOARD   │
+              │  (Comparison & Metrics)│
+              └───────────────────────┘
+```
+
+---
+
+## Core AI Components
+
+### 1. Ensemble Edge Estimator
+
+**File**: `models/edge_estimator.py`  
+**Class**: `EnsembleEdgeEstimator`
+
+Two-layer ensemble architecture:
+- **Layer 1**: 5 base models (price, momentum, mean reversion, fundamental, sentiment)
+- **Layer 2**: Meta-learner that weights models by financial performance (Sharpe ratio)
+
+**Key Method:**
+```python
+def estimate_probability(
+    self,
+    market_slug: str,
+    market_question: str,
+    current_price: float,
+    category: str = 'general'
+) -> EdgeEstimate:
+```
+
+**Returns:**
+- `ensemble_probability`: Weighted consensus prediction
+- `edge`: Difference between prediction and market price
+- `confidence`: Model agreement (inverse variance)
+- `individual_predictions`: Breakdown by model
+- `model_weights`: Current dynamic weights
+
+### 2. Adaptive Kelly Criterion
+
+**File**: `strategies/adaptive_kelly.py`  
+**Class**: `AdaptiveKelly`
+
+Dynamic position sizing with multiple adjustments:
+
+| Factor | Adjustment |
+|--------|------------|
+| Calibration (Brier) | 10-50% Kelly fraction based on accuracy |
+| Confidence | 0.5-1.0x scaling |
+| Correlation | Linear penalty to exposure limit |
+| Drawdown | Reduces to 0 at 20% drawdown |
+
+**Key Method:**
+```python
+def calculate_position_size(
+    self,
+    bankroll: float,
+    market_price: float,
+    estimated_prob: float,
+    confidence: float = 0.5,
+    correlated_exposure: float = 0.0,
+    current_drawdown: float = 0.0
+) -> KellyResult:
+```
+
+---
+
+## Three Parallel Strategies
+
+### Strategy A: Hard 7-Day Filter
+
+**File**: `strategies/strategy_a_generator.py`  
+**DB**: `data/paper_trading_strategy_a.db`
+
+**Approach:**
+- ONLY trades markets resolving within 7 days
+- Maximum capital velocity strategy
+- 3.0x priority multiplier
+
+**Filters:**
+- Liquidity >= $50,000
+- Price between 0.02 and 0.98
+- Valid end_date within 7 days
+- Edge >= 5%
+
+### Strategy B: Aggressive Time Multipliers
+
+**File**: `strategies/strategy_b_generator.py`  
+**DB**: `data/paper_trading_strategy_b.db`
+
+**Multiplier Schedule:**
+| Time to Resolution | Multiplier |
+|-------------------|------------|
+| < 7 days | 3.0x |
+| 7-30 days | 2.0x |
+| 30-90 days | 1.25x |
+| > 90 days | 0.5x (penalty) |
+
+### Strategy C: Tiered Capital Allocation
+
+**File**: `strategies/strategy_c_generator.py`  
+**DB**: `data/paper_trading_strategy_c.db`
+
+**Tier Configuration:**
+| Tier | Max Days | Capital Limit | Min Edge | Multiplier |
+|------|----------|---------------|----------|------------|
+| 1 | 30 | 70% | 5% | 2.5x |
+| 2 | 90 | 30% | 7% | 1.0x |
+| 3 | ∞ | 10% | 15% | 0.5x |
+
+**Allocation Logic:**
+1. Assign each market to tier based on resolution time
+2. Sort by tier-weighted edge score
+3. Allocate capital respecting tier limits
+4. Prioritize Tier 1 when limits reached
+
+---
+
+## Automated Operations
+
+### Master Runner
+
+**File**: `run_all_strategies.py`
+
+Runs all three strategies sequentially every 5 minutes via cron.
+
+**Each Cycle:**
+1. Check TP/SL hits (`check_all_tp_sl()`)
+2. Update outcomes (`update_outcomes()`)
+3. Generate new signals
+4. Log results
+
+**Usage:**
+```bash
+python3 run_all_strategies.py
+```
+
+### TP/SL Monitoring
+
+**File**: `utils/paper_trading_tp_monitor.py`
+
+**Take-Profit Formula (75% Edge Rule):**
+```
+TP% = (Initial Edge × 0.75) / Entry Price
+Target Price = Entry Price + (Entry Price × TP%)
+```
+
+**Stop-Loss:** 50% of position value at risk
+
+**Monitoring:** Checks all open trades every 5 minutes
+
+### Outcome Resolution
+
+**File**: `utils/paper_trading_updater.py`
+
+Fetches resolved market outcomes from Polymarket API and updates closed trades with:
+- Final P&L
+- Holding days
+- Exit reason (tp/stop_loss/resolution)
+
+---
+
+## Database Schema
+
+### Paper Trading Database
+
+**File**: `data/paper_trading_*.db` (one per strategy)
+
+**Table**: `paper_trades`
+
+| Column | Type | Description |
+|--------|------|-------------|
+| id | INTEGER PRIMARY KEY | Auto-increment |
+| timestamp | TEXT | ISO format entry time |
+| market_slug | TEXT | Unique market identifier |
+| market_question | TEXT | Market question text |
+| intended_side | TEXT | 'YES' or 'NO' |
+| intended_price | REAL | Entry price |
+| intended_size | REAL | Dollar position size |
+| estimated_prob | REAL | AI prediction |
+| market_price | REAL | Current market price at entry |
+| edge | REAL | Predicted edge |
+| confidence | REAL | Model confidence |
+| strategy | TEXT | Strategy identifier |
+| recommendation | TEXT | Human-readable rec |
+| take_profit_price | REAL | TP target price |
+| take_profit_pct | REAL | TP percentage move |
+| stop_loss_price | REAL | SL trigger price |
+| stop_loss_pct | REAL | SL percentage move |
+| days_to_resolve | REAL | Days until resolution |
+| resolution_date | TEXT | ISO format resolution date |
+| status | TEXT | 'open' or 'closed' |
+| exit_timestamp | TEXT | Close time (if closed) |
+| exit_price | REAL | Exit price (if closed) |
+| exit_reason | TEXT | 'tp', 'stop_loss', 'resolution' |
+| pnl | REAL | Profit/loss amount |
+| holding_days | INTEGER | Days held |
+| resolved_outcome | INTEGER | 0=NO, 1=YES |
+| priority_score | REAL | Tier-weighted edge score |
+| tier | TEXT | Tier assignment (Strategy C) |
+| tier_multiplier | REAL | Applied tier multiplier |
+
+---
+
+## Key Utilities
+
+### Market Scanner
+
+**File**: `scanner.py`  
+**Class**: `PolymarketScanner`
+
+**API**: `https://gamma-api.polymarket.com/events`
+
+**Key Methods:**
+```python
+def get_active_markets(self, limit: int = 100) -> List[Market]
+def find_arbitrage_opportunities(self) -> List[Dict]
+def find_momentum_markets(self, min_volume: float = 100000) -> List[Dict]
+```
+
+**Market Dataclass:**
+```python
+@dataclass
+class Market:
+    id: str
+    question: str
+    slug: str
+    yes_price: float
+    no_price: float
+    volume: float
+    liquidity: float
+    end_date: str
+    category: str
+```
+
+### Strategy Dashboard
+
+**File**: `strategy_dashboard.py`
+
+**Metrics Dataclass:**
+```python
+@dataclass
+class StrategyMetrics:
+    name: str
+    open_trades: int
+    closed_trades: int
+    exposure: float
+    available: float
+    avg_edge: float
+    avg_holding_days: Optional[float]
+    total_pnl: float
+    win_rate: float
+    win_count: int
+    loss_count: int
+    tp_exits: int
+    sl_exits: int
+    resolution_exits: int
+    capital_turnover: float
+```
+
+**Usage:**
+```bash
+python3 strategy_dashboard.py
+```
+
+---
+
+## CLI Commands
+
+### Main CLI
+
+**File**: `polymarket.py`
+
+```bash
+python3 polymarket.py [command]
+
+Commands:
+  scan       - Scan markets for opportunities
+  calc       - Calculate odds and position sizes
+  ai-calc    - AI-powered calculator with ensemble
+  portfolio  - View and manage portfolio
+  alerts     - Set up price alerts
+  backtest   - Run strategy backtests
+  fetch-data - Download resolved market data
+  help       - Show detailed help
+```
+
+### Strategy-Specific
+
+```bash
+# Run individual strategy
+python3 strategies/strategy_a_generator.py
+python3 strategies/strategy_b_generator.py
+python3 strategies/strategy_c_generator.py
+
+# Run all strategies
+python3 run_all_strategies.py
+
+# View dashboard
+python3 strategy_dashboard.py
+
+# Export dashboard to JSON
+python3 strategy_dashboard.py json
+```
+
+---
+
+## Configuration
+
+### Constants (in strategy files)
+
+```python
+BANKROLL = 1000.0          # Per-strategy capital
+MIN_TRADE_SIZE = 20.0      # Minimum position size
+MIN_EDGE = 0.05            # 5% minimum edge
+LIQUIDITY_THRESHOLD = 50000 # $50k minimum
+TP_EDGE_CAPTURE = 0.75     # 75% edge capture
+SL_RISK_PCT = 0.50         # 50% stop-loss
+```
+
+### Cron Schedule
+
+All strategies run every 5 minutes:
+```
+*/5 * * * * cd /home/eduardoneville/projects/polymarket-trader && python3 run_all_strategies.py
+```
+
+---
+
+## File Reference
+
+### Core Models
+| File | Purpose |
+|------|---------|
+| `models/edge_estimator.py` | Two-layer ensemble predictor |
+| `models/price_predictor.py` | LSTM-inspired price models |
+
+### Strategies
+| File | Purpose |
+|------|---------|
+| `strategies/adaptive_kelly.py` | Position sizing |
+| `strategies/portfolio.py` | Base strategy classes |
+| `strategies/strategy_a_generator.py` | 7-day filter |
+| `strategies/strategy_b_generator.py` | Aggressive multipliers |
+| `strategies/strategy_c_generator.py` | Tiered allocation |
+
+### Utilities
+| File | Purpose |
+|------|---------|
+| `utils/paper_trading_db.py` | Database interface |
+| `utils/paper_trading_signals.py` | Signal generation |
+| `utils/paper_trading_tp_monitor.py` | TP/SL monitoring |
+| `utils/paper_trading_updater.py` | Outcome updates |
+| `utils/take_profit_calculator.py` | TP/SL calculations |
+| `utils/prediction_tracker.py` | Calibration tracking |
+| `utils/backtest.py` | Backtesting framework |
+| `utils/ai_calculator.py` | Interactive calculator |
+| `utils/adverse_selection_monitor.py` | Alpha decay detection |
+| `utils/slippage_model.py` | Market impact |
+
+### Scripts
+| File | Purpose |
+|------|---------|
+| `run_all_strategies.py` | Master runner |
+| `strategy_dashboard.py` | Performance dashboard |
+| `polymarket.py` | Main CLI |
+| `scanner.py` | Market scanner |
+
+---
+
+## Common Operations
+
+### Check Strategy Status
+```python
+from utils.paper_trading_db import PaperTradingDB
+
+db = PaperTradingDB('data/paper_trading_strategy_a.db')
+open_trades = db.get_open_trades()
+closed_trades = db.get_closed_trades()
+print(f"Open: {len(open_trades)}, Closed: {len(closed_trades)}")
+```
+
+### Calculate Exposure
+```python
+exposure = sum(t.get('intended_size', 0) for t in open_trades)
+available = 1000 - exposure
+```
+
+### Manual TP/SL Check
+```python
+from utils.paper_trading_tp_monitor import check_all_tp_sl
+tp_hits, sl_hits, resolved = check_all_tp_sl('data/paper_trading_strategy_a.db')
+print(f"TP: {tp_hits}, SL: {sl_hits}, Resolved: {resolved}")
+```
+
+### Generate Signal Manually
+```python
+from strategies.strategy_a_generator import StrategyASignalGenerator
+
+gen = StrategyASignalGenerator(bankroll=1000)
+signals = gen.generate_signals()
+for s in signals:
+    print(f"{s['market_question']}: {s['intended_side']} @ {s['edge']:.1%} edge")
+```
+
+---
+
+## Risk Management Summary
+
+| Risk | Mitigation |
+|------|------------|
+| Model error | Brier score tracking, dynamic Kelly adjustment |
+| Over-concentration | Per-tier capital limits (Strategy C) |
+| Drawdown | 20% drawdown stops trading |
+| Liquidity | $50k minimum volume filter |
+| Time exposure | TP/SL exits every 5 minutes |
+| Adverse selection | Monitor win rate degradation |
+
+---
+
+## Performance Targets
+
+| Metric | Target |
+|--------|--------|
+| Win rate | >70% |
+| Average edge | >8% |
+| TP hit rate | 15-20% of trades |
+| Capital turnover | 2-5x annually |
+| Max drawdown | <20% |
+| Slippage impact | <3% |
+
+---
+
+## Troubleshooting
+
+### Check if cron is running:
+```bash
+ps aux | grep run_all_strategies
+```
+
+### View recent logs:
+```bash
+tail -f logs/all_strategies.log
+```
+
+### Check database:
+```bash
+sqlite3 data/paper_trading_strategy_a.db "SELECT COUNT(*) FROM paper_trades WHERE status='open';"
+```
+
+### Reset a strategy database:
+```bash
+python3 reset_paper_trading.py
+# Select strategy A/B/C
+```
+
+---
+
+## Research References
+
+1. **Ensemble Architecture**: arXiv 2411.13559 - "Two-layer ensembles achieve 20% ROI improvement"
+2. **LMSR Markets**: arXiv 2411.08972 - "Computational geometry for prediction markets"
+3. **Kelly Criterion**: Kelly (1956) - "A New Interpretation of Information Rate"
+4. **Multi-Agent Learning**: arXiv 1510.02867 - "Strategy diversification for robustness"
+
+---
+
+## License
+
+MIT License - Free for personal and commercial use.
+
+**Disclaimer**: This is paper trading only. No real money is traded. Past performance does not guarantee future results.

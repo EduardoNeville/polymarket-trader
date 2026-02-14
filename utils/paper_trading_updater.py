@@ -286,11 +286,20 @@ class PaperTradingUpdater:
 
 
 # Convenience functions for command-line use
-def update_outcomes():
-    """Update all open trade outcomes"""
+def update_outcomes(db_path: str = "data/paper_trading.db") -> int:
+    """
+    Update all open trade outcomes.
+    
+    Args:
+        db_path: Path to database file
+        
+    Returns:
+        Number of trades updated
+    """
     updater = PaperTradingUpdater()
-    updater.update_open_trades(verbose=True)
-    updater.display_performance_report()
+    updater.db = PaperTradingDB(db_path=db_path)
+    result = updater.update_open_trades(verbose=False)
+    return result['updated_count']
 
 
 def get_report():
